@@ -4,5 +4,6 @@ description: "Welcome to my personal website!"
 github_username:  andrewtbiehl
 linkedin_username: andrewtbiehl
 theme: minima
+markdown: kramdown
 plugins:
   - jekyll-feed
