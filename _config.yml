@@ -1,6 +1,10 @@
 url: "https://andrewtbiehl.com"
 title: Andrew Biehl
 description: "Welcome to my personal website!"
+email:
+  local_part: hello
+  host_name: andrewtbiehl
+  top_level_domain: email
 github_username:  andrewtbiehl
 linkedin_username: andrewtbiehl
 theme: minima
