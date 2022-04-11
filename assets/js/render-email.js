@@ -14,4 +14,4 @@ renderEmail(
     'this is a red herring',
     '{{ site.email.host_name }}',
     'this is also a red herring',
-    '{{ site.email.top_level_domain }}')
+    '{{ site.email.top_level_domain }}');
