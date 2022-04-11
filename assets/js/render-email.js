@@ -1,6 +1,11 @@
 ---
 ---
 
+/**
+Renders my email address so that it is available on the website but is more difficult
+to scrape. Note that some code obfuscation is utilized.
+*/
+
 (function () {
 
 "use strict";
