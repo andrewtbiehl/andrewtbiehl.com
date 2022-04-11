@@ -1,6 +1,8 @@
 ---
 ---
 
+"use strict";
+
 function renderEmail(localPart, ignored1, hostName, ignored2, topLevelDomain) {
   const email = localPart + "@" + hostName + "." + topLevelDomain;
   const emailPrefix = "ma" + "il" + "to";
