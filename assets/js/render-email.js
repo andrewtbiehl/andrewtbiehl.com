@@ -1,6 +1,8 @@
 ---
 ---
 
+(function () {
+
 "use strict";
 
 function renderEmail(localPart, ignored1, hostName, ignored2, topLevelDomain) {
@@ -18,3 +20,5 @@ renderEmail(
   "this is also a red herring",
   "{{ site.email.top_level_domain }}"
 );
+
+})();
