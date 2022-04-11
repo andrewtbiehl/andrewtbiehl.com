@@ -10,8 +10,8 @@ function renderEmail(localPart, ignored1, hostName, ignored2, topLevelDomain) {
 }
 
 renderEmail(
-    '{{ site.email.local_part }}',
-    'this is a red herring',
-    '{{ site.email.host_name }}',
-    'this is also a red herring',
-    '{{ site.email.top_level_domain }}');
+  '{{ site.email.local_part }}',
+  'this is a red herring',
+  '{{ site.email.host_name }}',
+  'this is also a red herring',
+  '{{ site.email.top_level_domain }}');
