@@ -6,7 +6,7 @@ function renderEmail(localPart, ignored1, hostName, ignored2, topLevelDomain) {
   const emailPrefix = 'ma' + 'il' + 'to';
   const emailLink = document.getElementById('email-link-id');
   emailLink.href = emailPrefix + ':' + email;
-  emailLink.innerHTML = email;
+  emailLink.textContent = email;
 }
 
 renderEmail(
