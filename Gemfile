@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+ruby "~> 3.1"
+
 gem "minima", "~> 2.5"
 gem "webrick", "~> 1.7"
 gem "kramdown-parser-gfm", "~> 1.1"
