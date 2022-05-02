@@ -11,3 +11,4 @@ theme: minima
 markdown: kramdown
 plugins:
   - jekyll-feed
+  - jekyll-target-blank

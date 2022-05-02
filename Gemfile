@@ -8,4 +8,5 @@ gem "kramdown-parser-gfm", "~> 1.1"
 
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
+  gem "jekyll-target-blank", "~> 2.0"
 end
