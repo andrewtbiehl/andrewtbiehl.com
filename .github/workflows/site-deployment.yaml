@@ -1,0 +1,56 @@
+# The following workflow runs upon pushing new commits to the trunk branch
+# It builds the site source and then deploys it to GitHub Pages
+name: Site Deployment
+permissions: {}
+"on":
+  push:
+    branches:
+      - main
+jobs:
+  # The following job builds, archives, and uploads the source for the site
+  build:
+    name: Build
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v3.0.2
+      - name: Determine project Ruby version
+        run: |
+          RUBY_VERSION=$(
+            sed --silent --regexp-extended "s/^   ruby ([0-9\.]+).*$/\1/p" Gemfile.lock
+          )
+          echo "RUBY_VERSION=${RUBY_VERSION}" >> ${GITHUB_ENV}
+      - name: Install project Ruby
+        uses: ruby/setup-ruby@v1.103.0
+        with:
+          ruby-version: ${{env.RUBY_VERSION}}
+          bundler: Gemfile.lock
+          bundler-cache: true
+          cache-version: ${{hashFiles('Gemfile.lock')}}
+      - name: Build site
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+      - name: Archive build
+        run: tar --create --directory _site --file _site.tar .
+      - name: Upload archived build
+        uses: actions/upload-artifact@v3.0.0
+        with:
+          name: github-pages
+          path: _site.tar
+  # The following job deploys the previously built site source to GitHub Pages
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-20.04
+    timeout-minutes: 20
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{steps.deploy-site.outputs.page_url}}
+    steps:
+      - name: Deploy site
+        id: deploy-site
+        uses: actions/deploy-pages@v1.0.4
