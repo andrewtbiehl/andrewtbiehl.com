@@ -79,7 +79,6 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  jekyll-feed
   jekyll-target-blank
   kramdown-parser-gfm
   minima
