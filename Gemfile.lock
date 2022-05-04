@@ -77,11 +77,11 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  jekyll-feed (~> 0.12)
-  jekyll-target-blank (~> 2.0)
-  kramdown-parser-gfm (~> 1.1)
-  minima (~> 2.5)
-  webrick (~> 1.7)
+  jekyll-feed
+  jekyll-target-blank
+  kramdown-parser-gfm
+  minima
+  webrick
 
 RUBY VERSION
    ruby 3.1.0p0
