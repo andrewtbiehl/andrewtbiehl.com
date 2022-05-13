@@ -1,4 +1,5 @@
 ---
+layout: page
 ---
 
 Thank you for reaching out!
