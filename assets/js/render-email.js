@@ -13,9 +13,10 @@ to scrape. Note that some code obfuscation is utilized.
 function renderEmail(localPart, ignored1, hostName, ignored2, topLevelDomain) {
   const email = localPart + "@" + hostName + "." + topLevelDomain;
   const emailPrefix = "ma" + "il" + "to";
-  const emailLink = document.getElementById("email-link-id");
+  const emailLink = document.createElement("a");
   emailLink.href = emailPrefix + ":" + email;
   emailLink.textContent = email;
+  document.getElementById("email-info-id").replaceWith(emailLink);
 }
 
 renderEmail(
