@@ -2,11 +2,4 @@
 layout: default
 ---
 
-<div class="home">
-  {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
-  {%- endif -%}
-
-  {%- include post-list.html -%}
-
-</div>
+{%- include post-list.html -%}
