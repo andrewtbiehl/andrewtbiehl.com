@@ -13,3 +13,5 @@ markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-target-blank
+header_pages:
+  - about.md
