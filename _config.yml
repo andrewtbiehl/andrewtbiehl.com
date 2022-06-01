@@ -15,3 +15,5 @@ plugins:
   - jekyll-target-blank
 header_pages:
   - about.md
+exclude:
+  - NOTICE.txt
