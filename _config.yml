@@ -8,11 +8,11 @@ email:
   top_level_domain: email
 github_username:  andrewtbiehl
 linkedin_username: andrewtbiehl
-theme: minima
 markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-target-blank
+  - jekyll-seo-tag
 header_pages:
   - about.md
 exclude:
