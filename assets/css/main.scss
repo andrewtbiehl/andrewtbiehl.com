@@ -1,18 +1,15 @@
 ---
 ---
 
-/* Set box sizing default to border-box */
-
+// Set box sizing default to border-box
 *, *:before, *:after {
   box-sizing: inherit;
 }
-
 html {
   box-sizing: border-box;
 }
 
-/* Reset important margins */
-
+// Reset important margins
 blockquote, body, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, ol, p, pre, ul {
   margin: 0;
 }
