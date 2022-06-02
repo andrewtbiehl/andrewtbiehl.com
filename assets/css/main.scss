@@ -1,6 +1,8 @@
 ---
 ---
 
+$thin-black-line: 1px solid black;
+
 // Set box sizing default to border-box
 *, *:before, *:after {
   box-sizing: inherit;
@@ -32,4 +34,21 @@ body {
   // Center body in page
   margin: auto;
   max-width: 70ch;
+}
+
+// Graphically seperate header, main, and footer
+body > {
+  header {
+    padding: 5px 0;
+    border-bottom: $thin-black-line;
+  }
+
+  main {
+    margin: 15px 0;
+  }
+
+  footer {
+    border-top: $thin-black-line;
+    padding: 5px 0;
+  }
 }
