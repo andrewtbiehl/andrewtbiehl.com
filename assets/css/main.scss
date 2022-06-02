@@ -23,3 +23,13 @@ body {
 * {
   text-decoration-thickness: 0.1em * 0.75;
 }
+
+// Set page padding and page body width
+html {
+  padding: 15px 15px;
+}
+body {
+  // Center body in page
+  margin: auto;
+  max-width: 70ch;
+}
