@@ -31,6 +31,8 @@ html {
   padding: 15px 15px;
 }
 body {
+  // Don't allow body to become smaller than its largest child
+  display: grid;
   // Center body in page
   margin: auto;
   max-width: 70ch;
