@@ -137,12 +137,15 @@ body > footer {
     margin: 10px 0;
 
     > a {
+      color: black;
       // Add space between post link and date
       margin-right: 15px;
     }
 
     > time {
       white-space: nowrap;
+      // Fix every date to a constant width
+      font-variant-numeric: tabular-nums;
     }
   }
 }
