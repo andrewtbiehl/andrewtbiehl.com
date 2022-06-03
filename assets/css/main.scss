@@ -124,3 +124,25 @@ body > footer {
     }
   }
 }
+
+.post-list {
+  // Remove bullets and indentation from list
+  padding: 0;
+
+  > li {
+    display: flex;
+    justify-content: space-between;
+    // Align link and date vertically to the bottom of the list item
+    align-items: flex-end;
+    margin: 10px 0;
+
+    > a {
+      // Add space between post link and date
+      margin-right: 15px;
+    }
+
+    > time {
+      white-space: nowrap;
+    }
+  }
+}
