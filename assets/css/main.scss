@@ -107,6 +107,11 @@ body > footer {
   // Don't allow footer to be smaller than its contents
   min-width: -moz-fit-content;
   min-width: fit-content;
+  font-size: 0.75em;
+
+  a {
+    color: black;
+  }
 
   // Format footer items
   > p {
