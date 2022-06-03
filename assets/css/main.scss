@@ -52,3 +52,40 @@ body > {
     padding: 5px 0;
   }
 }
+
+// Format site header
+body > header {
+  display: flex;
+  justify-content: space-between;
+  // Align items vertically at the bottom of the header
+  align-items: flex-end;
+  // Wrap contents if header is small
+  flex-wrap: wrap;
+  // Don't allow header to be smaller than its contents
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+
+  // Format site title
+  > h1 {
+    line-height: 1em;
+    white-space: nowrap;
+    // Add space between title and navigation menu
+    margin-right: 15px;
+  }
+
+  // Format site navigation menu
+  > nav > ul {
+    // Remove bullets and indentation from list
+    padding: 0;
+
+    > li {
+      // Make list horizontal
+      display: inline;
+
+      // Add space before each subsequent list item
+      + li {
+        margin-left: 10px;
+      }
+    }
+  }
+}
