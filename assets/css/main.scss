@@ -99,3 +99,23 @@ body > header {
     }
   }
 }
+
+// Format site footer
+body > footer {
+  display: flex;
+  justify-content: center;
+  // Don't allow footer to be smaller than its contents
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+
+  // Format footer items
+  > p {
+    white-space: nowrap;
+    padding: 0 10px;
+
+    // Add a vertical bar before each subsequent item
+    + p {
+      border-left: $thin-black-line;
+    }
+  }
+}
