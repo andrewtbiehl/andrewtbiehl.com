@@ -65,12 +65,22 @@ body > header {
   min-width: -moz-fit-content;
   min-width: fit-content;
 
+  a {
+    color: black;
+  }
+
   // Format site title
   > h1 {
     line-height: 1em;
     white-space: nowrap;
     // Add space between title and navigation menu
     margin-right: 15px;
+    font-weight: 600;
+    font-size: 1.5em;
+
+    > a {
+      text-decoration: none;
+    }
   }
 
   // Format site navigation menu
