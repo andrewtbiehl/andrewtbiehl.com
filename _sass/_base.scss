@@ -41,3 +41,21 @@ code {
 sup {
   font-size: 0.75em;
 }
+
+// Configure elements to maintain a vertical rhythm of 24px
+h1, h2, h3 {
+  line-height: $baseline * 6;
+}
+h4, h5, h6 {
+  line-height: $baseline * 3;
+}
+sup {
+  vertical-align: top;
+}
+// The following slight tweaks are necessary but it is unclear why
+ul .highlighter-rouge {
+  line-height: 21px;
+}
+hr {
+  margin: 23px 0;
+}
