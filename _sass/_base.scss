@@ -1,3 +1,5 @@
+$baseline: 8px;
+
 // Set box sizing default to border-box
 *, *:before, *:after {
   box-sizing: inherit;
@@ -15,7 +17,7 @@ blockquote, body, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, ol, p, pre, ul {
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans,
     Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  font-size: 16px;
+  font-size: $baseline * 2;
   font-weight: 400 * 0.75;
   line-height: 1.5;
 }
