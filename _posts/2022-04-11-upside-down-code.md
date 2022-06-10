@@ -67,8 +67,8 @@ until the next United States holiday, as seen in the following usage example:
 Caching and other subtleties aside, my first-pass implementation might look something
 like this[^1]:
 
-<figure>
-{% highlight python %}
+<figure markdown="1">
+```python
 def main() -> None:
     next_holiday = fetch_next_holiday()
     num_days = days_until(next_holiday)
@@ -103,7 +103,7 @@ def to_holiday(raw_holiday: HolidayDict) -> Holiday:
     date_ = date.fromisoformat(date_str)
     name = raw_holiday["name"]
     return Holiday(name, date_)
-{% endhighlight %}
+```
 <figcaption>Implementation 1A: A well-intentioned first-pass implementation of the
 holiday countdown program that emphasizes abstraction.</figcaption>
 </figure>
@@ -190,8 +190,8 @@ so I will summarize them soon. However, I expect that the most illustrative intr
 may be in the form of an example. Consider the following revised implementation of the
 previous program[^1]:
 
-<figure>
-{% highlight python %}
+<figure markdown="1">
+```python
 def main() -> None:
     today = date.today()
     urls = build_nearby_holiday_urls(today)
@@ -238,7 +238,7 @@ def days_after(date_: date, holiday: Holiday) -> int:
 def is_after(date_: date, holiday: Holiday) -> bool:
     """Returns whether the given holiday occurs on or after the given date."""
     return days_after(date_, holiday) >= 0
-{% endhighlight %}
+```
 <figcaption>Implementation 1B: A refactored implementation of the holiday countdown
 program with a flat dependency graph.</figcaption>
 </figure>
@@ -418,8 +418,8 @@ hypothetical reveals the contagion of `IO` in practice. Even though the first
 architecture *pretends* to hide its I/O out of sight, the Haskell compiler recognizes
 this for what it really is: contaminating the entire system with I/O.
 
-<figure>
-{% highlight haskell %}
+<figure markdown="1">
+```haskell
 -- Returns the soonest upcoming US holiday.
 fetchNextHoliday :: IO Holiday
 fetchNextHoliday = do
@@ -438,7 +438,7 @@ findNextHoliday date_ nearbyHolidays = minimumBy compareDates upcomingHolidays
     isUpcoming = (`isAfter` date_)
     upcomingHolidays = filter isUpcoming nearbyHolidays
     compareDates holiday1 holiday2 = (date holiday1) `compare` (date holiday2)
-{% endhighlight %}
+```
 <figcaption>The procedures <code>fetch_next_holiday</code> and
 <code>find_next_holiday</code> ported to Haskell. The type signatures (first lines) of
 each procedure reveal that <code>find_next_holiday</code> is a pure function, while
@@ -535,8 +535,8 @@ exhibit satisfying numeric patterns, like 2/2/22 and 4/3/21. Here is a usage exa
 
 Once again, my first-pass implementation might look something like this[^21]:
 
-<figure>
-{% highlight python %}
+<figure markdown="1">
+```python
 ORDINARY_MSG_END = "just an ordinary date."
 SPECIAL_MSG_END = "what a special date!"
 
@@ -578,7 +578,7 @@ def difference(pair: Tuple[float, float]) -> float:
     """Returns the difference between the second and first item in the pair."""
     x, y = pair
     return y - x
-{% endhighlight %}
+```
 <figcaption>Implementation 2A: A first-pass implementation of the special dates program,
 reminiscent of implementation 1A.</figcaption>
 </figure>
@@ -690,8 +690,8 @@ applicable to improving implementation 2A. And yet despite this, what if we were
 follow the spirit of all previous advice and refactor our code anyway? After refactoring
 in this way, we might produce the following implementation[^21]:
 
-<figure>
-{% highlight python %}
+<figure markdown="1">
+```python
 ORDINARY_MSG_END = "just an ordinary date."
 SPECIAL_MSG_END = "what a special date!"
 
@@ -736,7 +736,7 @@ def create_msg(date_: date, is_special_: bool) -> str:
     """Returns a message describing whether the given date is "special"."""
     msg_end = SPECIAL_MSG_END if is_special_ else ORDINARY_MSG_END
     return f"Today is {date_:%-m/%-d/%y}, {msg_end}"
-{% endhighlight %}
+```
 <figcaption>Implementation 2B: A refactored implementation of the special dates program,
 reminiscent of implementation 1B.</figcaption>
 </figure>
@@ -1111,8 +1111,8 @@ possibly bending the axles while attaching the tires, Buddy for potentially prod
 tires that put undue strain on the axles, or Hermey perhaps for producing brittle axles
 in the first place.
 
-<figure>
-{% highlight python %}
+<figure markdown="1">
+```python
 def nick():
     return rudolph()
 
@@ -1127,7 +1127,7 @@ def buddy():
 
 def hermey():
     return axle * 2 + frame
-{% endhighlight %}
+```
 <figcaption>The hierarchical model of Silver Bell Labs represented with pseudocode.
 </figcaption>
 </figure>
@@ -1148,8 +1148,8 @@ overwhelmed with administrative work and will have no choice but to hire middle
 managers. But, until that day comes, Nick determines that it is worthwhile to organize
 his factory into a *pipeline* instead of a *hierarchy*.
 
-<figure>
-{% highlight python %}
+<figure markdown="1">
+```python
 def nick():
     tires = buddy()
     chassis = hermey()
@@ -1164,7 +1164,7 @@ def buddy():
 
 def hermey():
     return axle * 2 + frame
-{% endhighlight %}
+```
 <figcaption>The flat model of Silver Bell Labs represented with pseudocode.</figcaption>
 </figure>
 
