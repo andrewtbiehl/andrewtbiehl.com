@@ -140,10 +140,8 @@ Unfortunately, there is a fundamental flaw with this design, and it's living
 surreptitiously inside the system's dependency graph[^5]:
 
 <figure>
-  <p style="text-align: center">
-    <img src="/assets/img/upside-down-code/implementation-1a-dependencies.png"
-      width="400" alt="Dependency graph of implementation 1A."/>
-  </p>
+  <img src="/assets/img/upside-down-code/implementation-1a-dependencies.png" width="400"
+    alt="Dependency graph of implementation 1A."/>
   <figcaption>Dependency graph of implementation 1A.</figcaption>
 </figure>
 
@@ -248,10 +246,8 @@ again, however, the most important aspect of this code lies hidden in its depend
 graph:
 
 <figure>
-  <p style="text-align: center">
-    <img src="/assets/img/upside-down-code/implementation-1b-dependencies.png"
-      width="400" alt="Dependency graph of implementation 1B."/>
-  </p>
+  <img src="/assets/img/upside-down-code/implementation-1b-dependencies.png" width="400"
+    alt="Dependency graph of implementation 1B."/>
   <figcaption>Dependency graph of implementation 1B.</figcaption>
 </figure>
 
@@ -591,10 +587,8 @@ would make a case for further refactoring this design. And despite this, when we
 again take a look at the system's dependency graph, we begin to notice some resemblance:
 
 <figure>
-  <p style="text-align: center">
-    <img src="/assets/img/upside-down-code/implementation-2a-dependencies.png"
-      width="350" alt="Dependency graph of implementation 2A."/>
-  </p>
+  <img src="/assets/img/upside-down-code/implementation-2a-dependencies.png" width="350"
+    alt="Dependency graph of implementation 2A."/>
   <figcaption>Dependency graph of implementation 2A.</figcaption>
 </figure>
 
@@ -744,10 +738,8 @@ reminiscent of implementation 1B.</figcaption>
 Let's once again take a look at the dependency graph of this implementation.
 
 <figure>
-  <p style="text-align: center">
-    <img src="/assets/img/upside-down-code/implementation-2b-dependencies.png"
-      width="400" alt="Dependency graph of implementation 2B."/>
-  </p>
+  <img src="/assets/img/upside-down-code/implementation-2b-dependencies.png" width="400"
+    alt="Dependency graph of implementation 2B."/>
   <figcaption>Dependency graph of implementation 2B.</figcaption>
 </figure>
 
@@ -986,10 +978,8 @@ a program like this is to abstract away the specifics of procedure `H` under `G`
 of control of such an architecture.
 
 <figure>
-  <p style="text-align: center">
-    <img src="/assets/img/upside-down-code/hierarchy-sequence-diagram.png" width="225"
-      alt="Hierarchical architecture sequence diagram."/>
-  </p>
+  <img src="/assets/img/upside-down-code/hierarchy-sequence-diagram.png" width="225"
+    alt="Hierarchical architecture sequence diagram."/>
   <figcaption>A sequence diagram depicting the flow of control of a hierarchical
   architecture.</figcaption>
 </figure>
@@ -1016,10 +1006,8 @@ composition! There is yet another way, known in many contexts as the
 opinion, this concept is best illustrated with yet another sequence diagram.
 
 <figure>
-  <p style="text-align: center">
-    <img src="/assets/img/upside-down-code/pipeline-sequence-diagram.png" width="250"
-      alt="Flat architecture sequence diagram."/>
-  </p>
+  <img src="/assets/img/upside-down-code/pipeline-sequence-diagram.png" width="250"
+    alt="Flat architecture sequence diagram."/>
   <figcaption>A sequence diagram depicting the flow of control of a flat/pipeline
   architecture.</figcaption>
 </figure>
@@ -1037,10 +1025,8 @@ concrete terms. In case the resemblance is still unclear, let us once again exam
 dependency graph of these two implementations:
 
 <figure>
-  <p style="text-align: center">
-    <img src="/assets/img/upside-down-code/dependency-graph-comparison.png" width="150"
-      alt="Dependency graphs of hierarchical and flat architectures."/>
-  </p>
+  <img src="/assets/img/upside-down-code/dependency-graph-comparison.png" width="150"
+    alt="Dependency graphs of hierarchical and flat architectures."/>
   <figcaption>A side-by-side comparison of the dependency graphs of a hierarchical
   and flat/pipeline architecture, respectively.</figcaption>
 </figure>
