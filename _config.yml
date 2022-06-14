@@ -9,6 +9,9 @@ email:
 github_username:  andrewtbiehl
 linkedin_username: andrewtbiehl
 markdown: kramdown
+kramdown:
+  syntax_highlighter_opts:
+    formatter: HTML
 plugins:
   - jekyll-feed
   - jekyll-target-blank
