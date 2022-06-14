@@ -57,7 +57,7 @@ sup {
 }
 // The following slight tweaks are necessary but it is unclear why
 ul > li > pre {
-  line-height: 21px;
+  margin-top: -1px;
 }
 hr {
   margin: 23px 0;
