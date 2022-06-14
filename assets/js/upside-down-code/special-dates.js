@@ -30,7 +30,8 @@ function main() {
   const isSpecial_ = isSpecial(consistsOfSingleDigit, isSequential_);
   const msg = createMsg(today, isSpecial_);
   // Imperative shell
-  document.getElementById("special-dates-example-id").textContent = msg;
+  document.querySelector("#special-dates-example-id > code > span.go")
+    .textContent = msg;
 }
 
 /** Returns the integers comprising the US date format of the given date. */

@@ -58,11 +58,11 @@ keep track of upcoming holidays via something like
 a very basic command-line tool on top of this API that counts down the number of days
 until the next United States holiday, as seen in the following usage example:
 
-<div class="language-console highlighter-rouge"><pre class="highlight">
-<code><span class="gp">$</span><span class="w"> </span>python holiday_countdown.py
-<span id="holiday-countdown-example-id"
-  class="go">Only 2 more day(s) until Christmas Day!</span></code>
-</pre></div>
+```console
+$ python holiday_countdown.py
+Only 2 more day(s) until Christmas Day!
+```
+{: #holiday-countdown-example-id}
 
 Caching and other subtleties aside, my first-pass implementation might look something
 like this[^1]:
@@ -523,11 +523,11 @@ holidays, but rather dates which (when written in
 [standard US date notation](https://en.wikipedia.org/wiki/Date_and_time_notation_in_the_United_States))
 exhibit satisfying numeric patterns, like 2/2/22 and 4/3/21. Here is a usage example:
 
-<div class="language-console highlighter-rouge"><pre class="highlight">
-<code><span class="gp">$</span><span class="w"> </span>python special_dates.py
-<span id="special-dates-example-id"
-  class="go">Today is 2/2/22, what a special date!</span></code>
-</pre></div>
+```console
+$ python special_dates.py
+Today is 2/2/22, what a special date!
+```
+{: #special-dates-example-id}
 
 Once again, my first-pass implementation might look something like this[^21]:
 

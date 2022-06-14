@@ -38,7 +38,8 @@ async function main() {
   const numDays = daysAfter(today, nextHoliday);
   const holidayName = nextHoliday.name;
   const msg = `Only ${numDays} more day(s) until ${holidayName}!`;
-  document.getElementById("holiday-countdown-example-id").textContent = msg;
+  document.querySelector("#holiday-countdown-example-id > code > span.go")
+    .textContent = msg;
 }
 
 /** Fetches JSON from a web API url. */
