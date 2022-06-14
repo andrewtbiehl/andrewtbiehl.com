@@ -56,7 +56,7 @@ sup {
   vertical-align: top;
 }
 // The following slight tweaks are necessary but it is unclear why
-ul pre {
+ul > li > pre {
   line-height: 21px;
 }
 hr {
