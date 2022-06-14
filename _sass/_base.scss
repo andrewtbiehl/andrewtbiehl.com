@@ -56,7 +56,7 @@ sup {
   vertical-align: top;
 }
 // The following slight tweaks are necessary but it is unclear why
-*:is(ol, ul) > li > pre {
+*:is(ol, ul) > li > pre:first-child {
   margin-top: -1px;
 }
 hr {
