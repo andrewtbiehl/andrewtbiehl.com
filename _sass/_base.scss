@@ -13,6 +13,11 @@ blockquote, body, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, ol, p, pre, ul {
   margin: 0;
 }
 
+// Simplify working with images
+img {
+  display: block;
+}
+
 // Configure font settings
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans,
