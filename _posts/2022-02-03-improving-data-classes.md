@@ -1,10 +1,9 @@
 ---
 layout: post
 title: "One simple trick to improve your data classes (bugs hate it!)"
+subtitle: "Static factory methods + Optionals = quality data"
 permalink: "/blog/improving-data-classes"
 ---
-
-### Static factory methods + Optionals = quality data
 
 #### *Warning: Java ahead*
 

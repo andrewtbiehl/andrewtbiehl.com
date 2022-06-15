@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Turn that code upside down :)"
+subtitle: "Abstraction, I/O, subroutines, and how to use them well"
 permalink: "/blog/upside-down-code"
 ---
 
@@ -11,8 +12,6 @@ permalink: "/blog/upside-down-code"
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer>
 </script>
-
-### Abstraction, I/O, subroutines, and how to use them well
 
 #### *(Almost) all example code written in Python*
 
