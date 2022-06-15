@@ -121,3 +121,34 @@ pre {
     line-height: 1.5rem;
   }
 }
+
+// Show language descriptor on code blocks by default
+pre {
+  position: relative;
+
+  > code[data-language]::before {
+    content: attr(data-language);
+
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
+    border: $thin-black-line;
+    border-radius: 4px;
+    background: white;
+
+    padding: 0 3px;
+
+    font-family: $base-font-stack;
+    font-size: 1rem;
+    height: $baseline * 3;
+    // Tweak line height to better format the text inside the text box
+    line-height: ($baseline * 3) - 3px;
+    text-transform: capitalize;
+  }
+
+  // Hide language descriptor on selected code blocks
+  &.language-descriptor-hidden > code[data-language]::before {
+    content: none;
+  }
+}

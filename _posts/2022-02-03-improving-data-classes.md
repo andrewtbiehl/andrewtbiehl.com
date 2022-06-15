@@ -53,14 +53,17 @@ construct the following three `Playthrough` instances:
 - ```java
   Playthrough badDate = new Playthrough(null, Game.SPLENDOR);
   ```
+  {: .language-descriptor-hidden}
 
 - ```java
   Playthrough badGame = new Playthrough(LocalDate.of(2022, 2, 3), null);
   ```
+  {: .language-descriptor-hidden}
 
 - ```java
   Playthrough badDateAndGame = new Playthrough(null, null);
   ```
+  {: .language-descriptor-hidden}
 
 The fact that these instances could theoretically show up during runtime is unfortunate,
 both in theory because they fail to model anything meaningful, and in practice because
@@ -103,6 +106,7 @@ find a reasonable interpretation of the following `LocalDate` instance:
 ```java
 LocalDate badDay = LocalDate.of(2022, 2, 0);
 ```
+{: .language-descriptor-hidden}
 
 Despite its meaninglessness, this code compiles without issue, just like the previously
 listed nonsensical `Playthrough` examples. The key difference, however, is that
@@ -112,6 +116,7 @@ error:
 ```text
 java.time.DateTimeException: Invalid value for DayOfMonth (valid values 1 - 28/31): 0
 ```
+{: .language-descriptor-hidden}
 
 Attempting something similar with the month field results in an analogous error. As a
 result, any `LocalDate` that is successfully created with  [the

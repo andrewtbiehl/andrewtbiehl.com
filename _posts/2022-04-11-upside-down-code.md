@@ -61,7 +61,7 @@ until the next United States holiday, as seen in the following usage example:
 $ python holiday_countdown.py
 Only 2 more day(s) until Christmas Day!
 ```
-{: #holiday-countdown-example-id}
+{: #holiday-countdown-example-id .language-descriptor-hidden}
 
 Caching and other subtleties aside, my first-pass implementation might look something
 like this[^1]:
@@ -526,7 +526,7 @@ exhibit satisfying numeric patterns, like 2/2/22 and 4/3/21. Here is a usage exa
 $ python special_dates.py
 Today is 2/2/22, what a special date!
 ```
-{: #special-dates-example-id}
+{: #special-dates-example-id .language-descriptor-hidden}
 
 Once again, my first-pass implementation might look something like this[^21]:
 
