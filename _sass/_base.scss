@@ -68,5 +68,16 @@ sup {
   margin-top: -1px;
 }
 hr {
-  margin: 23px 0;
+  margin: 21px 0;
+}
+
+// Add vertical spacing between elements
+blockquote, figure, h1, h2, h3, h4, h5, h6, img, p, pre {
+  margin-top: $baseline * 3;
+  margin-bottom: $baseline * 3;
+}
+// Undo vertical spacing from some child elements
+figure > *:first-child {
+  margin-top: 0;
+  margin-bottom: 0;
 }
