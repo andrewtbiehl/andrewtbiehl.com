@@ -1,5 +1,6 @@
 $baseline: 8px;
 $thin-black-line: 1px solid black;
+$thin-gray-line: 1px solid lighten(black, 50%);
 
 // Set box sizing default to border-box
 *, *:before, *:after {
@@ -64,16 +65,12 @@ h4, h5, h6 {
 sup {
   vertical-align: top;
 }
-// The following slight tweaks are necessary but it is unclear why
-*:is(ol, ul) > li > pre:first-child {
-  margin-top: -1px;
-}
 hr {
   margin: 21px 0;
 }
 
 // Add vertical spacing between elements
-blockquote, figure, h1, h2, h3, h4, h5, h6, img, p, pre {
+blockquote, figure, h1, h2, h3, h4, h5, h6, img, p {
   margin-top: $baseline * 3;
   margin-bottom: $baseline * 3;
 }
@@ -100,4 +97,24 @@ img {
 // Add some space between figures and their captions
 figcaption {
   margin-top: $baseline;
+}
+
+// General code element style preferences
+code {
+  border: $thin-gray-line;
+  border-radius: 4px;
+  padding : 3px 3px 1px;
+}
+pre {
+  margin-top: ($baseline * 3) - 5px;
+  margin-bottom: ($baseline * 3) - 5px;
+
+  > code {
+    display: block;
+    border: $thin-black-line;
+    border-radius: 4px;
+    margin: -5px 0;
+    padding : 4px 6px;
+    line-height: 1.5rem;
+  }
 }
