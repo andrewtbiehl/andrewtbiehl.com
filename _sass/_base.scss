@@ -87,6 +87,18 @@ main header > * {
   margin-bottom: 0;
 }
 
+// Configure responsive site width
+// Specifically configure overflow behavior for images, code blocks, and long words
+img {
+  max-width: 100%;
+}
+pre > code {
+  overflow-x: scroll;
+}
+* {
+  overflow-wrap: break-word;
+}
+
 // General style preferences
 a {
   color: black;
