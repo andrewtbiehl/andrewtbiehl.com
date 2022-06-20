@@ -88,6 +88,13 @@ main header > * {
 }
 
 // General style preferences
+a {
+  color: black;
+
+  &:hover {
+    color: dimgray;
+  }
+}
 strong {
   font-weight: 600;
 }
