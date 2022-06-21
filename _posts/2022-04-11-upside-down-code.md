@@ -1540,8 +1540,8 @@ the intended sense of any particular word instance depends on its context.
     not too difficult to show inductively that there are \\( \frac{n(n-1)}{2} \\)
     dependencies (most of them indirect) in the former (hereafter "hierarchical")
     architecture. From here, it follows that refactoring from the hierarchical to
-    pipeline architecture removes \\( \frac{n(n-1)}{2} - (n-1) = \frac{n^2}{2} -
-    \frac{3n}{2} + 1 \in O(n^2) \\) dependencies. In other words, the amount of
+    pipeline architecture removes \\( \frac{n(n-1)}{2} - (n-1) \\) \\( = \frac{n^2}{2} -
+    \frac{3n}{2} + 1 \\) \\( \in O(n^2) \\) dependencies. In other words, the amount of
     unnecessary coupling in a perfectly hierarchical architecture increases by the
     *square* of the depth of the hierarchy!
 

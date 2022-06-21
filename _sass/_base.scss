@@ -88,7 +88,15 @@ main header > * {
 }
 
 // Configure responsive site width
-// Specifically configure overflow behavior for images, code blocks, and long words
+// Don't allow body to shrink smaller than its largest descendent
+body {
+  display: grid;
+}
+// Allow all elements inside main to shrink as small as possible
+main {
+  overflow: auto;
+}
+// Configure overflow behavior for images, code blocks, and long words
 img {
   max-width: 100%;
 }

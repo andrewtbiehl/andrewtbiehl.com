@@ -3,8 +3,6 @@ $thin-black-line: 1px solid black;
 
 // Configure basic layout of body
 body {
-  // Don't allow body to become smaller than its largest child
-  display: grid;
   // Center body in page
   margin: auto;
   // Add space between body and edge of browser window
