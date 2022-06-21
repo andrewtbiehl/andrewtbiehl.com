@@ -41,10 +41,6 @@ body > header {
   min-width: -moz-fit-content;
   min-width: fit-content;
 
-  a {
-    color: black;
-  }
-
   // Format site title
   > h1 {
     line-height: 1em;
@@ -85,10 +81,6 @@ body > footer {
   min-width: fit-content;
   font-size: 0.75em;
 
-  a {
-    color: black;
-  }
-
   // Format footer items
   > p {
     white-space: nowrap;
@@ -114,7 +106,6 @@ body > footer {
     margin: 10px 0;
 
     > a {
-      color: black;
       // Add space between post link and date
       margin-right: 15px;
     }
