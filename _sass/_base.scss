@@ -68,9 +68,6 @@ h4, h5, h6 {
 sup {
   vertical-align: top;
 }
-hr {
-  margin: 20px 0;
-}
 
 // Add vertical spacing between elements
 blockquote, figure, h1, h2, h3, h4, h5, h6, img, main header, p {
@@ -131,6 +128,11 @@ img {
 // Add some space between figures and their captions
 figcaption {
   margin-top: $baseline;
+}
+// Add a line and vertical spacing to visually separate footnotes from the article
+.footnotes {
+  margin: ($baseline * 3) 0;
+  border-top: 3px double black;
 }
 
 // General code element style preferences

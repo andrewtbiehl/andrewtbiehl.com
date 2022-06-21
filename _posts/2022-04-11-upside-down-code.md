@@ -1235,13 +1235,6 @@ the intended sense of any particular word instance depends on its context.
     depends on `B` and `B` on `C` (directly or indirectly), then `A` also "indirectly"
     depends on `C`.
 
-<br>
-
----
----
-
-<br>
-
 [^1]: The following groundwork code is provided for anyone interested in actually
     running this program:
 

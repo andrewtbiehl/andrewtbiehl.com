@@ -289,13 +289,6 @@ recognition throughout the industry.
 Many thanks to [Eva Grench](https://www.linkedin.com/in/eva-grench) for helping workshop
 the implementation of this pattern, and for proof-reading this blog post!
 
-<br>
-
----
----
-
-<br>
-
 [^1]: The `Game` type, in turn, might start as an enumeration of all the games I have
     available to play:
 
