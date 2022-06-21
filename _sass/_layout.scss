@@ -40,7 +40,7 @@ body > header {
 
   // Format site title
   > h1 {
-    line-height: 1em;
+    line-height: $baseline * 2;
     white-space: nowrap;
     // Remove default margins and add space between title and navigation menu
     margin: 0 ($baseline * 3) 0 0;
@@ -56,6 +56,8 @@ body > header {
   > nav > ul {
     // Remove bullets and indentation from list
     padding: 0;
+    // Slight hack to place navigation items at same vertical position as site title
+    line-height: 13px;
 
     > li {
       // Make list horizontal
