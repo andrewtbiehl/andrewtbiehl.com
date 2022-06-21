@@ -1,17 +1,16 @@
 $baseline: 8px;
 $thin-black-line: 1px solid black;
 
-// Set page padding and page body width
-html {
-  padding: ($baseline * 3) ($baseline * 3);
-}
+// Configure basic layout of body
 body {
   // Don't allow body to become smaller than its largest child
   display: grid;
   // Center body in page
   margin: auto;
+  // Add space between body and edge of browser window
+  padding: ($baseline * 3) ($baseline * 3);
   // Body can be no wider than a few more than 80 monospace characters
-  max-width: ($baseline * 3) * 29;
+  max-width: ($baseline * 3) * 31;
 }
 
 // Graphically seperate header, main, and footer
