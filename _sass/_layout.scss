@@ -20,10 +20,6 @@ body > {
     border-bottom: $thin-black-line;
   }
 
-  main {
-    margin: ($baseline * 3) 0;
-  }
-
   footer {
     border-top: $thin-black-line;
     padding: $baseline 0;
@@ -98,6 +94,7 @@ body > footer {
 .post-list {
   // Remove bullets and indentation from list
   padding: 0;
+  margin: ($baseline * 3) 0;
 
   > li {
     display: flex;
