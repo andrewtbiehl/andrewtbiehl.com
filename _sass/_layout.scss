@@ -42,8 +42,8 @@ body > header {
   > h1 {
     line-height: 1em;
     white-space: nowrap;
-    // Add space between title and navigation menu
-    margin-right: ($baseline * 3);
+    // Remove default margins and add space between title and navigation menu
+    margin: 0 ($baseline * 3) 0 0;
     font-weight: 600;
     font-size: 1.5em;
 
@@ -80,6 +80,8 @@ body > footer {
 
   // Format footer items
   > p {
+    // Remove default margins
+    margin: 0;
     white-space: nowrap;
     padding: 0 $baseline;
 
