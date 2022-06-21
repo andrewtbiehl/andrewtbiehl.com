@@ -1,31 +1,33 @@
+$baseline: 8px;
 $thin-black-line: 1px solid black;
 
 // Set page padding and page body width
 html {
-  padding: 15px 15px;
+  padding: ($baseline * 3) ($baseline * 3);
 }
 body {
   // Don't allow body to become smaller than its largest child
   display: grid;
   // Center body in page
   margin: auto;
-  max-width: 70ch;
+  // Body can be no wider than a few more than 80 monospace characters
+  max-width: ($baseline * 3) * 29;
 }
 
 // Graphically seperate header, main, and footer
 body > {
   header {
-    padding: 5px 0;
+    padding: $baseline 0;
     border-bottom: $thin-black-line;
   }
 
   main {
-    margin: 15px 0;
+    margin: ($baseline * 3) 0;
   }
 
   footer {
     border-top: $thin-black-line;
-    padding: 5px 0;
+    padding: $baseline 0;
   }
 }
 
@@ -46,7 +48,7 @@ body > header {
     line-height: 1em;
     white-space: nowrap;
     // Add space between title and navigation menu
-    margin-right: 15px;
+    margin-right: ($baseline * 3);
     font-weight: 600;
     font-size: 1.5em;
 
@@ -66,7 +68,7 @@ body > header {
 
       // Add space before each subsequent list item
       + li {
-        margin-left: 10px;
+        margin-left: $baseline;
       }
     }
   }
@@ -84,7 +86,7 @@ body > footer {
   // Format footer items
   > p {
     white-space: nowrap;
-    padding: 0 10px;
+    padding: 0 $baseline;
 
     // Add a vertical bar before each subsequent item
     + p {
@@ -103,11 +105,12 @@ body > footer {
     justify-content: space-between;
     // Align link and date vertically to the bottom of the list item
     align-items: flex-end;
-    margin: 10px 0;
+    // Break slightly from normal vertical spacing because it looks better
+    margin: ($baseline * 1.5) 0;
 
     > a {
       // Add space between post link and date
-      margin-right: 15px;
+      margin-right: ($baseline * 3);
     }
 
     > time {
