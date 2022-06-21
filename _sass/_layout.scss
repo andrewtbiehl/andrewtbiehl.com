@@ -13,16 +13,14 @@ body {
   max-width: ($baseline * 3) * 31;
 }
 
-// Graphically seperate header, main, and footer
+// Add lines separating header and footer from main
 body > {
   header {
-    padding: $baseline 0;
     border-bottom: $thin-black-line;
   }
 
   footer {
     border-top: $thin-black-line;
-    padding: $baseline 0;
   }
 }
 
@@ -42,8 +40,8 @@ body > header {
   > h1 {
     line-height: $baseline * 2;
     white-space: nowrap;
-    // Remove default margins and add space between title and navigation menu
-    margin: 0 ($baseline * 3) 0 0;
+    // Remove default margins and add padding after and below title
+    margin: 0 ($baseline * 3) $baseline 0;
     font-weight: 600;
     font-size: 1.5em;
 
@@ -53,19 +51,24 @@ body > header {
   }
 
   // Format site navigation menu
-  > nav > ul {
-    // Remove bullets and indentation from list
-    padding: 0;
-    // Slight hack to place navigation items at same vertical position as site title
-    line-height: 13px;
+  > nav {
+    // Add padding below navigation menu
+    margin-bottom: $baseline;
 
-    > li {
-      // Make list horizontal
-      display: inline;
+    > ul {
+      // Remove bullets and indentation from list
+      padding: 0;
+      // Slight hack to place navigation items at same vertical position as site title
+      line-height: 13px;
 
-      // Add space before each subsequent list item
-      + li {
-        margin-left: $baseline;
+      > li {
+        // Make list horizontal
+        display: inline;
+
+        // Add space before each subsequent list item
+        + li {
+          margin-left: $baseline;
+        }
       }
     }
   }
@@ -82,8 +85,8 @@ body > footer {
 
   // Format footer items
   > p {
-    // Remove default margins
-    margin: 0;
+    // Remove default margins and add padding above footer elements
+    margin: $baseline 0 0;
     white-space: nowrap;
     padding: 0 $baseline;
 
