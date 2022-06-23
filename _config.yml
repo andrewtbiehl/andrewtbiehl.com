@@ -16,6 +16,7 @@ plugins:
   - jekyll-feed
   - jekyll-target-blank
   - jekyll-seo-tag
+  - jekyll-figure
 header_pages:
   - about.md
 exclude:
