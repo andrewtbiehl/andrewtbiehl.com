@@ -6,6 +6,16 @@ require 'kramdown'
 module CustomHtmlConverter
   LANGUAGE_DATA_ATTRIBUTE_NAME = 'data-language'
 
+  # Formats a paragraph.
+  #
+  # Returns the paragraph formatted normally unless the paragraph consists of a
+  # standalone image, in which case there is no need to wrap it inside a paragraph.
+  def convert_p(element, indent)
+    return convert(element.children.first, indent) if contains_standalone_image? element
+
+    super
+  end
+
   # Formats a block of code.
   #
   # Returns a syntax-highlighted version of the code based on its associated language,
@@ -40,6 +50,16 @@ module CustomHtmlConverter
   def convert_codespan(element, _indent) = _convert_codespan(element)
 
   private
+
+  # Helper method that checks whether a given element contains a standalone image.
+  def contains_standalone_image?(element)
+    element.children.size == 1 && image?(element.children.first)
+  end
+
+  # Helper method that checks whether a given element is an image.
+  def image?(element)
+    element.type == :img || (element.type == :html_element && element.value == 'img')
+  end
 
   # See public version of this method for more documentation.
   def _convert_codespan(element)
