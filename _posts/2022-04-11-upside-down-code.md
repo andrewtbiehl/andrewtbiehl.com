@@ -15,10 +15,9 @@ permalink: "/blog/upside-down-code"
 
 #### *(Almost) all example code written in Python*
 
-<figure>
+{% figure caption: "[XKCD #1115: &quot;Sky&quot;.](https://xkcd.com/1115)" %}
   <img src="https://imgs.xkcd.com/comics/sky.png" alt="XKCD #1115."/>
-  <figcaption><a href="https://xkcd.com/1115">XKCD #1115: "Sky".</a></figcaption>
-</figure>
+{% endfigure %}
 
 Are we all writing code upside down? Don't worry; I won't ask you to tape your laptop to
 the ceiling or
@@ -66,7 +65,8 @@ Only 2 more day(s) until Christmas Day!
 Caching and other subtleties aside, my first-pass implementation might look something
 like this[^1]:
 
-<figure markdown="1">
+{% figure caption: "Implementation 1A: A well-intentioned first-pass implementation of
+the holiday countdown program that emphasizes abstraction." %}
 ```python
 def main() -> None:
     next_holiday = fetch_next_holiday()
@@ -103,9 +103,7 @@ def to_holiday(raw_holiday: HolidayDict) -> Holiday:
     name = raw_holiday["name"]
     return Holiday(name, date_)
 ```
-<figcaption>Implementation 1A: A well-intentioned first-pass implementation of the
-holiday countdown program that emphasizes abstraction.</figcaption>
-</figure>
+{% endfigure %}
 
 In most cases, I/O[^2] is incidental, rather than fundamental, to the domain of the
 encompassing project. Consequently, code that handles I/O tends to add
@@ -138,11 +136,10 @@ code.
 Unfortunately, there is a fundamental flaw with this design, and it's living
 surreptitiously inside the system's dependency graph[^5]:
 
-<figure>
+{% figure caption: "Dependency graph of implementation 1A." %}
   <img src="/assets/img/upside-down-code/implementation-1a-dependencies.png" width="400"
     alt="Dependency graph of implementation 1A."/>
-  <figcaption>Dependency graph of implementation 1A.</figcaption>
-</figure>
+{% endfigure %}
 
 Notice that the `requests.get` I/O call, which connects to and retrieves data from the
 holiday API, sits at the "bottom" of this connected graph. In other words, multiple
@@ -187,7 +184,8 @@ so I will summarize them soon. However, I expect that the most illustrative intr
 may be in the form of an example. Consider the following revised implementation of the
 previous program[^1]:
 
-<figure markdown="1">
+{% figure caption: "Implementation 1B: A refactored implementation of the holiday
+countdown program with a flat dependency graph." %}
 ```python
 def main() -> None:
     today = date.today()
@@ -236,19 +234,16 @@ def is_after(date_: date, holiday: Holiday) -> bool:
     """Returns whether the given holiday occurs on or after the given date."""
     return days_after(date_, holiday) >= 0
 ```
-<figcaption>Implementation 1B: A refactored implementation of the holiday countdown
-program with a flat dependency graph.</figcaption>
-</figure>
+{% endfigure %}
 
 At first glance, this revision may not appear any better than the previous version. Once
 again, however, the most important aspect of this code lies hidden in its dependency
 graph:
 
-<figure>
+{% figure caption: "Dependency graph of implementation 1B." %}
   <img src="/assets/img/upside-down-code/implementation-1b-dependencies.png" width="400"
     alt="Dependency graph of implementation 1B."/>
-  <figcaption>Dependency graph of implementation 1B.</figcaption>
-</figure>
+{% endfigure %}
 
 Clearly, this graph greatly differs from the previous one; so much so that it is more
 easily depicted on its side (that is, with dependencies pointing from left to right).
@@ -413,7 +408,9 @@ hypothetical reveals the contagion of `IO` in practice. Even though the first
 architecture *pretends* to hide its I/O out of sight, the Haskell compiler recognizes
 this for what it really is: contaminating the entire system with I/O.
 
-<figure markdown="1">
+{% figure caption: "The procedures `fetch_next_holiday` and `find_next_holiday` ported
+to Haskell. The type signatures (first lines) of each procedure reveal that
+`find_next_holiday` is a pure function, while `fetch_next_holiday` involves I/O." %}
 ```haskell
 -- Returns the soonest upcoming US holiday.
 fetchNextHoliday :: IO Holiday
@@ -434,11 +431,7 @@ findNextHoliday date_ nearbyHolidays = minimumBy compareDates upcomingHolidays
     upcomingHolidays = filter isUpcoming nearbyHolidays
     compareDates holiday1 holiday2 = (date holiday1) `compare` (date holiday2)
 ```
-<figcaption>The procedures <code>fetch_next_holiday</code> and
-<code>find_next_holiday</code> ported to Haskell. The type signatures (first lines) of
-each procedure reveal that <code>find_next_holiday</code> is a pure function, while
-<code>fetch_next_holiday</code> involves I/O.</figcaption>
-</figure>
+{% endfigure %}
 
 This demonstrates how Haskell's type system is tailor-made to expose code that is
 contaminated by I/O. As explained in
@@ -455,15 +448,12 @@ codebase there exists an inherent demarcation between pure functions and impure
 procedures. From this perspective, the big difference between implementations 1A and 1B
 is in how much emphasis they place on either side of that demarcation line.
 
-<figure>
+{% figure caption:
+"[Scene from &quot;Monty Python and the Holy Grail&quot;.](https://youtu.be/t2c-X8HiBng)"
+%}
   <img src="/assets/img/upside-down-code/haskell-monty-python.gif" width="100%"
     alt="Meme of a developer getting angry at the Haskell compiler."/>
-  <figcaption>
-    <a href="https://youtu.be/t2c-X8HiBng">
-      Scene from "Monty Python and the Holy Grail".
-    </a>
-  </figcaption>
-</figure>
+{% endfigure %}
 
 As far as I know, the Haskell compiler doesn't itself make any value judgments about the
 quality of your code. However, as you may have already inferred, the functional
@@ -530,7 +520,8 @@ Today is 2/2/22, what a special date!
 
 Once again, my first-pass implementation might look something like this[^21]:
 
-<figure markdown="1">
+{% figure caption: "Implementation 2A: A first-pass implementation of the special dates
+program, reminiscent of implementation 1A." %}
 ```python
 ORDINARY_MSG_END = "just an ordinary date."
 SPECIAL_MSG_END = "what a special date!"
@@ -574,9 +565,7 @@ def difference(pair: Tuple[float, float]) -> float:
     x, y = pair
     return y - x
 ```
-<figcaption>Implementation 2A: A first-pass implementation of the special dates program,
-reminiscent of implementation 1A.</figcaption>
-</figure>
+{% endfigure %}
 
 The first thing worth noting about this code is that it involves almost no I/O
 interaction (nor any other computational effects, to boot), and the little I/O that it
@@ -585,11 +574,10 @@ shell, functional core". Therefore, of all the perspectives considered so far, n
 would make a case for further refactoring this design. And despite this, when we once
 again take a look at the system's dependency graph, we begin to notice some resemblance:
 
-<figure>
+{% figure caption: "Dependency graph of implementation 2A." %}
   <img src="/assets/img/upside-down-code/implementation-2a-dependencies.png" width="350"
     alt="Dependency graph of implementation 2A."/>
-  <figcaption>Dependency graph of implementation 2A.</figcaption>
-</figure>
+{% endfigure %}
 
 Much like the dependency graph of implementation 1A, this graph is hierarchical in
 structure. Similar to how `requests.get` sat at the "bottom" of the first dependency
@@ -683,7 +671,8 @@ applicable to improving implementation 2A. And yet despite this, what if we were
 follow the spirit of all previous advice and refactor our code anyway? After refactoring
 in this way, we might produce the following implementation[^21]:
 
-<figure markdown="1">
+{% figure caption: "Implementation 2B: A refactored implementation of the special dates
+program, reminiscent of implementation 1B." %}
 ```python
 ORDINARY_MSG_END = "just an ordinary date."
 SPECIAL_MSG_END = "what a special date!"
@@ -730,17 +719,14 @@ def create_msg(date_: date, is_special_: bool) -> str:
     msg_end = SPECIAL_MSG_END if is_special_ else ORDINARY_MSG_END
     return f"Today is {date_:%-m/%-d/%y}, {msg_end}"
 ```
-<figcaption>Implementation 2B: A refactored implementation of the special dates program,
-reminiscent of implementation 1B.</figcaption>
-</figure>
+{% endfigure %}
 
 Let's once again take a look at the dependency graph of this implementation.
 
-<figure>
+{% figure caption: "Dependency graph of implementation 2B." %}
   <img src="/assets/img/upside-down-code/implementation-2b-dependencies.png" width="400"
     alt="Dependency graph of implementation 2B."/>
-  <figcaption>Dependency graph of implementation 2B.</figcaption>
-</figure>
+{% endfigure %}
 
 Yet again, the previously hierarchical structure has been significantly flattened.
 Almost all dependencies have the `main` procedure as the caller, and the `digits`
@@ -976,12 +962,11 @@ a program like this is to abstract away the specifics of procedure `H` under `G`
 ["sequence" diagram](https://en.wikipedia.org/wiki/Sequence_diagram), depicting the flow
 of control of such an architecture.
 
-<figure>
+{% figure caption: "A sequence diagram depicting the flow of control of a hierarchical
+architecture." %}
   <img src="/assets/img/upside-down-code/hierarchy-sequence-diagram.png" width="225"
     alt="Hierarchical architecture sequence diagram."/>
-  <figcaption>A sequence diagram depicting the flow of control of a hierarchical
-  architecture.</figcaption>
-</figure>
+{% endfigure %}
 
 From this diagram, we can see that `E` calls `F`, which then calls `G`, which in turn
 calls `H`. To reiterate, this design is usually justified by the fact that it is
@@ -1004,12 +989,11 @@ composition! There is yet another way, known in many contexts as the
 [*pipeline*](https://en.wikipedia.org/wiki/Pipeline_(software)) approach.[^25] In my
 opinion, this concept is best illustrated with yet another sequence diagram.
 
-<figure>
+{% figure caption: "A sequence diagram depicting the flow of control of a flat/pipeline
+architecture." %}
   <img src="/assets/img/upside-down-code/pipeline-sequence-diagram.png" width="250"
     alt="Flat architecture sequence diagram."/>
-  <figcaption>A sequence diagram depicting the flow of control of a flat/pipeline
-  architecture.</figcaption>
-</figure>
+{% endfigure %}
 
 In this design, `E` now calls the implementations of \\(f\\), \\(g\\), and \\(h\\)
 directly! And, while potentially some abstraction has been lost, so too have the
@@ -1023,12 +1007,11 @@ It turns out we have seen these two architectures multiple times already, albeit
 concrete terms. In case the resemblance is still unclear, let us once again examine the
 dependency graph of these two implementations:
 
-<figure>
+{% figure caption: "A side-by-side comparison of the dependency graphs of a hierarchical
+and flat/pipeline architecture, respectively." %}
   <img src="/assets/img/upside-down-code/dependency-graph-comparison.png" width="150"
     alt="Dependency graphs of hierarchical and flat architectures."/>
-  <figcaption>A side-by-side comparison of the dependency graphs of a hierarchical
-  and flat/pipeline architecture, respectively.</figcaption>
-</figure>
+{% endfigure %}
 
 This is precisely the two architectures we have seen time and again in our previous
 examples. In the first graph, we see the familiar hierarchical structure of
@@ -1096,7 +1079,8 @@ possibly bending the axles while attaching the tires, Buddy for potentially prod
 tires that put undue strain on the axles, or Hermey perhaps for producing brittle axles
 in the first place.
 
-<figure markdown="1">
+{% figure caption: "The hierarchical model of Silver Bell Labs represented with
+pseudocode." %}
 ```python
 def nick():
     return rudolph()
@@ -1113,9 +1097,7 @@ def buddy():
 def hermey():
     return axle * 2 + frame
 ```
-<figcaption>The hierarchical model of Silver Bell Labs represented with pseudocode.
-</figcaption>
-</figure>
+{% endfigure %}
 
 Compare this scenario to that of an assembly line. Now Nick delegates the task of toy
 car assembly to Rudolph, Buddy, and Hermey directly. Each employee will continue to
@@ -1133,7 +1115,7 @@ overwhelmed with administrative work and will have no choice but to hire middle
 managers. But, until that day comes, Nick determines that it is worthwhile to organize
 his factory into a *pipeline* instead of a *hierarchy*.
 
-<figure markdown="1">
+{% figure caption: "The flat model of Silver Bell Labs represented with pseudocode." %}
 ```python
 def nick():
     tires = buddy()
@@ -1150,8 +1132,7 @@ def buddy():
 def hermey():
     return axle * 2 + frame
 ```
-<figcaption>The flat model of Silver Bell Labs represented with pseudocode.</figcaption>
-</figure>
+{% endfigure %}
 
 With hope, the parallels between the tradeoffs at Silver Bell Labs and those in software
 design are evident. The benefit provided by delegation via subroutines is abstraction,
