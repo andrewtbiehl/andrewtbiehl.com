@@ -16,7 +16,7 @@ permalink: "/blog/upside-down-code"
 #### *(Almost) all example code written in Python*
 
 {% figure caption: "[XKCD #1115: &quot;Sky&quot;.](https://xkcd.com/1115)" %}
-  ![XKCD #1115.](https://imgs.xkcd.com/comics/sky.png)
+![XKCD #1115.](https://imgs.xkcd.com/comics/sky.png)
 {% endfigure %}
 
 Are we all writing code upside down? Don't worry; I won't ask you to tape your laptop to
@@ -137,7 +137,7 @@ Unfortunately, there is a fundamental flaw with this design, and it's living
 surreptitiously inside the system's dependency graph[^5]:
 
 {% figure caption: "Dependency graph of implementation 1A." %}
-  ![Dependency graph of implementation 1A.](/assets/img/upside-down-code/implementation-1a-dependencies.png){: width="400"}
+![Dependency graph of implementation 1A.](/assets/img/upside-down-code/implementation-1a-dependencies.png){: width="400"}
 {% endfigure %}
 
 Notice that the `requests.get` I/O call, which connects to and retrieves data from the
@@ -240,7 +240,7 @@ again, however, the most important aspect of this code lies hidden in its depend
 graph:
 
 {% figure caption: "Dependency graph of implementation 1B." %}
-  ![Dependency graph of implementation 1B.](/assets/img/upside-down-code/implementation-1b-dependencies.png){: width="400"}
+![Dependency graph of implementation 1B.](/assets/img/upside-down-code/implementation-1b-dependencies.png){: width="400"}
 {% endfigure %}
 
 Clearly, this graph greatly differs from the previous one; so much so that it is more
@@ -449,7 +449,7 @@ is in how much emphasis they place on either side of that demarcation line.
 {% figure caption:
 "[Scene from &quot;Monty Python and the Holy Grail&quot;.](https://youtu.be/t2c-X8HiBng)"
 %}
-  ![Meme of a developer getting angry at the Haskell compiler.](/assets/img/upside-down-code/haskell-monty-python.gif){: width="100%"}
+![Meme of a developer getting angry at the Haskell compiler.](/assets/img/upside-down-code/haskell-monty-python.gif){: width="100%"}
 {% endfigure %}
 
 As far as I know, the Haskell compiler doesn't itself make any value judgments about the
@@ -572,7 +572,7 @@ would make a case for further refactoring this design. And despite this, when we
 again take a look at the system's dependency graph, we begin to notice some resemblance:
 
 {% figure caption: "Dependency graph of implementation 2A." %}
-  ![Dependency graph of implementation 2A.](/assets/img/upside-down-code/implementation-2a-dependencies.png){: width="350"}
+![Dependency graph of implementation 2A.](/assets/img/upside-down-code/implementation-2a-dependencies.png){: width="350"}
 {% endfigure %}
 
 Much like the dependency graph of implementation 1A, this graph is hierarchical in
@@ -720,7 +720,7 @@ def create_msg(date_: date, is_special_: bool) -> str:
 Let's once again take a look at the dependency graph of this implementation.
 
 {% figure caption: "Dependency graph of implementation 2B." %}
-  ![Dependency graph of implementation 2B.](/assets/img/upside-down-code/implementation-2b-dependencies.png){: width="400"}
+![Dependency graph of implementation 2B.](/assets/img/upside-down-code/implementation-2b-dependencies.png){: width="400"}
 {% endfigure %}
 
 Yet again, the previously hierarchical structure has been significantly flattened.
@@ -959,7 +959,7 @@ of control of such an architecture.
 
 {% figure caption: "A sequence diagram depicting the flow of control of a hierarchical
 architecture." %}
-  ![Hierarchical architecture sequence diagram.](/assets/img/upside-down-code/hierarchy-sequence-diagram.png){: width="225"}
+![Hierarchical architecture sequence diagram.](/assets/img/upside-down-code/hierarchy-sequence-diagram.png){: width="225"}
 {% endfigure %}
 
 From this diagram, we can see that `E` calls `F`, which then calls `G`, which in turn
@@ -985,7 +985,7 @@ opinion, this concept is best illustrated with yet another sequence diagram.
 
 {% figure caption: "A sequence diagram depicting the flow of control of a flat/pipeline
 architecture." %}
-  ![Flat architecture sequence diagram.](/assets/img/upside-down-code/pipeline-sequence-diagram.png){: width="250"}
+![Flat architecture sequence diagram.](/assets/img/upside-down-code/pipeline-sequence-diagram.png){: width="250"}
 {% endfigure %}
 
 In this design, `E` now calls the implementations of \\(f\\), \\(g\\), and \\(h\\)
@@ -1002,7 +1002,7 @@ dependency graph of these two implementations:
 
 {% figure caption: "A side-by-side comparison of the dependency graphs of a hierarchical
 and flat/pipeline architecture, respectively." %}
-  ![Dependency graphs of hierarchical and flat architectures.](/assets/img/upside-down-code/dependency-graph-comparison.png){: width="150"}
+![Dependency graphs of hierarchical and flat architectures.](/assets/img/upside-down-code/dependency-graph-comparison.png){: width="150"}
 {% endfigure %}
 
 This is precisely the two architectures we have seen time and again in our previous
