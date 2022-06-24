@@ -8,11 +8,6 @@ permalink: "/blog/upside-down-code"
 <script src="/assets/js/upside-down-code/holiday-countdown.js" defer></script>
 <script src="/assets/js/upside-down-code/special-dates.js" defer></script>
 
-<!--MathJax scripts for rendering math-->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer>
-</script>
-
 #### *(Almost) all example code written in Python*
 
 {% figure caption: "[XKCD #1115: &quot;Sky&quot;.](https://xkcd.com/1115)" %}
@@ -949,8 +944,8 @@ the topic and are therefore worth including.
 
 Consider an abstract program consisting of four procedures, creatively named `E`, `F`,
 `G`, and `H`; `E` serves as the entry point of the program, while `F`, `G`, and `H`
-primarily serve as implementations of the (mathematical) functions \\(f\\), \\(g\\), and
-\\(h\\) respectively. Now, as we've seen before, an oft-preferred approach to organizing
+primarily serve as implementations of the (mathematical) functions $$f$$, $$g$$, and
+$$h$$ respectively. Now, as we've seen before, an oft-preferred approach to organizing
 a program like this is to abstract away the specifics of procedure `H` under `G` and of
 `G` under `F`, especially when `H` and `G` perform operations considered to be
 "low-level".[^24] Below is a kind of
@@ -966,9 +961,9 @@ From this diagram, we can see that `E` calls `F`, which then calls `G`, which in
 calls `H`. To reiterate, this design is usually justified by the fact that it is
 beneficial to hide the details of `G` and `H` by burying them under increasingly deeper
 levels of abstraction. We can also see in this diagram that this program is essentially
-just an implementation of \\(f \circ g \circ h\\), the
-[composition](https://en.wikipedia.org/wiki/Function_composition) of \\(f\\), \\(g\\),
-and \\(h\\). With hope, this motivates us to recognize that subroutine invocation can be
+just an implementation of $$f \circ g \circ h$$, the
+[composition](https://en.wikipedia.org/wiki/Function_composition) of $$f$$, $$g$$, and
+$$h$$. With hope, this motivates us to recognize that subroutine invocation can be
 thought of as just an implementation of function composition.
 
 The problem with this approach, as I've previously described, is that it introduces a
@@ -988,13 +983,13 @@ architecture." %}
 ![Flat architecture sequence diagram.](/assets/img/upside-down-code/pipeline-sequence-diagram.png){: width="250"}
 {% endfigure %}
 
-In this design, `E` now calls the implementations of \\(f\\), \\(g\\), and \\(h\\)
-directly! And, while potentially some abstraction has been lost, so too have the
-dependencies between `F` and `G`, `G` and `H`, and even `F` and `H` – that's half of all
-previous dependencies! And this 50% reduction in coupling was yielded from a system that
-started with just four levels of depth. More generally, the number of dependencies
-removed by this process grows *quadratically* with the depth of the system being
-flattened.[^26] That's a lot of decoupling!
+In this design, `E` now calls the implementations of $$f$$, $$g$$, and $$h$$ directly!
+And, while potentially some abstraction has been lost, so too have the dependencies
+between `F` and `G`, `G` and `H`, and even `F` and `H` – that's half of all previous
+dependencies! And this 50% reduction in coupling was yielded from a system that started
+with just four levels of depth. More generally, the number of dependencies removed by
+this process grows *quadratically* with the depth of the system being flattened.[^26]
+That's a lot of decoupling!
 
 It turns out we have seen these two architectures multiple times already, albeit in more
 concrete terms. In case the resemblance is still unclear, let us once again examine the
@@ -1494,20 +1489,20 @@ the intended sense of any particular word instance depends on its context.
     Compare this implementation with that of the hierarchical architecture presented in
     [footnote 24](#fn:24).
 
-[^26]: For the mathematically inclined, say we have a system composed of \\( n \\)
+[^26]: For the mathematically inclined, say we have a system composed of $$n$$
     procedures arranged conceptually into a list, and each previous procedure in this
     list directly depends on the next. Assume also that it is possible to refactor this
     system into a "flat" pipeline, in which only one procedure, serving as the entry
     point, directly depends on all the others, but which otherwise lacks any other
     dependencies.
 
-    Clearly, the latter (hereafter "pipeline") architecture has \\( n-1 \\) dependencies
+    Clearly, the latter (hereafter "pipeline") architecture has $$n-1$$ dependencies
     (all of them direct), one for each procedure aside from the entry point. It is also
-    not too difficult to show inductively that there are \\( \frac{n(n-1)}{2} \\)
+    not too difficult to show inductively that there are $$\frac{n(n-1)}{2}$$
     dependencies (most of them indirect) in the former (hereafter "hierarchical")
     architecture. From here, it follows that refactoring from the hierarchical to
-    pipeline architecture removes \\( \frac{n(n-1)}{2} - (n-1) \\) \\( = \frac{n^2}{2} -
-    \frac{3n}{2} + 1 \\) \\( \in O(n^2) \\) dependencies. In other words, the amount of
+    pipeline architecture removes $$\frac{n(n-1)}{2} - (n-1) = \frac{n^2}{2} -
+    \frac{3n}{2} + 1 \in O(n^2)$$ dependencies. In other words, the amount of
     unnecessary coupling in a perfectly hierarchical architecture increases by the
     *square* of the depth of the hierarchy!
 

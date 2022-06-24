@@ -12,6 +12,9 @@ markdown: kramdown
 kramdown:
   syntax_highlighter_opts:
     formatter: HTML
+  math_engine: katex
+  math_engine_opts:
+    output: html
 plugins:
   - jekyll-feed
   - jekyll-target-blank
