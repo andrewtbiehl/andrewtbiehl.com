@@ -3,6 +3,7 @@ code {
   .esc, // Escape
   .err, // Error
   .x, // Other
+
   .k, // Keyword
   .kc, // Keyword.Constant
   .kd, // Keyword.Declaration
@@ -10,6 +11,7 @@ code {
   .kp, // Keyword.Pseudo
   .kr, // Keyword.Reserved
   .kt, // Keyword.Type
+
   .n, // Name
   .na, // Name.Attribute
   .nb, // Name.Builtin
@@ -31,6 +33,7 @@ code {
   .vg, // Name.Variable.Global
   .vi, // Name.Variable.Instance
   .vm, // Name.Variable.Magic
+
   .l, // Literal
   .ld, // Literal.Date
   .s, // Literal.String
@@ -54,10 +57,13 @@ code {
   .mi, // Literal.Number.Integer
   .il, // Literal.Number.Integer.Long
   .mo, // Literal.Number.Oct
+
   .o, // Operator
   .ow, // Operator.Word
+
   .p, // Punctuation
   .p-Marker, // Punctuation.Marker
+
   .c, // Comment
   .ch, // Comment.Hashbang
   .cm, // Comment.Multiline
@@ -65,6 +71,7 @@ code {
   .cpf, // Comment.PreprocFile
   .c1, // Comment.Single
   .cs, // Comment.Special
+
   .g, // Generic
   .gd, // Generic.Deleted
   .ge, // Generic.Emph
