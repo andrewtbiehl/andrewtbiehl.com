@@ -1,10 +1,12 @@
 code {
+  // Miscellaneous
   .w, // Text.Whitespace
   .esc, // Escape
   .err, // Error
   .x, // Other
 
-  .k, // Keyword
+  // Keyword
+  .k,
   .kc, // Keyword.Constant
   .kd, // Keyword.Declaration
   .kn, // Keyword.Namespace
@@ -12,7 +14,8 @@ code {
   .kr, // Keyword.Reserved
   .kt, // Keyword.Type
 
-  .n, // Name
+  // Name
+  .n,
   .na, // Name.Attribute
   .nb, // Name.Builtin
   .bp, // Name.Builtin.Pseudo
@@ -34,7 +37,8 @@ code {
   .vi, // Name.Variable.Instance
   .vm, // Name.Variable.Magic
 
-  .l, // Literal
+  // Literal
+  .l,
   .ld, // Literal.Date
   .s, // Literal.String
   .sa, // Literal.String.Affix
@@ -58,13 +62,16 @@ code {
   .il, // Literal.Number.Integer.Long
   .mo, // Literal.Number.Oct
 
-  .o, // Operator
+  // Operator
+  .o,
   .ow, // Operator.Word
 
-  .p, // Punctuation
+  // Punctuation
+  .p,
   .p-Marker, // Punctuation.Marker
 
-  .c, // Comment
+  // Comment
+  .c,
   .ch, // Comment.Hashbang
   .cm, // Comment.Multiline
   .cp, // Comment.Preproc
@@ -72,7 +79,8 @@ code {
   .c1, // Comment.Single
   .cs, // Comment.Special
 
-  .g, // Generic
+  // Generic
+  .g,
   .gd, // Generic.Deleted
   .ge, // Generic.Emph
   .gr, // Generic.Error
