@@ -2,10 +2,6 @@ code {
 
   // Currently used tokens
 
-  // Comment
-  .cm, // Comment.Multiline
-  .c1, // Comment.Single
-
   // Generic
   .go, // Generic.Output
   .gp, // Generic.Prompt
@@ -56,6 +52,14 @@ code {
   .mi // Literal.Number.Integer
   {
     color: #049;
+  }
+
+  // Comment tokens
+  .cm, // Comment.Multiline
+  .c1 // Comment.Single
+  {
+    color: gray;
+    font-style: italic;
   }
 
   // Currently unused tokens
