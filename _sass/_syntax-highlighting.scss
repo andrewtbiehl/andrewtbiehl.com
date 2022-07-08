@@ -1,3 +1,12 @@
+$colors: (
+  "keyword": #d50,
+  "type": #800,
+  "value": #049,
+  "comment": gray,
+  "output": #444,
+  "prompt": gray
+);
+
 code {
 
   // Currently used tokens
@@ -28,7 +37,7 @@ code {
   .kn, // Keyword.Namespace
   .kr // Keyword.Reserved
   {
-    color: #d50;
+    color: map-get($colors, "keyword");
   }
 
   // Type tokens
@@ -36,7 +45,7 @@ code {
   .nb, // Name.Builtin
   .nc // Name.Class
   {
-    color: #800;
+    color: map-get($colors, "type");
   }
 
   // Value tokens
@@ -47,25 +56,25 @@ code {
   .sa, // Literal.String.Affix
   .mi // Literal.Number.Integer
   {
-    color: #049;
+    color: map-get($colors, "value");
   }
 
   // Comment tokens
   .cm, // Comment.Multiline
   .c1 // Comment.Single
   {
-    color: gray;
+    color: map-get($colors, "comment");
     font-style: italic;
   }
 
   .go // Generic.Output
   {
-    color: #444;
+    color: map-get($colors, "output");
   }
 
   .gp // Generic.Prompt
   {
-    color: gray;
+    color: map-get($colors, "prompt");
   }
 
   // Currently unused tokens
