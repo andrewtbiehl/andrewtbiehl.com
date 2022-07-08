@@ -4,12 +4,9 @@ code {
 
   // Keyword
   .kc, // Keyword.Constant
-  .kt, // Keyword.Type
 
   // Name
-  .nb, // Name.Builtin
   .bp, // Name.Builtin.Pseudo
-  .nc, // Name.Class
   .no, // Name.Constant
 
   // Literal
@@ -52,6 +49,14 @@ code {
   .kr // Keyword.Reserved
   {
     color: #d50;
+  }
+
+  // Type tokens
+  .kt, // Keyword.Type
+  .nb, // Name.Builtin
+  .nc // Name.Class
+  {
+    color: #800;
   }
 
   // Currently unused tokens
