@@ -2,9 +2,6 @@ code {
 
   // Currently used tokens
 
-  // Miscellaneous
-  .w, // Text.Whitespace
-
   // Keyword
   .k,
   .kc, // Keyword.Constant
@@ -14,28 +11,15 @@ code {
   .kt, // Keyword.Type
 
   // Name
-  .n,
-  .na, // Name.Attribute
   .nb, // Name.Builtin
   .bp, // Name.Builtin.Pseudo
   .nc, // Name.Class
   .no, // Name.Constant
-  .nf, // Name.Function
-  .nl, // Name.Label
-  .nn, // Name.Namespace
 
   // Literal
   .s, // Literal.String
   .sa, // Literal.String.Affix
-  .si, // Literal.String.Interpol
   .mi, // Literal.Number.Integer
-
-  // Operator
-  .o,
-  .ow, // Operator.Word
-
-  // Punctuation
-  .p,
 
   // Comment
   .cm, // Comment.Multiline
@@ -43,7 +27,24 @@ code {
 
   // Generic
   .go, // Generic.Output
-  .gp // Generic.Prompt
+  .gp, // Generic.Prompt
+
+  // Tokens left "unhighlighted" for a variety of reasons
+  // Whitespace should be left blank
+  .w, // Text.Whitespace
+  // Most tokens are lumped into the category of "names" by the less-than-ideal lexer
+  .n, // Name
+  .na, // Name.Attribute
+  .nf, // Name.Function
+  .nl, // Name.Label
+  .nn, // Name.Namespace
+  // String interpolation characters are arguably just punctuation
+  .si, // Literal.String.Interpol
+  // The Java lexer unfortunately categorizes all punctuation marks as operators
+  .o, // Operator
+  .ow, // Operator.Word
+  // Punctuation should primarily fade to the background
+  .p // Punctuation
   {
     background-color: transparent;
   }
