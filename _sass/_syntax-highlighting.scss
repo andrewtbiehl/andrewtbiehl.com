@@ -20,7 +20,7 @@ code {
   .nn, // Name.Namespace
   // String interpolation characters are arguably just punctuation
   .si, // Literal.String.Interpol
-  // The Java lexer unfortunately categorizes all punctuation marks as operators
+  // See the keyword tokens operators comment for more information
   .o, // Operator
   .ow, // Operator.Word
   // Punctuation should primarily fade to the background
@@ -36,6 +36,16 @@ code {
   .kr // Keyword.Reserved
   {
     color: map-get($colors, "keyword");
+  }
+  // The Java lexer unfortunately categorizes all punctuation marks as operators
+  // Hence Java is better left excluded when syntax-highlighting operators
+  // Additional languages should be added to this list as needed
+  &[data-language=console], &[data-language=haskell], &[data-language=python] {
+    .o, // Operator
+    .ow // Operator.Word
+    {
+      color: map-get($colors, "keyword");
+    }
   }
 
   // Type tokens
