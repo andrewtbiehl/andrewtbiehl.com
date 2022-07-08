@@ -2,10 +2,6 @@ code {
 
   // Currently used tokens
 
-  // Generic
-  .go, // Generic.Output
-  .gp, // Generic.Prompt
-
   // Tokens left "unhighlighted" for a variety of reasons
   // Whitespace should be left blank
   .w, // Text.Whitespace
@@ -60,6 +56,16 @@ code {
   {
     color: gray;
     font-style: italic;
+  }
+
+  .go // Generic.Output
+  {
+    color: #444;
+  }
+
+  .gp // Generic.Prompt
+  {
+    color: gray;
   }
 
   // Currently unused tokens
