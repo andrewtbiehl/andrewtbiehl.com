@@ -3,11 +3,7 @@ code {
   // Currently used tokens
 
   // Keyword
-  .k,
   .kc, // Keyword.Constant
-  .kd, // Keyword.Declaration
-  .kn, // Keyword.Namespace
-  .kr, // Keyword.Reserved
   .kt, // Keyword.Type
 
   // Name
@@ -47,6 +43,15 @@ code {
   .p // Punctuation
   {
     background-color: transparent;
+  }
+
+  // Keyword tokens
+  .k, // Keyword
+  .kd, // Keyword.Declaration
+  .kn, // Keyword.Namespace
+  .kr // Keyword.Reserved
+  {
+    color: #d50;
   }
 
   // Currently unused tokens
