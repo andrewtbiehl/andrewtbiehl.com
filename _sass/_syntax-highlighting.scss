@@ -2,18 +2,6 @@ code {
 
   // Currently used tokens
 
-  // Keyword
-  .kc, // Keyword.Constant
-
-  // Name
-  .bp, // Name.Builtin.Pseudo
-  .no, // Name.Constant
-
-  // Literal
-  .s, // Literal.String
-  .sa, // Literal.String.Affix
-  .mi, // Literal.Number.Integer
-
   // Comment
   .cm, // Comment.Multiline
   .c1, // Comment.Single
@@ -57,6 +45,17 @@ code {
   .nc // Name.Class
   {
     color: #800;
+  }
+
+  // Value tokens
+  .kc, // Keyword.Constant
+  .bp, // Name.Builtin.Pseudo
+  .no, // Name.Constant
+  .s, // Literal.String
+  .sa, // Literal.String.Affix
+  .mi // Literal.Number.Integer
+  {
+    color: #049;
   }
 
   // Currently unused tokens
