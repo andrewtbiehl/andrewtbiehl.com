@@ -1,3 +1,27 @@
+$baseline: 8px;
+$thin-black-line: 1px solid black;
+
+#about-profile-figure {
+  display: inline-block;
+  float: left;
+  // Add space between figure and wrapping text
+  margin: 0 $baseline * 2 0 0;
+
+  > img {
+    // Image size set to match current height of first two paragraphs
+    height:($baseline * 3) * 7;
+    border: $thin-black-line;
+    border-radius: 4px;
+    // Add some space above the head
+    padding: 3px 0 0 0;
+  }
+
+  > figcaption {
+    margin: 0;
+    font-size: 0.75em;
+  }
+}
+
 #blog-20220411-image-1 {
   width: 400px;
 }

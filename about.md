@@ -6,6 +6,10 @@ permalink: /about/
 
 <script src="/assets/js/render-email.js" defer></script>
 
+{% figure caption: "Art by [Joey Biehl](https://instagram.com/thingsbyjoey)" %}
+![Cartoon rendering of me (Andrew).](/assets/img/andrew-profile.png)
+{% endfigure %}{: #about-profile-figure}
+
 Hi, I'm Andrew. Welcome to my personal website! :)
 
 I am a software developer with a background in mathematics who strives to leave the
