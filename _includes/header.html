@@ -4,12 +4,12 @@
 
   <nav>
     <ul>
-    {%- for path in site.header_pages -%}
+    {%- for page_data in site.header_pages -%}
 
       <li>
-        {%- assign header_page = site.pages | where: "path", path | first -%}
+        {%- assign header_page = site.pages | where: "path", page_data.path | first -%}
         <a href="{{- header_page.url | relative_url -}}">
-          {{- header_page.title | escape -}}
+          {{- page_data.title | default: header_page.title | escape -}}
         </a>
       </li>
 

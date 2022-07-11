@@ -21,6 +21,6 @@ plugins:
   - jekyll-seo-tag
   - jekyll-figure
 header_pages:
-  - about.md
+  - path: about.md
 exclude:
   - NOTICE.txt
