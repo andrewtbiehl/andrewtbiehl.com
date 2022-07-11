@@ -22,5 +22,6 @@ plugins:
   - jekyll-figure
 header_pages:
   - path: about.md
+    title: About
 exclude:
   - NOTICE.txt
