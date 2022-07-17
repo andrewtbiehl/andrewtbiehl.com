@@ -279,7 +279,7 @@ This principle is often recommended within the world of functional programming (
 [here](https://youtu.be/IcgmSRJHu_8) and
 [here](https://fsharpforfunandprofit.com/posts/designing-with-types-making-illegal-states-unrepresentable)).
 I particularly recommend ["Type Safety Back and Forth"](https://www.parsonsmatt.org/2017/10/11/type_safety_back_and_forth.html)
-by Matt Parsons, and a couple of blog posts
+by Matt Parsons and a couple of blog posts
 (["Parse, Don't Validate"](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate)
 and
 ["Types as Axioms"](https://lexi-lambda.github.io/blog/2020/08/13/types-as-axioms-or-playing-god-with-static-types))
