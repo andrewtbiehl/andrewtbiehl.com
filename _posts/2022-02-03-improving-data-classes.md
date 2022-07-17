@@ -284,7 +284,7 @@ wonderfully explains how the pattern described here merely scratches the surface
 comes to enforcing constraints with types. These are powerful ideas that deserve further
 recognition throughout the industry.
 
-### Acknowledgements 
+### Acknowledgements
 
 Many thanks to [Eva Grench](https://www.linkedin.com/in/eva-grench) for helping workshop
 the implementation of this pattern, and for proof-reading this blog post!
@@ -300,7 +300,7 @@ the implementation of this pattern, and for proof-reading this blog post!
       WINGSPAN;
     }
     ```
-    
+
 [^2]: In comparison, here is the corresponding implementation of `zipIntoPlaythroughs`
     if the checked-exceptions-based approach is used:
 
@@ -322,6 +322,6 @@ the implementation of this pattern, and for proof-reading this blog post!
           .collect(Collectors.toList());
     }
     ```
-    
+
     Not only does this require more lines of code than the other implementation, but
     also the intent of these additional lines is arguably much less clear.
