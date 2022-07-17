@@ -283,10 +283,9 @@ by Matt Parsons, and a couple of blog posts
 (["Parse, Don't Validate"](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate)
 and
 ["Types as Axioms"](https://lexi-lambda.github.io/blog/2020/08/13/types-as-axioms-or-playing-god-with-static-types))
-by [Alexis King](https://lexi-lambda.github.io/about.html), which wonderfully explain
-how the pattern described here merely scratches the surface when it comes to enforcing
-constraints with types. These are powerful ideas that deserve further recognition
-throughout the industry.
+by Alexis King, which wonderfully explain how the pattern described here merely
+scratches the surface when it comes to enforcing constraints with types. These are
+powerful ideas that deserve further recognition throughout the industry.
 
 ### Acknowledgements
 
