@@ -428,7 +428,7 @@ findNextHoliday date_ nearbyHolidays = minimumBy compareDates upcomingHolidays
 
 This demonstrates how Haskell's type system is tailor-made to expose code that is
 contaminated by I/O. As explained in
-[*Learn You a Haskell*](http://learnyouahaskell.com):
+[*Learn You a Haskell*](http://learnyouahaskell.com) by Miran Lipovača:
 
 > If we're taking data out of an I/O action, we can only take it out when we're inside
 another I/O action. This is how Haskell manages to neatly separate the pure and impure
