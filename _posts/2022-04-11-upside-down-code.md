@@ -332,7 +332,7 @@ will provide a survey of their ideas here.
 
 Top of mind, of course, is Brandon Rhodes, whose aforementioned 2014 talk perfectly
 elucidated this pattern, but also classified it as a specific case of
-[Robert C. Martin's "clean" architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html).
+Robert C. Martin's ["clean" architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html).
 But even more evocative, in my opinion, is his coinage of the phrase "hoisting your I/O"
 in a
 [2015 follow-up talk of the same name](https://rhodesmill.org/brandon/talks/#hoist).
@@ -1269,7 +1269,7 @@ the intended sense of any particular word instance depends on its context.
     and
     [this diagram for top-down design](https://speakerdeck.com/pycon2019/edwin-jung-mocking-and-patching-pitfalls?slide=147)
     from
-    [this fantastic 2019 PyCon talk by Edwin Jung](https://youtu.be/Ldlz4V-UCFw?t=2179).
+    [this fantastic 2019 PyCon talk](https://youtu.be/Ldlz4V-UCFw?t=2179) by Edwin Jung.
 
 [^6]: In his talk, Brandon Rhodes points out that dependency injection and `mock.patch`
     can technically circumvent issues like this, but not without their own drawbacks. In
