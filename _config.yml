@@ -25,3 +25,4 @@ header_pages:
     title: About
 exclude:
   - NOTICE.txt
+  - README.md
