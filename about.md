@@ -26,6 +26,9 @@ internet!
 
 ## More about me
 
+**Looking for my résumé? View it [here](/AndrewTBiehlResume.pdf).**
+{: #resume-notice }
+
 I've always been intrigued by the unreasonable effectiveness and elegance of formal
 systems, which is why I primarily studied math and computer science while pursuing my
 undergraduate degree at [Carleton College](https://www.carleton.edu). Among my favorite
