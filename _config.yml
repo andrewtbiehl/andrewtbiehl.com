@@ -10,6 +10,7 @@ github_username:  andrewtbiehl
 linkedin_username: andrewtbiehl
 markdown: kramdown
 kramdown:
+  syntax_highlighter: custom_highlighter_delegator
   syntax_highlighter_opts:
     formatter: HTML
   math_engine: katex

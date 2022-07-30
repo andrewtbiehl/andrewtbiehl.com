@@ -5,6 +5,7 @@ require 'kramdown'
 # Some minor customizations of Kramdown's HTML converter.
 module CustomHtmlConverter
   LANGUAGE_DATA_ATTRIBUTE_NAME = 'data-language'
+  HIGHLIGHTER_DATA_ATTRIBUTE_NAME = 'data-highlighter'
 
   # Formats a paragraph.
   #
@@ -29,11 +30,15 @@ module CustomHtmlConverter
     raw_content, attributes, language = extract_code_information element
     # Language of a code block is the default language if not specified explicitly
     language ||= default_language
-    language_info = { LANGUAGE_DATA_ATTRIBUTE_NAME => language }
+    highlighter = determine_highlighter! attributes
+    code_info = {
+      LANGUAGE_DATA_ATTRIBUTE_NAME => language,
+      HIGHLIGHTER_DATA_ATTRIBUTE_NAME => highlighter
+    }
     raw_content
-      .then { highlight_code _1, language, :block }
+      .then { highlight_code _1, language, :block, { highlighter: } }
       # Formatting inside a pre element must be careful not to introduce newlines
-      .then { format_as_span_html 'code', language_info, _1 }
+      .then { format_as_span_html 'code', code_info, _1 }
       .then { format_as_block_html 'pre', attributes, _1, indent }
   end
 
@@ -64,10 +69,17 @@ module CustomHtmlConverter
   # See public version of this method for more documentation.
   def _convert_codespan(element)
     raw_content, attributes, language = extract_code_information element
-    # Add the language data attribute iff the language is specified explicitly
-    attributes[LANGUAGE_DATA_ATTRIBUTE_NAME] = language if language
+    highlighter = determine_highlighter! attributes
+    # Add the data attributes iff the language is specified explicitly
+    if language
+      code_info = {
+        LANGUAGE_DATA_ATTRIBUTE_NAME => language,
+        HIGHLIGHTER_DATA_ATTRIBUTE_NAME => highlighter
+      }
+      attributes.merge(code_info)
+    end
     raw_content
-      .then { highlight_code _1, language, :span }
+      .then { highlight_code _1, language, :span, { highlighter: } }
       .then { format_as_span_html 'code', attributes, _1 }
   end
 
@@ -79,6 +91,15 @@ module CustomHtmlConverter
     # Extract the language and remove the language class attribute
     language = extract_code_language! attributes
     [raw_content, attributes, language]
+  end
+
+  # Utility method for determining which syntax highlighter to use for a given block (or
+  # span) of code. Currently, one highlighter is supported: Rouge. Consult the method
+  # body for exactly how the highlighter is determined.
+  def determine_highlighter!(attributes)
+    default = 'rouge'
+    # Override the default when a highlighter is explicity set
+    attributes.delete('highlighter') { |_| default }
   end
 
   # Alias for accessing the global default language.
