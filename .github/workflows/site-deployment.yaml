@@ -34,7 +34,7 @@ jobs:
       - name: Archive build
         run: tar --create --directory _site --file _site.tar .
       - name: Upload archived build
-        uses: actions/upload-artifact@v3.0.0
+        uses: actions/upload-artifact@v3.1.0
         with:
           name: github-pages
           path: _site.tar
