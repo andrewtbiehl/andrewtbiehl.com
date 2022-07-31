@@ -1,3 +1,6 @@
 # Jekyll
 _site/
 .jekyll-cache/
+
+# Rust
+_tree_sitter_ruby_binding/target/

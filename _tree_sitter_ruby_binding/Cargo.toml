@@ -1,0 +1,12 @@
+[package]
+name = 'tree_sitter_ruby_binding'
+version = '0.0.0'
+edition = '2021'
+rust-version = '1.62.1'
+
+[lib]
+name = 'tree_sitter_ruby_binding'
+crate-type = ['cdylib']
+
+[dependencies]
+rutie = '*'
