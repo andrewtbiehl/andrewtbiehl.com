@@ -10,9 +10,14 @@ class!(TreeSitterAdapterRubyBinding);
 methods!(
     TreeSitterAdapterRubyBinding,
     _rtself,
-    fn highlight(raw_code: RString, _raw_language_str: RString) -> RString {
+    fn highlight(raw_code: RString, raw_language_str: RString) -> RString {
         let code = raw_code.unwrap().to_string();
-        let formatted_code = tree_sitter_adapter::no_highlight(&code);
+        let language_str = raw_language_str.unwrap().to_string();
+        let possible_language = tree_sitter_adapter::to_language(&language_str);
+        let formatted_code = match possible_language {
+            Some(language) => tree_sitter_adapter::highlight(&code, &language),
+            None => tree_sitter_adapter::no_highlight(&code),
+        };
         RString::new_utf8(&formatted_code)
     }
 );
