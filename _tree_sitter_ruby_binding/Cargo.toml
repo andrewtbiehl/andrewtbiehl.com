@@ -9,4 +9,7 @@ name = 'tree_sitter_ruby_binding'
 crate-type = ['cdylib']
 
 [dependencies]
+lazy_static = '*'
 rutie = '*'
+tree-sitter-highlight = '*'
+tree-sitter-python = '*'
