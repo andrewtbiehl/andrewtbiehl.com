@@ -155,7 +155,6 @@ code[data-highlighter=rouge] {
 }
 
 code[data-highlighter=tree-sitter] {
-  .cr, // constructor
   .em, // embedded
   .f, // function
   .f-b, // function.builtin
@@ -166,6 +165,12 @@ code[data-highlighter=tree-sitter] {
   .v // variable
   {
     color: black;
+  }
+
+  // Type tokens
+  .cr // constructor
+  {
+    color: map-get($colors, "type");
   }
 
   // Value tokens
