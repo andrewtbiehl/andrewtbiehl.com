@@ -155,21 +155,26 @@ code[data-highlighter=rouge] {
 }
 
 code[data-highlighter=tree-sitter] {
-  .ct-b, // constant.builtin
   .cr, // constructor
   .em, // embedded
-  .es, // escape
   .f, // function
   .f-b, // function.builtin
   .f-m, // function.method
   .k, // keyword
-  .n, // number
   .o, // operator
   .pu-s, // punctuation.special
-  .s, // string
   .v // variable
   {
     color: black;
+  }
+
+  // Value tokens
+  .ct-b, // constant.builtin
+  .es, // escape
+  .n, // number
+  .s // string
+  {
+    color: map-get($colors, "value");
   }
 
   // Comment tokens
