@@ -7,7 +7,7 @@ $colors: (
   "prompt": gray
 );
 
-code {
+code[data-highlighter=rouge] {
 
   // Tokens left "unhighlighted" for a variety of reasons
   // Whitespace should be left blank
