@@ -159,12 +159,17 @@ code[data-highlighter=tree-sitter] {
   .f, // function
   .f-b, // function.builtin
   .f-m, // function.method
-  .k, // keyword
-  .o, // operator
   .pu-s, // punctuation.special
   .v // variable
   {
     color: black;
+  }
+
+  // Keyword tokens
+  .k, // keyword
+  .o // operator
+  {
+    color: map-get($colors, "keyword");
   }
 
   // Type tokens
