@@ -155,7 +155,6 @@ code[data-highlighter=rouge] {
 }
 
 code[data-highlighter=tree-sitter] {
-  .cm, // comment
   .ct-b, // constant.builtin
   .cr, // constructor
   .em, // embedded
@@ -171,6 +170,13 @@ code[data-highlighter=tree-sitter] {
   .v // variable
   {
     color: black;
+  }
+
+  // Comment tokens
+  .cm // comment
+  {
+    color: map-get($colors, "comment");
+    font-style: italic;
   }
 
   // Currently unused tokens
