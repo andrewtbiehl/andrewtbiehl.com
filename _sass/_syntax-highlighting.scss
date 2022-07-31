@@ -156,7 +156,6 @@ code[data-highlighter=rouge] {
 
 code[data-highlighter=tree-sitter] {
   .cm, // comment
-  .ct, // constant
   .ct-b, // constant.builtin
   .cr, // constructor
   .em, // embedded
@@ -167,12 +166,20 @@ code[data-highlighter=tree-sitter] {
   .k, // keyword
   .n, // number
   .o, // operator
-  .pr, // property
   .pu-s, // punctuation.special
   .s, // string
-  .t, // type
   .v // variable
   {
     color: black;
+  }
+
+  // Currently unused tokens
+  .ct, // constant
+  .pr, // property
+  .t // type
+  {
+    // Background color is set to bright red to draw the developer's attention
+    // If a once unused token is now being used, it needs to be handled accordingly
+    background-color: red;
   }
 }
