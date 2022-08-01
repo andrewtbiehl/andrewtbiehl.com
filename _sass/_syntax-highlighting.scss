@@ -156,8 +156,12 @@ code[data-highlighter=rouge] {
 }
 
 code[data-highlighter=tree-sitter] {
+  // Tokens left "unhighlighted" for a variety of reasons
+  // Embedded code should not be the same color as its surroundings
   .em, // embedded
+  // Punctuation should primarily fade to the background
   .pu-s, // punctuation.special
+  // The variable token is somewhat of a catch-all token
   .v // variable
   {
     color: black;
