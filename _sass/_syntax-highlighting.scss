@@ -2,6 +2,7 @@ $colors: (
   "keyword": #d50,
   "type": #800,
   "value": #049,
+  "procedure": #738,
   "comment": gray,
   "output": #444,
   "prompt": gray
@@ -156,13 +157,19 @@ code[data-highlighter=rouge] {
 
 code[data-highlighter=tree-sitter] {
   .em, // embedded
-  .f, // function
-  .f-b, // function.builtin
-  .f-m, // function.method
   .pu-s, // punctuation.special
   .v // variable
   {
     color: black;
+  }
+
+  // Procedure tokens
+  .f, // function
+  .f-b, // function.builtin
+  .f-m // function.method
+  {
+    color: map-get($colors, "procedure");
+    font-style: italic;
   }
 
   // Keyword tokens
