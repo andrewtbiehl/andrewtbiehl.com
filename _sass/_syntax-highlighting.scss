@@ -153,3 +153,26 @@ code[data-highlighter=rouge] {
     background-color: red;
   }
 }
+
+code[data-highlighter=tree-sitter] {
+  .cm, // comment
+  .ct, // constant
+  .ct-b, // constant.builtin
+  .cr, // constructor
+  .em, // embedded
+  .es, // escape
+  .f, // function
+  .f-b, // function.builtin
+  .f-m, // function.method
+  .k, // keyword
+  .n, // number
+  .o, // operator
+  .pr, // property
+  .pu-s, // punctuation.special
+  .s, // string
+  .t, // type
+  .v // variable
+  {
+    color: black;
+  }
+}
