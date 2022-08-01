@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 require 'kramdown'
+require 'set'
 
 # Some minor customizations of Kramdown's HTML converter.
 module CustomHtmlConverter
+  TREE_SITTER_LANGUAGES = Set[].freeze
   LANGUAGE_DATA_ATTRIBUTE_NAME = 'data-language'
   HIGHLIGHTER_DATA_ATTRIBUTE_NAME = 'data-highlighter'
 
@@ -30,7 +32,7 @@ module CustomHtmlConverter
     raw_content, attributes, language = extract_code_information element
     # Language of a code block is the default language if not specified explicitly
     language ||= default_language
-    highlighter = determine_highlighter! attributes
+    highlighter = determine_highlighter! attributes, language
     code_info = {
       LANGUAGE_DATA_ATTRIBUTE_NAME => language,
       HIGHLIGHTER_DATA_ATTRIBUTE_NAME => highlighter
@@ -69,7 +71,7 @@ module CustomHtmlConverter
   # See public version of this method for more documentation.
   def _convert_codespan(element)
     raw_content, attributes, language = extract_code_information element
-    highlighter = determine_highlighter! attributes
+    highlighter = determine_highlighter! attributes, language
     # Add the data attributes iff the language is specified explicitly
     if language
       code_info = {
@@ -96,8 +98,8 @@ module CustomHtmlConverter
   # Utility method for determining which syntax highlighter to use for a given block (or
   # span) of code. Two highlighters are supported: Rouge and Tree-sitter. Consult the
   # method body for exactly how the highlighter is determined.
-  def determine_highlighter!(attributes)
-    default = 'rouge'
+  def determine_highlighter!(attributes, language)
+    default = TREE_SITTER_LANGUAGES.include?(language) ? 'tree-sitter' : 'rouge'
     # Override the default when a highlighter is explicity set
     attributes.delete('highlighter') { |_| default }
   end
