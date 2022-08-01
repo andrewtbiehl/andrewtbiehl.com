@@ -24,12 +24,22 @@ nature of this project.
 ### Development
 
 For a functional local development environment, make sure you have
-[all the prerequisite software for Jekyll](https://jekyllrb.com/docs/installation), and
-also [Bundler](https://bundler.io/), installed. Next, install the project's dependencies
-by running the following command from the root of the project:
+[all the prerequisite software for Jekyll](https://jekyllrb.com/docs/installation),
+[Bundler](https://bundler.io/), and [Rust](https://www.rust-lang.org/learn/get-started)
+installed.
+
+Next, install the project's Ruby dependencies by running the following command from the
+root of the project:
 
 ```console
 bundle install
+```
+
+Next, build the Tree-sitter Ruby binding library by running the following command from
+the `_tree_sitter_ruby_binding` directory:
+
+```console
+cargo build --release
 ```
 
 Once the environment is set up, you can build, serve, and subsequently view the site
@@ -38,6 +48,10 @@ locally at `http://localhost:4000`, via the following command:
 ```console
 bundle exec jekyll serve
 ```
+
+Note that any time the Tree-sitter Ruby binding library is modified, it will need to be
+rebuilt in the same way as described earlier in order for such changes will be reflected
+in the site.
 
 ## Contact
 

@@ -69,6 +69,7 @@ GEM
       ffi (~> 1.0)
     rexml (3.2.5)
     rouge (3.28.0)
+    rutie (0.0.4)
     safe_yaml (1.0.5)
     sassc (2.4.0)
       ffi (~> 1.9)
@@ -88,6 +89,7 @@ DEPENDENCIES
   jekyll-target-blank
   kramdown-math-katex
   kramdown-parser-gfm
+  rutie
   webrick
 
 RUBY VERSION

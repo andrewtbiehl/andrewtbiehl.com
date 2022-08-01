@@ -94,8 +94,8 @@ module CustomHtmlConverter
   end
 
   # Utility method for determining which syntax highlighter to use for a given block (or
-  # span) of code. Currently, one highlighter is supported: Rouge. Consult the method
-  # body for exactly how the highlighter is determined.
+  # span) of code. Two highlighters are supported: Rouge and Tree-sitter. Consult the
+  # method body for exactly how the highlighter is determined.
   def determine_highlighter!(attributes)
     default = 'rouge'
     # Override the default when a highlighter is explicity set
