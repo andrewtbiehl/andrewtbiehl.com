@@ -104,13 +104,16 @@ fn escape_text_html(text: &str) -> String {
 
 // See the public version of this method, `highlight`, for more documentation.
 fn highlight_adapter(code: &[u8], config: &HighlightConfiguration) -> String {
-    let mut highlighter = Highlighter::new();
-    let highlights = highlighter.highlight(config, code, None, |_| None).unwrap();
-    let mut renderer = HtmlRenderer::new();
-    renderer
-        .render(highlights, code, &TSHighlight::to_class_attribute_str)
-        .unwrap();
-    renderer.lines().collect()
+    let rendering = {
+        let mut highlighter = Highlighter::new();
+        let highlights = highlighter.highlight(config, code, None, |_| None).unwrap();
+        let mut renderer = HtmlRenderer::new();
+        renderer
+            .render(highlights, code, &TSHighlight::to_class_attribute_str)
+            .unwrap();
+        renderer
+    };
+    rendering.lines().collect()
 }
 
 // Convenience function for not highlighting code.
