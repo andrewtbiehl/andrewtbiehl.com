@@ -76,10 +76,6 @@ impl FromStr for Language {
     }
 }
 
-pub fn to_language(language_name: &str) -> Option<Language> {
-    Language::from_str(language_name).ok()
-}
-
 trait TSHighlightExt {
     fn to_class_attribute_str<'a>(self) -> &'a [u8];
 }

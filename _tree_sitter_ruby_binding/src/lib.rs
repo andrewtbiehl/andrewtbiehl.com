@@ -5,7 +5,9 @@ extern crate rutie;
 
 mod tree_sitter_adapter;
 
+use crate::tree_sitter_adapter::Language;
 use rutie::{Class, Object, RString};
+use std::str::FromStr;
 
 class!(TreeSitterAdapterRubyBinding);
 
@@ -15,7 +17,7 @@ methods!(
     fn highlight(raw_code: RString, raw_language_str: RString) -> RString {
         let code = raw_code.unwrap().to_string();
         let language_str = raw_language_str.unwrap().to_string();
-        let possible_language = tree_sitter_adapter::to_language(&language_str);
+        let possible_language = Language::from_str(&language_str).ok();
         let formatted_code = match possible_language {
             Some(language) => tree_sitter_adapter::highlight(&code, &language),
             None => tree_sitter_adapter::no_highlight(&code),
