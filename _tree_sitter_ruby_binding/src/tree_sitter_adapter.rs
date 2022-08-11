@@ -69,6 +69,10 @@ pub fn to_language(language_name: &str) -> Option<Language> {
     }
 }
 
+fn get_class_attribute<'a>(h: TSHighlight) -> &'a [u8] {
+    CLASS_ATTRIBUTE_STRINGS[h.0].as_bytes()
+}
+
 // Escapes HTML text content.
 //
 // Not intended for use on other HTML content, such as attribute content.
@@ -89,7 +93,6 @@ fn escape_text_html(text: &str) -> String {
 fn highlight_adapter(code: &[u8], config: &HighlightConfiguration) -> String {
     let mut highlighter = Highlighter::new();
     let highlights = highlighter.highlight(config, code, None, |_| None).unwrap();
-    let get_class_attribute = |h: TSHighlight| CLASS_ATTRIBUTE_STRINGS[h.0].as_bytes();
     let mut renderer = HtmlRenderer::new();
     renderer.render(highlights, code, &get_class_attribute).ok();
     renderer.lines().collect()
