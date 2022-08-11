@@ -69,8 +69,14 @@ pub fn to_language(language_name: &str) -> Option<Language> {
     }
 }
 
-fn get_class_attribute<'a>(highlight: TSHighlight) -> &'a [u8] {
-    CLASS_ATTRIBUTE_STRINGS[highlight.0].as_bytes()
+trait TSHighlightExt {
+    fn to_class_attribute_str<'a>(self) -> &'a [u8];
+}
+
+impl TSHighlightExt for TSHighlight {
+    fn to_class_attribute_str<'a>(self) -> &'a [u8] {
+        CLASS_ATTRIBUTE_STRINGS[self.0].as_bytes()
+    }
 }
 
 // Escapes HTML text content.
@@ -94,7 +100,9 @@ fn highlight_adapter(code: &[u8], config: &HighlightConfiguration) -> String {
     let mut highlighter = Highlighter::new();
     let highlights = highlighter.highlight(config, code, None, |_| None).unwrap();
     let mut renderer = HtmlRenderer::new();
-    renderer.render(highlights, code, &get_class_attribute).ok();
+    renderer
+        .render(highlights, code, &TSHighlight::to_class_attribute_str)
+        .ok();
     renderer.lines().collect()
 }
 
