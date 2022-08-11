@@ -109,7 +109,7 @@ fn highlight_adapter(code: &[u8], config: &HighlightConfiguration) -> String {
     let mut renderer = HtmlRenderer::new();
     renderer
         .render(highlights, code, &TSHighlight::to_class_attribute_str)
-        .ok();
+        .unwrap();
     renderer.lines().collect()
 }
 
