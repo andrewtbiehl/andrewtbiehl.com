@@ -69,8 +69,8 @@ pub fn to_language(language_name: &str) -> Option<Language> {
     }
 }
 
-fn get_class_attribute<'a>(h: TSHighlight) -> &'a [u8] {
-    CLASS_ATTRIBUTE_STRINGS[h.0].as_bytes()
+fn get_class_attribute<'a>(highlight: TSHighlight) -> &'a [u8] {
+    CLASS_ATTRIBUTE_STRINGS[highlight.0].as_bytes()
 }
 
 // Escapes HTML text content.
