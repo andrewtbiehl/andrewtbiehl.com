@@ -5,6 +5,7 @@
 // behavior of the Tree-sitter highlight library, which adds inline CSS to each
 // highlight block.
 
+use std::str::FromStr;
 use tree_sitter_highlight::{
     Highlight as TSHighlight, HighlightConfiguration, Highlighter, HtmlRenderer,
 };
@@ -62,11 +63,21 @@ impl Language {
     }
 }
 
-pub fn to_language(language_name: &str) -> Option<Language> {
-    match language_name {
-        "python" => Some(Language::Python),
-        _ => None,
+pub struct UnknownLanguageError;
+
+impl FromStr for Language {
+    type Err = UnknownLanguageError;
+
+    fn from_str(language_name: &str) -> Result<Self, Self::Err> {
+        match language_name {
+            "python" => Ok(Language::Python),
+            _ => Err(UnknownLanguageError),
+        }
     }
+}
+
+pub fn to_language(language_name: &str) -> Option<Language> {
+    Language::from_str(language_name).ok()
 }
 
 trait TSHighlightExt {
