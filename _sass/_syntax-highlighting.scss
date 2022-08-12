@@ -206,8 +206,22 @@ code[data-highlighter=tree-sitter] {
   }
 
   // Currently unused tokens
+  .b1, // _bool
+  .b2, // _boolean
+  .ch, // character
+  .cd, // conditional
   .ct, // constant
+  .ct-m, // constant.macro
+  .fl, // float
+  .i, // include
+  .l-d, // local.definition
+  .l-r, // local.reference
+  .na, // namespace
   .pr, // property
+  .pu-b, // punctuation.bracket
+  .pu-d, // punctuation.delimiter
+  .r, // repear
+  .sy, // symbol
   .t // type
   {
     // Background color is set to bright red to draw the developer's attention
