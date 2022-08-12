@@ -61,6 +61,13 @@ impl Language {
             Language::Python => &PYTHON_CONFIG,
         }
     }
+
+    #[allow(dead_code)]
+    fn scope<'a>(&self) -> &'a str {
+        match self {
+            Language::Python => "source.python",
+        }
+    }
 }
 
 pub struct UnknownLanguageError;
