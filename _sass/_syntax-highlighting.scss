@@ -160,6 +160,8 @@ code[data-highlighter=tree-sitter] {
   // Embedded code should not be the same color as its surroundings
   .em, // embedded
   // Punctuation should primarily fade to the background
+  .pu-b, // punctuation.bracket
+  .pu-d, // punctuation.delimiter
   .pu-s, // punctuation.special
   // The variable token is somewhat of a catch-all token
   .v // variable
@@ -218,8 +220,6 @@ code[data-highlighter=tree-sitter] {
   .l-r, // local.reference
   .na, // namespace
   .pr, // property
-  .pu-b, // punctuation.bracket
-  .pu-d, // punctuation.delimiter
   .r, // repear
   .sy, // symbol
   .t // type
