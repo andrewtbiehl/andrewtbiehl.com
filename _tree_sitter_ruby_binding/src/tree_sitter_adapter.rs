@@ -57,7 +57,7 @@ pub enum Language {
 
 impl Language {
     fn config(&self) -> &HighlightConfiguration {
-        match *self {
+        match self {
             Language::Python => &PYTHON_CONFIG,
         }
     }
