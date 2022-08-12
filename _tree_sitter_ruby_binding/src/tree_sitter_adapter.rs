@@ -53,7 +53,7 @@ const HIGHLIGHTS: [Highlight; 31] = [
 
 lazy_static! {
     static ref CLASS_ATTRIBUTE_STRINGS: [String; 31] =
-        HIGHLIGHTS.map(|highlight| format!("class=\"{}\"", highlight.class));
+        HIGHLIGHTS.map(|Highlight { class, .. }| format!("class=\"{}\"", class));
     static ref PARSER_LOADER: Loader = {
         let mut loader = Loader::new().unwrap();
         let parser_directories = {
