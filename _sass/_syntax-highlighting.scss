@@ -180,7 +180,8 @@ code[data-highlighter=tree-sitter] {
 
   // Keyword tokens
   .k, // keyword
-  .o // operator
+  .o, // operator
+  .v-b // variable.builtin
   {
     color: map-get($colors, "keyword");
   }
@@ -224,8 +225,7 @@ code[data-highlighter=tree-sitter] {
   .na, // namespace
   .pr, // property
   .r, // repeat
-  .sy, // symbol
-  .v-b // variable.builtin
+  .sy // symbol
   {
     // Background color is set to bright red to draw the developer's attention
     // If a once unused token is now being used, it needs to be handled accordingly
