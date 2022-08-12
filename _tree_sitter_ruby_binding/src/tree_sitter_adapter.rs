@@ -17,7 +17,8 @@ struct Highlight<'a> {
     pub class: &'a str,
 }
 
-const HIGHLIGHTS: [Highlight; 31] = [
+const HIGHLIGHTS: [Highlight; 34] = [
+    Highlight { name: "attribute",             class: "a"    },
     Highlight { name: "_bool",                 class: "b1"   },
     Highlight { name: "boolean",               class: "b2"   },
     Highlight { name: "character",             class: "ch"   },
@@ -48,11 +49,13 @@ const HIGHLIGHTS: [Highlight; 31] = [
     Highlight { name: "string",                class: "s"    },
     Highlight { name: "symbol",                class: "sy"   },
     Highlight { name: "type",                  class: "t"    },
+    Highlight { name: "type.builtin",          class: "t-b"  },
     Highlight { name: "variable",              class: "v"    },
+    Highlight { name: "variable.builtin",      class: "v-b"  },
 ];
 
 lazy_static! {
-    static ref CLASS_ATTRIBUTE_STRINGS: [String; 31] =
+    static ref CLASS_ATTRIBUTE_STRINGS: [String; 34] =
         HIGHLIGHTS.map(|Highlight { class, .. }| format!("class=\"{}\"", class));
     static ref PARSER_LOADER: Loader = {
         let mut loader = Loader::new().unwrap();
@@ -77,6 +80,7 @@ lazy_static! {
 
 pub enum Language {
     Haskell,
+    Java,
     Python,
 }
 
@@ -93,6 +97,7 @@ impl Language {
     fn scope<'a>(&self) -> &'a str {
         match self {
             Language::Haskell => "source.haskell",
+            Language::Java => "source.java",
             Language::Python => "source.python",
         }
     }
@@ -106,6 +111,7 @@ impl FromStr for Language {
     fn from_str(language_name: &str) -> Result<Self, Self::Err> {
         match language_name {
             "haskell" => Ok(Language::Haskell),
+            "java" => Ok(Language::Java),
             "python" => Ok(Language::Python),
             _ => Err(UnknownLanguageError),
         }
