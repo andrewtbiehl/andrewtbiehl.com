@@ -5,10 +5,12 @@
 // behavior of the Tree-sitter highlight library, which adds inline CSS to each
 // highlight block.
 
+use std::env;
 use std::str::FromStr;
 use tree_sitter_highlight::{
     Highlight as TSHighlight, HighlightConfiguration, Highlighter, HtmlRenderer,
 };
+use tree_sitter_loader::{Config, Loader};
 
 struct Highlight<'a> {
     pub name: &'a str,
@@ -38,16 +40,24 @@ const HIGHLIGHTS: [Highlight; 17] = [
 lazy_static! {
     static ref CLASS_ATTRIBUTE_STRINGS: [String; 17] =
         HIGHLIGHTS.map(|highlight| format!("class=\"{}\"", highlight.class));
-    static ref PYTHON_CONFIG: HighlightConfiguration = {
-        let mut config = HighlightConfiguration::new(
-            tree_sitter_python::language(),
-            tree_sitter_python::HIGHLIGHT_QUERY,
-            "",
-            "",
-        )
-        .unwrap();
-        config.configure(&HIGHLIGHTS.map(|highlight| highlight.name));
-        config
+    static ref PARSER_LOADER: Loader = {
+        let mut loader = Loader::new().unwrap();
+        let parser_directories = {
+            let parser_directory = env::current_dir()
+                .unwrap()
+                .join("_tree_sitter_ruby_binding")
+                .join("parsers");
+            vec![parser_directory]
+        };
+        loader
+            .find_all_languages(&Config { parser_directories })
+            .unwrap();
+        let highlight_names = HIGHLIGHTS
+            .map(|Highlight { name, .. }| name)
+            .map(String::from)
+            .to_vec();
+        loader.configure_highlights(&highlight_names);
+        loader
     };
 }
 
@@ -57,12 +67,14 @@ pub enum Language {
 
 impl Language {
     fn config(&self) -> &HighlightConfiguration {
-        match self {
-            Language::Python => &PYTHON_CONFIG,
-        }
+        PARSER_LOADER
+            .language_configuration_for_scope(self.scope())
+            .unwrap()
+            .and_then(|(language, config)| config.highlight_config(language).ok())
+            .unwrap()
+            .unwrap()
     }
 
-    #[allow(dead_code)]
     fn scope<'a>(&self) -> &'a str {
         match self {
             Language::Python => "source.python",
