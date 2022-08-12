@@ -186,7 +186,8 @@ code[data-highlighter=tree-sitter] {
   }
 
   // Type tokens
-  .cr // constructor
+  .cr, // constructor
+  .t // type
   {
     color: map-get($colors, "type");
   }
@@ -221,8 +222,7 @@ code[data-highlighter=tree-sitter] {
   .na, // namespace
   .pr, // property
   .r, // repear
-  .sy, // symbol
-  .t // type
+  .sy // symbol
   {
     // Background color is set to bright red to draw the developer's attention
     // If a once unused token is now being used, it needs to be handled accordingly
