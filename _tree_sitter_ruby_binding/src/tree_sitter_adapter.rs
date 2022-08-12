@@ -17,28 +17,42 @@ struct Highlight<'a> {
     pub class: &'a str,
 }
 
-const HIGHLIGHTS: [Highlight; 17] = [
-    Highlight { name: "comment",             class: "cm"   },
-    Highlight { name: "constant",            class: "ct"   },
-    Highlight { name: "constant.builtin",    class: "ct-b" },
-    Highlight { name: "constructor",         class: "cr"   },
-    Highlight { name: "embedded",            class: "em"   },
-    Highlight { name: "escape",              class: "es"   },
-    Highlight { name: "function",            class: "f"    },
-    Highlight { name: "function.builtin",    class: "f-b"  },
-    Highlight { name: "function.method",     class: "f-m"  },
-    Highlight { name: "keyword",             class: "k"    },
-    Highlight { name: "number",              class: "n"    },
-    Highlight { name: "operator",            class: "o"    },
-    Highlight { name: "property",            class: "pr"   },
-    Highlight { name: "punctuation.special", class: "pu-s" },
-    Highlight { name: "string",              class: "s"    },
-    Highlight { name: "type",                class: "t"    },
-    Highlight { name: "variable",            class: "v"    },
+const HIGHLIGHTS: [Highlight; 31] = [
+    Highlight { name: "_bool",                 class: "b1"   },
+    Highlight { name: "boolean",               class: "b2"   },
+    Highlight { name: "character",             class: "ch"   },
+    Highlight { name: "comment",               class: "cm"   },
+    Highlight { name: "conditional",           class: "cd"   },
+    Highlight { name: "constant",              class: "ct"   },
+    Highlight { name: "constant.builtin",      class: "ct-b" },
+    Highlight { name: "constant.macro",        class: "ct-m" },
+    Highlight { name: "constructor",           class: "cr"   },
+    Highlight { name: "embedded",              class: "em"   },
+    Highlight { name: "escape",                class: "es"   },
+    Highlight { name: "float",                 class: "fl"   },
+    Highlight { name: "function",              class: "f"    },
+    Highlight { name: "function.builtin",      class: "f-b"  },
+    Highlight { name: "function.method",       class: "f-m"  },
+    Highlight { name: "include",               class: "i"    },
+    Highlight { name: "keyword",               class: "k"    },
+    Highlight { name: "local.definition",      class: "l-d"  },
+    Highlight { name: "local.reference",       class: "l-r"  },
+    Highlight { name: "namespace",             class: "na"   },
+    Highlight { name: "number",                class: "n"    },
+    Highlight { name: "operator",              class: "o"    },
+    Highlight { name: "property",              class: "pr"   },
+    Highlight { name: "punctuation.bracket",   class: "pu-b" },
+    Highlight { name: "punctuation.delimiter", class: "pu-d" },
+    Highlight { name: "punctuation.special",   class: "pu-s" },
+    Highlight { name: "repeat",                class: "r"    },
+    Highlight { name: "string",                class: "s"    },
+    Highlight { name: "symbol",                class: "sy"   },
+    Highlight { name: "type",                  class: "t"    },
+    Highlight { name: "variable",              class: "v"    },
 ];
 
 lazy_static! {
-    static ref CLASS_ATTRIBUTE_STRINGS: [String; 17] =
+    static ref CLASS_ATTRIBUTE_STRINGS: [String; 31] =
         HIGHLIGHTS.map(|highlight| format!("class=\"{}\"", highlight.class));
     static ref PARSER_LOADER: Loader = {
         let mut loader = Loader::new().unwrap();
@@ -62,6 +76,7 @@ lazy_static! {
 }
 
 pub enum Language {
+    Haskell,
     Python,
 }
 
@@ -77,6 +92,7 @@ impl Language {
 
     fn scope<'a>(&self) -> &'a str {
         match self {
+            Language::Haskell => "source.haskell",
             Language::Python => "source.python",
         }
     }
@@ -89,6 +105,7 @@ impl FromStr for Language {
 
     fn from_str(language_name: &str) -> Result<Self, Self::Err> {
         match language_name {
+            "haskell" => Ok(Language::Haskell),
             "python" => Ok(Language::Python),
             _ => Err(UnknownLanguageError),
         }
