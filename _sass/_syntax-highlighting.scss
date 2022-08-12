@@ -209,6 +209,7 @@ code[data-highlighter=tree-sitter] {
   }
 
   // Currently unused tokens
+  .a, // attribute
   .b1, // _bool
   .b2, // _boolean
   .ch, // character
@@ -222,7 +223,9 @@ code[data-highlighter=tree-sitter] {
   .na, // namespace
   .pr, // property
   .r, // repeat
-  .sy // symbol
+  .sy, // symbol
+  .t-b, // type.builtin
+  .v-b // variable.builtin
   {
     // Background color is set to bright red to draw the developer's attention
     // If a once unused token is now being used, it needs to be handled accordingly
