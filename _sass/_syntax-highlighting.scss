@@ -187,7 +187,8 @@ code[data-highlighter=tree-sitter] {
 
   // Type tokens
   .cr, // constructor
-  .t // type
+  .t, // type
+  .t-b // type.builtin
   {
     color: map-get($colors, "type");
   }
@@ -224,7 +225,6 @@ code[data-highlighter=tree-sitter] {
   .pr, // property
   .r, // repeat
   .sy, // symbol
-  .t-b, // type.builtin
   .v-b // variable.builtin
   {
     // Background color is set to bright red to draw the developer's attention
