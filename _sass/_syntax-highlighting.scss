@@ -170,7 +170,7 @@ code[data-highlighter=tree-sitter] {
   }
 
   // Procedure tokens
-  .f, // function
+  .f, .f > .v, // function
   .f-b, // function.builtin
   .f-m // function.method
   {
