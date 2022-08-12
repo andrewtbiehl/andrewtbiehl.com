@@ -28,6 +28,15 @@ For a functional local development environment, make sure you have
 [Bundler](https://bundler.io/), and [Rust](https://www.rust-lang.org/learn/get-started)
 installed.
 
+This project also relies on
+[Git submodules](https://git-scm.com/docs/gitsubmodules#_description) for some of its
+functionality. Accordingly, **make sure to initialize recursive submodules** when
+cloning the project, for example with the following command:
+
+```console
+git clone --recurse-submodules https://github.com/andrewtbiehl/andrewtbiehl.com.git
+```
+
 Next, install the project's Ruby dependencies by running the following command from the
 root of the project:
 
