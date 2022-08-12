@@ -193,6 +193,7 @@ code[data-highlighter=tree-sitter] {
   }
 
   // Value tokens
+  .ct, // constant
   .ct-b, // constant.builtin
   .es, // escape
   .n, // number
@@ -214,7 +215,6 @@ code[data-highlighter=tree-sitter] {
   .b2, // _boolean
   .ch, // character
   .cd, // conditional
-  .ct, // constant
   .ct-m, // constant.macro
   .fl, // float
   .i, // include
