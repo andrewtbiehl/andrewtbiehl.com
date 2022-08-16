@@ -25,7 +25,7 @@ module CustomHtmlConverter
   # wrapped in a <code> element inside a <pre> element. A data attribute is also added
   # to the <code> element containing the language of the code block.
   #
-  # This customized version was built for use with the bare-bones
+  # This customized version was originally built for use with the bare-bones
   # Rouge::Formatters::HTML syntax highlighter and may produce unexpected results if
   # used incautiously with other highlighters.
   def convert_codeblock(element, indent)
@@ -51,7 +51,7 @@ module CustomHtmlConverter
   # attribute), then the code is also syntax highlighted and a data attribute is added
   # to the <code> element containing the associated language.
   #
-  # This customized version was built for use with the bare-bones
+  # This customized version was originally built for use with the bare-bones
   # Rouge::Formatters::HTML syntax highlighter and may produce unexpected results
   # if used incautiously with other highlighters.
   def convert_codespan(element, _indent) = _convert_codespan(element)
