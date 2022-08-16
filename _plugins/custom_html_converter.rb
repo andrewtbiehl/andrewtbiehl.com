@@ -2,6 +2,7 @@
 
 require 'kramdown'
 require 'set'
+require 'zlib'
 
 # Some minor customizations of Kramdown's HTML converter.
 module CustomHtmlConverter
@@ -30,7 +31,12 @@ module CustomHtmlConverter
   # used incautiously with other highlighters.
   def convert_codeblock(element, indent)
     raw_content, attributes, language = extract_code_information element
-    _convert_codeblock raw_content, attributes, language, indent
+    converter_name = if attributes['highlighter'] == 'compare'
+                       :convert_codeblock_with_highlighter_tabs
+                     else
+                       :_convert_codeblock
+                     end
+    method(converter_name).call raw_content, attributes, language, indent
   end
 
   # Formats an inline span of code.
@@ -90,6 +96,27 @@ module CustomHtmlConverter
       .then { format_as_span_html 'code', attributes, _1 }
   end
 
+  # Utility method for creating a bespoke HTML element for comparing syntax highlighters
+  # against a given code block.
+  def convert_codeblock_with_highlighter_tabs(raw_content, attributes, language, indent)
+    id = create_id raw_content
+    codeblocks = %w[rouge tree-sitter].collect do |highlighter|
+      updated_attributes = attributes.merge({ 'highlighter' => highlighter })
+      codeblock = _convert_codeblock raw_content, updated_attributes, language, indent
+      [highlighter, codeblock]
+    end.to_h
+    <<~HTML
+      <div class="syntax-highlighter-tabs">
+        <input type="radio" name="sht-#{id}" id="sht-#{id}-1" checked>
+        <label for="sht-#{id}-1">Rouge</label>
+        <input type="radio" name="sht-#{id}" id="sht-#{id}-2">
+        <label for="sht-#{id}-2">Tree-sitter</label>
+      #{codeblocks['rouge']}
+      #{codeblocks['tree-sitter']}
+      </div>
+    HTML
+  end
+
   # Utility method for extracting the content, attributes, and language of a block (or
   # span) of code, for use in formatting the code as HTML.
   def extract_code_information(element)
@@ -108,6 +135,10 @@ module CustomHtmlConverter
     # Override the default when a highlighter is explicity set
     attributes.delete('highlighter') { |_| default }
   end
+
+  # Utility method that creates an (effectively) unique numeric id based on the given
+  # string.
+  def create_id(string) = Zlib.crc32(string).to_s
 
   # Alias for accessing the global default language.
   def default_language = options[:syntax_highlighter_opts][:default_lang]

@@ -1,3 +1,5 @@
+$thin-black-line: 1px solid black;
+
 // Highlight link to resume
 #resume-notice {
   width: fit-content;
@@ -5,4 +7,61 @@
   border-radius: 4px;
   margin: -7px 0;
   padding: 4px 6px;
+}
+
+// Special tab-like element used for comparing syntax highlighters
+.syntax-highlighter-tabs {
+  // Imperfect solution for conforming to overall vertical rhythm
+  margin: -6px 0;
+  + .syntax-highlighter-tabs {
+    margin-top: 19px;
+  }
+
+  // Hide default input buttons
+  > input {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+
+  // Tab label
+  > label {
+    display: inline-block;
+
+    // Overlap with the tab body so that part of its border may be hidden
+    margin-bottom: -1px;
+    padding: 0 6px;
+
+    border: $thin-black-line;
+    border-radius: 4px 4px 0 0;
+
+    background-color: lighten(black, 80%);
+    cursor: pointer;
+  }
+
+  > input:checked + label {
+    background-color: white;
+    // Hide part of the tab body border
+    border-bottom-color: white;
+  }
+
+  // Tab body
+  > pre {
+    // Allow for some of the border to be hidden
+    z-index: -1;
+    margin: 0;
+
+    > code {
+      margin: 0;
+      border-top-left-radius: 0;
+    }
+  }
+
+  > input:first-of-type:checked ~ pre:last-of-type,
+  > input:last-of-type:checked ~ pre:first-of-type {
+    display: none;
+  }
 }
