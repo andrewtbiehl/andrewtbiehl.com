@@ -148,7 +148,11 @@ fn escape_text_html(text: &str) -> String {
 fn highlight_adapter(code: &[u8], config: &HighlightConfiguration) -> String {
     {
         let mut highlighter = Highlighter::new();
-        let highlights = highlighter.highlight(config, code, None, |_| None).unwrap();
+        let highlights = highlighter
+            .highlight(config, code, None, |s| {
+                PARSER_LOADER.highlight_config_for_injection_string(s)
+            })
+            .unwrap();
         let mut renderer = HtmlRenderer::new();
         renderer
             .render(highlights, code, &TSHighlight::to_class_attribute_str)
