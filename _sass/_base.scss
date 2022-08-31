@@ -181,7 +181,7 @@ pre {
   }
 
   // Hide language descriptor on selected code blocks
-  &.language-descriptor-hidden > code[data-language]::before {
+  &.lang-descriptor-hidden > code[data-language]::before {
     content: none;
   }
 }
