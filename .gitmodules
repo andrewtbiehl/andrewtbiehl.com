@@ -16,3 +16,6 @@
 [submodule "_tree_sitter_ruby_binding/parsers/tree-sitter-c"]
 	path = _tree_sitter_ruby_binding/parsers/tree-sitter-c
 	url = https://github.com/tree-sitter/tree-sitter-c.git
+[submodule "_tree_sitter_ruby_binding/parsers/tree-sitter-go"]
+	path = _tree_sitter_ruby_binding/parsers/tree-sitter-go
+	url = https://github.com/tree-sitter/tree-sitter-go.git
