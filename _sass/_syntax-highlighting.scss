@@ -219,13 +219,18 @@ code[data-highlighter=tree-sitter] {
   .cd, // conditional
   .ct-m, // constant.macro
   .fl, // float
+  .f-m-b, // function.method.builtin
   .i, // include
   .l-d, // local.definition
   .l-r, // local.reference
+  .l-s, // local.scope
   .na, // namespace
   .pr, // property
   .r, // repeat
-  .sy // symbol
+  .s-s-r, // string.special.regex
+  .s-s-s, // string.special.symbol
+  .sy, // symbol
+  .v-p // variable.parameter
   {
     // Background color is set to bright red to draw the developer's attention
     // If a once unused token is now being used, it needs to be handled accordingly

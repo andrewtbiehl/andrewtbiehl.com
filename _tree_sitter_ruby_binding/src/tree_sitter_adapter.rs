@@ -17,7 +17,7 @@ struct Highlight<'a> {
     pub class: &'a str,
 }
 
-const HIGHLIGHTS: [Highlight; 34] = [
+const HIGHLIGHTS: [Highlight; 39] = [
     Highlight { name: "attribute",             class: "a"    },
     Highlight { name: "_bool",                 class: "b1"   },
     Highlight { name: "boolean",               class: "b2"   },
@@ -34,10 +34,12 @@ const HIGHLIGHTS: [Highlight; 34] = [
     Highlight { name: "function",              class: "f"    },
     Highlight { name: "function.builtin",      class: "f-b"  },
     Highlight { name: "function.method",       class: "f-m"  },
+    Highlight { name: "function.method.builtin", class: "f-m-b" },
     Highlight { name: "include",               class: "i"    },
     Highlight { name: "keyword",               class: "k"    },
     Highlight { name: "local.definition",      class: "l-d"  },
     Highlight { name: "local.reference",       class: "l-r"  },
+    Highlight { name: "local.scope",           class: "l-s"  },
     Highlight { name: "namespace",             class: "na"   },
     Highlight { name: "number",                class: "n"    },
     Highlight { name: "operator",              class: "o"    },
@@ -47,15 +49,18 @@ const HIGHLIGHTS: [Highlight; 34] = [
     Highlight { name: "punctuation.special",   class: "pu-s" },
     Highlight { name: "repeat",                class: "r"    },
     Highlight { name: "string",                class: "s"    },
+    Highlight { name: "string.special.regex",  class: "s-s-r" },
+    Highlight { name: "string.special.symbol", class: "s-s-s" },
     Highlight { name: "symbol",                class: "sy"   },
     Highlight { name: "type",                  class: "t"    },
     Highlight { name: "type.builtin",          class: "t-b"  },
     Highlight { name: "variable",              class: "v"    },
     Highlight { name: "variable.builtin",      class: "v-b"  },
+    Highlight { name: "variable.parameter",    class: "v-p"  },
 ];
 
 lazy_static! {
-    static ref CLASS_ATTRIBUTE_STRINGS: [String; 34] =
+    static ref CLASS_ATTRIBUTE_STRINGS: [String; 39] =
         HIGHLIGHTS.map(|Highlight { class, .. }| format!("class=\"{}\"", class));
     static ref PARSER_LOADER: Loader = {
         let mut loader = Loader::new().unwrap();
@@ -82,6 +87,7 @@ pub enum Language {
     Haskell,
     Java,
     Python,
+    Ruby,
 }
 
 impl Language {
@@ -99,6 +105,7 @@ impl Language {
             Language::Haskell => "source.haskell",
             Language::Java => "source.java",
             Language::Python => "source.python",
+            Language::Ruby => "source.ruby",
         }
     }
 }
@@ -113,6 +120,7 @@ impl FromStr for Language {
             "haskell" => Ok(Language::Haskell),
             "java" => Ok(Language::Java),
             "python" => Ok(Language::Python),
+            "ruby" => Ok(Language::Ruby),
             _ => Err(UnknownLanguageError),
         }
     }
