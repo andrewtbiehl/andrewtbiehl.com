@@ -180,6 +180,11 @@ pre {
     text-transform: capitalize;
   }
 
+  // Capitalize entire name of each language with an acronym as a name
+  > code[data-language=yaml]::before, > code[data-language=html]::before {
+    text-transform: uppercase;
+  }
+
   // Hide language descriptor on selected code blocks
   &.lang-descriptor-hidden > code[data-language]::before {
     content: none;
