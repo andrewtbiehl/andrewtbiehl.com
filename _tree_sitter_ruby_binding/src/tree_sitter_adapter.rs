@@ -17,7 +17,7 @@ struct Highlight<'a> {
     pub class: &'a str,
 }
 
-const HIGHLIGHTS: [Highlight; 44] = [
+const HIGHLIGHTS: [Highlight; 46] = [
     Highlight { name: "attribute",               class: "a"     },
     Highlight { name: "_bool",                   class: "b1"    },
     Highlight { name: "boolean",                 class: "b2"    },
@@ -57,6 +57,8 @@ const HIGHLIGHTS: [Highlight; 44] = [
     Highlight { name: "string.special.regex",    class: "s-s-r" },
     Highlight { name: "string.special.symbol",   class: "s-s-s" },
     Highlight { name: "symbol",                  class: "sy"    },
+    Highlight { name: "tag",                     class: "tg"    },
+    Highlight { name: "tag.error",               class: "tg-e"  },
     Highlight { name: "type",                    class: "t"     },
     Highlight { name: "type.builtin",            class: "t-b"   },
     Highlight { name: "variable",                class: "v"     },
@@ -65,7 +67,7 @@ const HIGHLIGHTS: [Highlight; 44] = [
 ];
 
 lazy_static! {
-    static ref CLASS_ATTRIBUTE_STRINGS: [String; 44] =
+    static ref CLASS_ATTRIBUTE_STRINGS: [String; 46] =
         HIGHLIGHTS.map(|Highlight { class, .. }| format!("class=\"{}\"", class));
     static ref PARSER_LOADER: Loader = {
         let mut loader = Loader::new().unwrap();
@@ -92,6 +94,7 @@ pub enum Language {
     C,
     Go,
     Haskell,
+    Html,
     Java,
     Python,
     Ruby,
@@ -113,6 +116,7 @@ impl Language {
             Language::C => "source.c",
             Language::Go => "source.go",
             Language::Haskell => "source.haskell",
+            Language::Html => "text.html.basic",
             Language::Java => "source.java",
             Language::Python => "source.python",
             Language::Ruby => "source.ruby",
@@ -131,6 +135,7 @@ impl FromStr for Language {
             "c" => Ok(Language::C),
             "go" => Ok(Language::Go),
             "haskell" => Ok(Language::Haskell),
+            "html" => Ok(Language::Html),
             "java" => Ok(Language::Java),
             "python" => Ok(Language::Python),
             "ruby" => Ok(Language::Ruby),

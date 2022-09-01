@@ -235,6 +235,8 @@ code[data-highlighter=tree-sitter] {
   .s-s-r, // string.special.regex
   .s-s-s, // string.special.symbol
   .sy, // symbol
+  .tg, // tag
+  .tg-e, // tag.error
   .v-p // variable.parameter
   {
     // Background color is set to bright red to draw the developer's attention
