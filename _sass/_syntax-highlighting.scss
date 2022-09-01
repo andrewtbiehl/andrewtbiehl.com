@@ -218,9 +218,11 @@ code[data-highlighter=tree-sitter] {
   .ch, // character
   .cd, // conditional
   .ct-m, // constant.macro
+  .d, // delimiter
   .fl, // float
   .f-ma, // function.macro
   .f-m-b, // function.method.builtin
+  .f-s, // function.special
   .i, // include
   .ij-c, // injection.content
   .la, // label

@@ -17,7 +17,7 @@ struct Highlight<'a> {
     pub class: &'a str,
 }
 
-const HIGHLIGHTS: [Highlight; 42] = [
+const HIGHLIGHTS: [Highlight; 44] = [
     Highlight { name: "attribute",               class: "a"     },
     Highlight { name: "_bool",                   class: "b1"    },
     Highlight { name: "boolean",                 class: "b2"    },
@@ -28,6 +28,7 @@ const HIGHLIGHTS: [Highlight; 42] = [
     Highlight { name: "constant.builtin",        class: "ct-b"  },
     Highlight { name: "constant.macro",          class: "ct-m"  },
     Highlight { name: "constructor",             class: "cr"    },
+    Highlight { name: "delimiter",               class: "d"     },
     Highlight { name: "embedded",                class: "em"    },
     Highlight { name: "escape",                  class: "es"    },
     Highlight { name: "float",                   class: "fl"    },
@@ -36,6 +37,7 @@ const HIGHLIGHTS: [Highlight; 42] = [
     Highlight { name: "function.macro",          class: "f-ma"  },
     Highlight { name: "function.method",         class: "f-m"   },
     Highlight { name: "function.method.builtin", class: "f-m-b" },
+    Highlight { name: "function.special",        class: "f-s"   },
     Highlight { name: "include",                 class: "i"     },
     Highlight { name: "injection.content",       class: "ij-c"  },
     Highlight { name: "keyword",                 class: "k"     },
@@ -63,7 +65,7 @@ const HIGHLIGHTS: [Highlight; 42] = [
 ];
 
 lazy_static! {
-    static ref CLASS_ATTRIBUTE_STRINGS: [String; 42] =
+    static ref CLASS_ATTRIBUTE_STRINGS: [String; 44] =
         HIGHLIGHTS.map(|Highlight { class, .. }| format!("class=\"{}\"", class));
     static ref PARSER_LOADER: Loader = {
         let mut loader = Loader::new().unwrap();
@@ -87,6 +89,7 @@ lazy_static! {
 }
 
 pub enum Language {
+    C,
     Haskell,
     Java,
     Python,
@@ -106,6 +109,7 @@ impl Language {
 
     fn scope<'a>(&self) -> &'a str {
         match self {
+            Language::C => "source.c",
             Language::Haskell => "source.haskell",
             Language::Java => "source.java",
             Language::Python => "source.python",
@@ -122,6 +126,7 @@ impl FromStr for Language {
 
     fn from_str(language_name: &str) -> Result<Self, Self::Err> {
         match language_name {
+            "c" => Ok(Language::C),
             "haskell" => Ok(Language::Haskell),
             "java" => Ok(Language::Java),
             "python" => Ok(Language::Python),
