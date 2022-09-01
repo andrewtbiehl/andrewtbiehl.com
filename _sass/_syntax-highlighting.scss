@@ -223,15 +223,19 @@ code[data-highlighter=tree-sitter] {
   .f-ma, // function.macro
   .f-m-b, // function.method.builtin
   .f-s, // function.special
+  .g, //glimmer
   .i, // include
   .ij-c, // injection.content
+  .ij-l, // injection.language
   .la, // label
   .l-d, // local.definition
   .l-r, // local.reference
   .l-s, // local.scope
+  .nm, // _name
   .na, // namespace
   .pr, // property
   .r, // repeat
+  .s-s, // string.special
   .s-s-r, // string.special.regex
   .s-s-s, // string.special.symbol
   .sy, // symbol

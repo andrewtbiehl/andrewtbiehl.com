@@ -17,7 +17,7 @@ struct Highlight<'a> {
     pub class: &'a str,
 }
 
-const HIGHLIGHTS: [Highlight; 46] = [
+const HIGHLIGHTS: [Highlight; 50] = [
     Highlight { name: "attribute",               class: "a"     },
     Highlight { name: "_bool",                   class: "b1"    },
     Highlight { name: "boolean",                 class: "b2"    },
@@ -38,13 +38,16 @@ const HIGHLIGHTS: [Highlight; 46] = [
     Highlight { name: "function.method",         class: "f-m"   },
     Highlight { name: "function.method.builtin", class: "f-m-b" },
     Highlight { name: "function.special",        class: "f-s"   },
+    Highlight { name: "glimmer",                 class: "g"     },
     Highlight { name: "include",                 class: "i"     },
     Highlight { name: "injection.content",       class: "ij-c"  },
+    Highlight { name: "injection.language",      class: "ij-l"  },
     Highlight { name: "keyword",                 class: "k"     },
     Highlight { name: "label",                   class: "la"    },
     Highlight { name: "local.definition",        class: "l-d"   },
     Highlight { name: "local.reference",         class: "l-r"   },
     Highlight { name: "local.scope",             class: "l-s"   },
+    Highlight { name: "_name",                   class: "nm"    },
     Highlight { name: "namespace",               class: "na"    },
     Highlight { name: "number",                  class: "n"     },
     Highlight { name: "operator",                class: "o"     },
@@ -54,6 +57,7 @@ const HIGHLIGHTS: [Highlight; 46] = [
     Highlight { name: "punctuation.special",     class: "pu-s"  },
     Highlight { name: "repeat",                  class: "r"     },
     Highlight { name: "string",                  class: "s"     },
+    Highlight { name: "string.special",          class: "s-s"   },
     Highlight { name: "string.special.regex",    class: "s-s-r" },
     Highlight { name: "string.special.symbol",   class: "s-s-s" },
     Highlight { name: "symbol",                  class: "sy"    },
@@ -67,7 +71,7 @@ const HIGHLIGHTS: [Highlight; 46] = [
 ];
 
 lazy_static! {
-    static ref CLASS_ATTRIBUTE_STRINGS: [String; 46] =
+    static ref CLASS_ATTRIBUTE_STRINGS: [String; 50] =
         HIGHLIGHTS.map(|Highlight { class, .. }| format!("class=\"{}\"", class));
     static ref PARSER_LOADER: Loader = {
         let mut loader = Loader::new().unwrap();
@@ -96,6 +100,7 @@ pub enum Language {
     Haskell,
     Html,
     Java,
+    JavaScript,
     Python,
     Ruby,
     Rust,
@@ -118,6 +123,7 @@ impl Language {
             Language::Haskell => "source.haskell",
             Language::Html => "text.html.basic",
             Language::Java => "source.java",
+            Language::JavaScript => "source.js",
             Language::Python => "source.python",
             Language::Ruby => "source.ruby",
             Language::Rust => "source.rust",
@@ -137,6 +143,7 @@ impl FromStr for Language {
             "haskell" => Ok(Language::Haskell),
             "html" => Ok(Language::Html),
             "java" => Ok(Language::Java),
+            "javascript" => Ok(Language::JavaScript),
             "python" => Ok(Language::Python),
             "ruby" => Ok(Language::Ruby),
             "rust" => Ok(Language::Rust),
