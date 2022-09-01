@@ -17,7 +17,7 @@ struct Highlight<'a> {
     pub class: &'a str,
 }
 
-const HIGHLIGHTS: [Highlight; 39] = [
+const HIGHLIGHTS: [Highlight; 42] = [
     Highlight { name: "attribute",               class: "a"     },
     Highlight { name: "_bool",                   class: "b1"    },
     Highlight { name: "boolean",                 class: "b2"    },
@@ -33,10 +33,13 @@ const HIGHLIGHTS: [Highlight; 39] = [
     Highlight { name: "float",                   class: "fl"    },
     Highlight { name: "function",                class: "f"     },
     Highlight { name: "function.builtin",        class: "f-b"   },
+    Highlight { name: "function.macro",          class: "f-ma"  },
     Highlight { name: "function.method",         class: "f-m"   },
     Highlight { name: "function.method.builtin", class: "f-m-b" },
     Highlight { name: "include",                 class: "i"     },
+    Highlight { name: "injection.content",       class: "ij-c"  },
     Highlight { name: "keyword",                 class: "k"     },
+    Highlight { name: "label",                   class: "la"    },
     Highlight { name: "local.definition",        class: "l-d"   },
     Highlight { name: "local.reference",         class: "l-r"   },
     Highlight { name: "local.scope",             class: "l-s"   },
@@ -60,7 +63,7 @@ const HIGHLIGHTS: [Highlight; 39] = [
 ];
 
 lazy_static! {
-    static ref CLASS_ATTRIBUTE_STRINGS: [String; 39] =
+    static ref CLASS_ATTRIBUTE_STRINGS: [String; 42] =
         HIGHLIGHTS.map(|Highlight { class, .. }| format!("class=\"{}\"", class));
     static ref PARSER_LOADER: Loader = {
         let mut loader = Loader::new().unwrap();
@@ -88,6 +91,7 @@ pub enum Language {
     Java,
     Python,
     Ruby,
+    Rust,
 }
 
 impl Language {
@@ -106,6 +110,7 @@ impl Language {
             Language::Java => "source.java",
             Language::Python => "source.python",
             Language::Ruby => "source.ruby",
+            Language::Rust => "source.rust",
         }
     }
 }
@@ -121,6 +126,7 @@ impl FromStr for Language {
             "java" => Ok(Language::Java),
             "python" => Ok(Language::Python),
             "ruby" => Ok(Language::Ruby),
+            "rust" => Ok(Language::Rust),
             _ => Err(UnknownLanguageError),
         }
     }

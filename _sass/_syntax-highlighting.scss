@@ -219,8 +219,11 @@ code[data-highlighter=tree-sitter] {
   .cd, // conditional
   .ct-m, // constant.macro
   .fl, // float
+  .f-ma, // function.macro
   .f-m-b, // function.method.builtin
   .i, // include
+  .ij-c, // injection.content
+  .la, // label
   .l-d, // local.definition
   .l-r, // local.reference
   .l-s, // local.scope
