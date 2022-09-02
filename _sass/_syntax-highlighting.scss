@@ -189,6 +189,12 @@ code[data-highlighter=tree-sitter] {
     background-color: transparent;
   }
 
+  // Distinguish parameter variables from other variables
+  .v-p // variable.parameter
+  {
+    text-decoration: underline;
+  }
+
   // Procedure tokens
   .f, .f > .v, // function
   .f-b, // function.builtin
