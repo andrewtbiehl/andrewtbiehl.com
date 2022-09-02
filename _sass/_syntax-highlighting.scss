@@ -47,8 +47,7 @@ code[data-highlighter=rouge] {
   }
   // The Java lexer unfortunately categorizes all punctuation marks as operators
   // Hence Java is better left excluded when syntax-highlighting operators
-  // Additional languages should be added to this list as needed
-  &[data-language=console], &[data-language=haskell], &[data-language=python] {
+  &:not([data-language=java]) {
     .o, // Operator
     .ow // Operator.Word
     {
