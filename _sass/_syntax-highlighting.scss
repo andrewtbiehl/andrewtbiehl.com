@@ -205,6 +205,12 @@ code[data-highlighter=tree-sitter] {
     font-style: italic;
   }
 
+  // Distinguish macros from normal procedures
+  .f-ma // function.macro
+  {
+    font-weight: bold;
+  }
+
   // Keyword tokens
   .cd, // conditional
   .f-m-b, // function.method.builtin
