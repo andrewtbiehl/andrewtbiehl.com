@@ -176,11 +176,13 @@ code[data-highlighter=tree-sitter] {
   // Embedded code should not be the same color as its surroundings
   .em, // embedded
   // Punctuation should primarily fade to the background
+  .d, // delimiter
   .pu-b, // punctuation.bracket
   .pu-d, // punctuation.delimiter
   .pu-s, // punctuation.special
   // The variable token is somewhat of a catch-all token
-  .v // variable
+  .v, // variable
+  .v-p // variable.parameter
   {
     color: black;
   }
@@ -188,6 +190,7 @@ code[data-highlighter=tree-sitter] {
   // Procedure tokens
   .f, .f > .v, // function
   .f-b, // function.builtin
+  .f-ma, // function.macro
   .f-m // function.method
   {
     color: map-get($colors, "procedure");
@@ -195,8 +198,12 @@ code[data-highlighter=tree-sitter] {
   }
 
   // Keyword tokens
+  .cd, // conditional
+  .f-m-b, // function.method.builtin
+  .i, // include
   .k, // keyword
   .o, // operator
+  .tg, // tag
   .v-b // variable.builtin
   {
     color: map-get($colors, "keyword");
@@ -204,6 +211,7 @@ code[data-highlighter=tree-sitter] {
 
   // Type tokens
   .cr, // constructor
+  .na, // namespace
   .t, // type
   .t-b // type.builtin
   {
@@ -215,7 +223,8 @@ code[data-highlighter=tree-sitter] {
   .ct-b, // constant.builtin
   .es, // escape
   .n, // number
-  .s // string
+  .s, // string
+  .s-s-s // string.special.symbol
   {
     color: map-get($colors, "value");
   }
@@ -239,15 +248,10 @@ code[data-highlighter=tree-sitter] {
   .b1, // _bool
   .b2, // _boolean
   .ch, // character
-  .cd, // conditional
   .ct-m, // constant.macro
-  .d, // delimiter
   .fl, // float
-  .f-ma, // function.macro
-  .f-m-b, // function.method.builtin
   .f-s, // function.special
   .g, //glimmer
-  .i, // include
   .ij-c, // injection.content
   .ij-l, // injection.language
   .la, // label
@@ -255,15 +259,11 @@ code[data-highlighter=tree-sitter] {
   .l-r, // local.reference
   .l-s, // local.scope
   .nm, // _name
-  .na, // namespace
   .r, // repeat
   .s-s, // string.special
   .s-s-r, // string.special.regex
-  .s-s-s, // string.special.symbol
   .sy, // symbol
-  .tg, // tag
-  .tg-e, // tag.error
-  .v-p // variable.parameter
+  .tg-e // tag.error
   {
     // Background color is set to bright red to draw the developer's attention
     // If a once unused token is now being used, it needs to be handled accordingly
