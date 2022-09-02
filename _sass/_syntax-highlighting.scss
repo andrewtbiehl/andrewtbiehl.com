@@ -42,18 +42,13 @@ code[data-highlighter=rouge] {
   .kd, // Keyword.Declaration
   .kn, // Keyword.Namespace
   .kr, // Keyword.Reserved
-  .nt // Name.Tag
-  {
-    color: map-get($colors, "keyword");
-  }
+  .nt, // Name.Tag
   // The Java lexer unfortunately categorizes all punctuation marks as operators
   // Hence Java is better left excluded when syntax-highlighting operators
-  &:not([data-language=java]) {
-    .o, // Operator
-    .ow // Operator.Word
-    {
-      color: map-get($colors, "keyword");
-    }
+  &:not([data-language=java]) .o, // Operator
+  &:not([data-language=java]) .ow // Operator.Word
+  {
+    color: map-get($colors, "keyword");
   }
 
   // Type tokens
