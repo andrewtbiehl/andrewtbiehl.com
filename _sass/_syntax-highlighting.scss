@@ -4,6 +4,7 @@ $colors: (
   "value": #049,
   "procedure": #738,
   "comment": gray,
+  "attribute": #162,
   "output": #444,
   "prompt": gray
 );
@@ -82,6 +83,16 @@ code[data-highlighter=rouge] {
     font-style: italic;
   }
 
+  // Attribute tokens
+  &[data-language=html] .na, // Name.Attribute
+  &[data-language=yaml] .na, // Name.Attribute
+  &[data-language=markdown] .nl, // Name.Label
+  .py // Name.Property
+  {
+    color: map-get($colors, "attribute");
+    font-style: italic;
+  }
+
   .go // Generic.Output
   {
     color: map-get($colors, "output");
@@ -105,7 +116,6 @@ code[data-highlighter=rouge] {
   .ne, // Name.Exception
   .fm, // Name.Function.Magic
   .nx, // Name.Other
-  .py, // Name.Property
   .nt, // Name.Tag
   .nv, // Name.Variable
   .vc, // Name.Variable.Class
@@ -217,8 +227,15 @@ code[data-highlighter=tree-sitter] {
     font-style: italic;
   }
 
-  // Currently unused tokens
+  // Attribute tokens
   .a, // attribute
+  .pr // property
+  {
+    color: map-get($colors, "attribute");
+    font-style: italic;
+  }
+
+  // Currently unused tokens
   .b1, // _bool
   .b2, // _boolean
   .ch, // character
@@ -239,7 +256,6 @@ code[data-highlighter=tree-sitter] {
   .l-s, // local.scope
   .nm, // _name
   .na, // namespace
-  .pr, // property
   .r, // repeat
   .s-s, // string.special
   .s-s-r, // string.special.regex
