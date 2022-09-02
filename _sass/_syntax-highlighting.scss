@@ -18,7 +18,7 @@ code[data-highlighter=rouge] {
   .n, // Name
   .na, // Name.Attribute
   .nl, // Name.Label
-  .nn, // Name.Namespace
+  .nx, // Name.Other
   // String interpolation characters are arguably just punctuation
   .si, // Literal.String.Interpol
   // See the keyword tokens operators comment for more information
@@ -41,7 +41,8 @@ code[data-highlighter=rouge] {
   .k, // Keyword
   .kd, // Keyword.Declaration
   .kn, // Keyword.Namespace
-  .kr // Keyword.Reserved
+  .kr, // Keyword.Reserved
+  .nt // Name.Tag
   {
     color: map-get($colors, "keyword");
   }
@@ -58,7 +59,9 @@ code[data-highlighter=rouge] {
   // Type tokens
   .kt, // Keyword.Type
   .nb, // Name.Builtin
-  .nc // Name.Class
+  .nc, // Name.Class
+  // Namespaces as types is imperfect but types often show up in function namespacing
+  .nn // Name.Namespace
   {
     color: map-get($colors, "type");
   }
@@ -66,9 +69,13 @@ code[data-highlighter=rouge] {
   // Value tokens
   .kc, // Keyword.Constant
   .bp, // Name.Builtin.Pseudo
+  .cp, // Comment.Preproc
   .no, // Name.Constant
   .s, // Literal.String
   .sa, // Literal.String.Affix
+  .sb, // Literal.String.Backtick
+  .dl, // Literal.String.Delimiter
+  .s2, // Literal.String.Double
   .mi // Literal.Number.Integer
   {
     color: map-get($colors, "value");
@@ -114,8 +121,6 @@ code[data-highlighter=rouge] {
   .ni, // Name.Entity
   .ne, // Name.Exception
   .fm, // Name.Function.Magic
-  .nx, // Name.Other
-  .nt, // Name.Tag
   .nv, // Name.Variable
   .vc, // Name.Variable.Class
   .vg, // Name.Variable.Global
@@ -125,11 +130,8 @@ code[data-highlighter=rouge] {
   // Literal
   .l,
   .ld, // Literal.Date
-  .sb, // Literal.String.Backtick
   .sc, // Literal.String.Char
-  .dl, // Literal.String.Delimiter
   .sd, // Literal.String.Doc
-  .s2, // Literal.String.Double
   .se, // Literal.String.Escape
   .sh, // Literal.String.Heredoc
   .sx, // Literal.String.Other
@@ -149,7 +151,6 @@ code[data-highlighter=rouge] {
   // Comment
   .c,
   .ch, // Comment.Hashbang
-  .cp, // Comment.Preproc
   .cpf, // Comment.PreprocFile
   .cs, // Comment.Special
 
