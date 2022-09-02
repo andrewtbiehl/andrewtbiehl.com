@@ -227,6 +227,7 @@ code[data-highlighter=tree-sitter] {
   .s-s-s // string.special.symbol
   {
     color: map-get($colors, "value");
+    font-style: normal;
   }
 
   // Comment tokens
