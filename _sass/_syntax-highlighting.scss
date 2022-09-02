@@ -170,16 +170,21 @@ code[data-highlighter=tree-sitter] {
   // Tokens left "unhighlighted" for a variety of reasons
   // Embedded code should not be the same color as its surroundings
   .em, // embedded
-  // Punctuation should primarily fade to the background
+  // Delimiters should primarily fade to the background
   .d, // delimiter
-  .pu-b, // punctuation.bracket
-  .pu-d, // punctuation.delimiter
-  .pu-s, // punctuation.special
   // The variable token is somewhat of a catch-all token
   .v, // variable
   .v-p // variable.parameter
   {
     color: black;
+  }
+
+  // Punctuation should assume the color of its container
+  .pu-b, // punctuation.bracket
+  .pu-d, // punctuation.delimiter
+  .pu-s, // punctuation.special
+  {
+    background-color: transparent;
   }
 
   // Procedure tokens
