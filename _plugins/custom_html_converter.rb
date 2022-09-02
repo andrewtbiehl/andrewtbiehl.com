@@ -6,7 +6,7 @@ require 'zlib'
 
 # Some minor customizations of Kramdown's HTML converter.
 module CustomHtmlConverter
-  TREE_SITTER_LANGUAGES = Set['java', 'python'].freeze
+  TREE_SITTER_LANGUAGES = Set['java', 'python', 'ruby', 'rust'].freeze
   LANGUAGE_DATA_ATTRIBUTE_NAME = 'data-language'
   HIGHLIGHTER_DATA_ATTRIBUTE_NAME = 'data-highlighter'
 
