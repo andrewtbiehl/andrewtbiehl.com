@@ -42,6 +42,8 @@ code[data-highlighter=rouge] {
   .kd, // Keyword.Declaration
   .kn, // Keyword.Namespace
   .kr, // Keyword.Reserved
+  // This class is used for keywords in other languages but apparently not in Ruby
+  &[data-language=ruby] .nb, // Name.Builtin
   .nt, // Name.Tag
   // The Java lexer unfortunately categorizes all punctuation marks as operators
   // Hence Java is better left excluded when syntax-highlighting operators
