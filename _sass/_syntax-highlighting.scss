@@ -16,7 +16,6 @@ code[data-highlighter=rouge] {
   // Most tokens are lumped into the category of "names" by the less-than-ideal lexer
   .n, // Name
   .na, // Name.Attribute
-  .nf, // Name.Function
   .nl, // Name.Label
   .nn, // Name.Namespace
   // String interpolation characters are arguably just punctuation
@@ -28,6 +27,13 @@ code[data-highlighter=rouge] {
   .p // Punctuation
   {
     color: black;
+  }
+
+  // Procedure tokens
+  .nf // Name.Function
+  {
+    color: map-get($colors, "procedure");
+    font-style: italic;
   }
 
   // Keyword tokens
