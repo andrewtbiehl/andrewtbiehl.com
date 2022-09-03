@@ -96,6 +96,7 @@ lazy_static! {
 
 pub enum Language {
     C,
+    CPlusPlus,
     Go,
     Haskell,
     Html,
@@ -119,6 +120,7 @@ impl Language {
     fn scope<'a>(&self) -> &'a str {
         match self {
             Language::C => "source.c",
+            Language::CPlusPlus => "source.cpp",
             Language::Go => "source.go",
             Language::Haskell => "source.haskell",
             Language::Html => "text.html.basic",
@@ -139,6 +141,7 @@ impl FromStr for Language {
     fn from_str(language_name: &str) -> Result<Self, Self::Err> {
         match language_name {
             "c" => Ok(Language::C),
+            "cpp" => Ok(Language::CPlusPlus),
             "go" => Ok(Language::Go),
             "haskell" => Ok(Language::Haskell),
             "html" => Ok(Language::Html),

@@ -185,6 +185,11 @@ pre {
     text-transform: uppercase;
   }
 
+  // Improve the display name of C++
+  > code[data-language=cpp]::before {
+    content: "c++";
+  }
+
   // Hide language descriptor on selected code blocks
   &.lang-descriptor-hidden > code[data-language]::before {
     content: none;

@@ -28,3 +28,6 @@ exclude:
   - LICENSE.txt
   - NOTICE.txt
   - README.md
+  # Included so that it's ignored when watching for file changes
+  # Should not be watched due to the presence of symbolic links
+  - _tree_sitter_ruby_binding
