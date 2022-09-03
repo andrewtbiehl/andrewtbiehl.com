@@ -17,7 +17,7 @@ struct Highlight<'a> {
     pub class: &'a str,
 }
 
-const HIGHLIGHTS: [Highlight; 50] = [
+const HIGHLIGHTS: [Highlight; 48] = [
     Highlight { name: "attribute",               class: "a"     },
     Highlight { name: "_bool",                   class: "b1"    },
     Highlight { name: "boolean",                 class: "b2"    },
@@ -38,7 +38,6 @@ const HIGHLIGHTS: [Highlight; 50] = [
     Highlight { name: "function.method",         class: "f-m"   },
     Highlight { name: "function.method.builtin", class: "f-m-b" },
     Highlight { name: "function.special",        class: "f-s"   },
-    Highlight { name: "glimmer",                 class: "g"     },
     Highlight { name: "include",                 class: "i"     },
     Highlight { name: "injection.content",       class: "ij-c"  },
     Highlight { name: "injection.language",      class: "ij-l"  },
@@ -47,7 +46,6 @@ const HIGHLIGHTS: [Highlight; 50] = [
     Highlight { name: "local.definition",        class: "l-d"   },
     Highlight { name: "local.reference",         class: "l-r"   },
     Highlight { name: "local.scope",             class: "l-s"   },
-    Highlight { name: "_name",                   class: "nm"    },
     Highlight { name: "namespace",               class: "na"    },
     Highlight { name: "number",                  class: "n"     },
     Highlight { name: "operator",                class: "o"     },
@@ -71,7 +69,7 @@ const HIGHLIGHTS: [Highlight; 50] = [
 ];
 
 lazy_static! {
-    static ref CLASS_ATTRIBUTE_STRINGS: [String; 50] =
+    static ref CLASS_ATTRIBUTE_STRINGS: [String; 48] =
         HIGHLIGHTS.map(|Highlight { class, .. }| format!("class=\"{}\"", class));
     static ref PARSER_LOADER: Loader = {
         let mut loader = Loader::new().unwrap();
