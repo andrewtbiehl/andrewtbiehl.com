@@ -190,6 +190,11 @@ pre {
     content: "c++";
   }
 
+  // Improve the display name of TypeScript
+  > code[data-language=typescript]::before {
+    content: "TypeScript";
+  }
+
   // Hide language descriptor on selected code blocks
   &.lang-descriptor-hidden > code[data-language]::before {
     content: none;

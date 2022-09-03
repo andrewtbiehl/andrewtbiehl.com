@@ -56,6 +56,7 @@ code[data-highlighter=rouge] {
 
   // Type tokens
   .kt, // Keyword.Type
+  &[data-language=typescript] .kr, // Keyword.Reserved
   .nb, // Name.Builtin
   .nc, // Name.Class
   // Namespaces as types is imperfect but types often show up in function namespacing
@@ -91,6 +92,7 @@ code[data-highlighter=rouge] {
   &[data-language=html] .na, // Name.Attribute
   &[data-language=yaml] .na, // Name.Attribute
   &[data-language=markdown] .nl, // Name.Label
+  &[data-language=typescript] .nl, // Name.Label
   .py // Name.Property
   {
     color: map-get($colors, "attribute");

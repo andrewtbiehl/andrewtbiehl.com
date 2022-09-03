@@ -103,6 +103,7 @@ pub enum Language {
     Python,
     Ruby,
     Rust,
+    TypeScript,
 }
 
 impl Language {
@@ -127,6 +128,7 @@ impl Language {
             Language::Python => "source.python",
             Language::Ruby => "source.ruby",
             Language::Rust => "source.rust",
+            Language::TypeScript => "source.ts",
         }
     }
 }
@@ -148,6 +150,7 @@ impl FromStr for Language {
             "python" => Ok(Language::Python),
             "ruby" => Ok(Language::Ruby),
             "rust" => Ok(Language::Rust),
+            "typescript" => Ok(Language::TypeScript),
             _ => Err(UnknownLanguageError),
         }
     }

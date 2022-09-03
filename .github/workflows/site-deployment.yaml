@@ -20,6 +20,7 @@ jobs:
         working-directory: _tree_sitter_ruby_binding/parsers
         run: |
           ln -s .. tree-sitter-cpp/node_modules
+          ln -s .. tree-sitter-typescript/node_modules
       - name: Determine project Ruby version
         run: |
           RUBY_VERSION=$(
