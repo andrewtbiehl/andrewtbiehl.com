@@ -31,6 +31,12 @@ code[data-highlighter=rouge] {
     color: black;
   }
 
+  // Distinguish constants from other variables
+  .no // Name.Constant
+  {
+    font-weight: bold;
+  }
+
   // Procedure tokens
   .nf // Name.Function
   {
@@ -198,6 +204,12 @@ code[data-highlighter=tree-sitter] {
   .v-p // variable.parameter
   {
     text-decoration: underline;
+  }
+
+  // Distinguish constants from other variables
+  &:not([data-language=html]) .ct // constant
+  {
+     font-weight: bold;
   }
 
   // Procedure tokens
