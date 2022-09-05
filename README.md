@@ -66,3 +66,13 @@ in the site.
 
 Feel free to reach out if you have any comments or questions! My contact information can
 be found [on the website](https://andrewtbiehl.com/about#contact-me).
+
+## License
+
+The content of this blog is licensed under the
+[Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0).
+
+The source code for this blog is licensed under the MIT license.
+
+The text of both licenses can be found in
+[this project's LICENSE.txt file](LICENSE.txt).

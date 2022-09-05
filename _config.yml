@@ -25,5 +25,6 @@ header_pages:
   - path: about.md
     title: About
 exclude:
+  - LICENSE.txt
   - NOTICE.txt
   - README.md
