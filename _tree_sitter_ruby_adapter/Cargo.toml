@@ -1,11 +1,11 @@
 [package]
-name = 'tree_sitter_ruby_binding'
+name = 'tree_sitter_ruby_adapter'
 version = '0.0.0'
 edition = '2021'
 rust-version = '1.62.1'
 
 [lib]
-name = 'tree_sitter_ruby_binding'
+name = 'tree_sitter_ruby_adapter'
 crate-type = ['cdylib']
 
 [dependencies]

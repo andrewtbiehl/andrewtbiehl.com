@@ -9,10 +9,10 @@ use crate::tree_sitter_adapter::Language;
 use rutie::{Class, Object, RString};
 use std::str::FromStr;
 
-class!(TreeSitterAdapterRubyBinding);
+class!(TreeSitterRubyAdapter);
 
 methods!(
-    TreeSitterAdapterRubyBinding,
+    TreeSitterRubyAdapter,
     _rtself,
     fn highlight(raw_code: RString, raw_language_str: RString) -> RString {
         let formatted_code = {
@@ -32,7 +32,7 @@ methods!(
 
 #[no_mangle]
 pub extern "C" fn init() {
-    Class::new("TreeSitterAdapterRubyBinding", None).define(|class_| {
+    Class::new("TreeSitterRubyAdapter", None).define(|class_| {
         class_.def_self("highlight", highlight);
     });
 }

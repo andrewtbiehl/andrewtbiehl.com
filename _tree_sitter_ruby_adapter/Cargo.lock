@@ -315,7 +315,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "tree_sitter_ruby_binding"
+name = "tree_sitter_ruby_adapter"
 version = "0.0.0"
 dependencies = [
  "lazy_static",
