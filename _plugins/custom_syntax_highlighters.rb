@@ -3,7 +3,7 @@
 require 'kramdown/converter/syntax_highlighter/rouge'
 require 'rutie'
 
-Rutie.new(:tree_sitter_ruby_binding).init 'init', '_tree_sitter_ruby_binding/target/'
+Rutie.new(:tree_sitter_ruby_binding).init 'init', '_tree_sitter_ruby_adapter/target/'
 
 # Some custom Kramdown syntax highlighters.
 module Kramdown

@@ -11,7 +11,7 @@ updates:
     labels:
       - dependencies
   - package-ecosystem: cargo
-    directory: /_tree_sitter_ruby_binding
+    directory: /_tree_sitter_ruby_adapter
     schedule:
       interval: daily
     pull-request-branch-name:

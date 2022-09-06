@@ -17,7 +17,7 @@ jobs:
         with:
           submodules: recursive
       - name: Resolve submodule dependencies
-        working-directory: _tree_sitter_ruby_binding/parsers
+        working-directory: _tree_sitter_ruby_adapter/parsers
         run: |
           ln -s .. tree-sitter-cpp/node_modules
           ln -s .. tree-sitter-typescript/node_modules
@@ -42,7 +42,7 @@ jobs:
           path: ~/.cargo
       - name: Install project Rust
         if: ${{!steps.restore-project-rust-cache.outputs.cache-hit}}
-        working-directory: _tree_sitter_ruby_binding
+        working-directory: _tree_sitter_ruby_adapter
         run: |
           RUST_VERSION=$(
             sed --silent --regexp-extended "s/^rust-version = '(.*)'$/\1/p" Cargo.toml
@@ -50,7 +50,7 @@ jobs:
           rustup install $RUST_VERSION
           rustup default $RUST_VERSION
       - name: Build Tree-sitter Ruby binding library
-        working-directory: _tree_sitter_ruby_binding
+        working-directory: _tree_sitter_ruby_adapter
         run: cargo build --release
       - name: Build site
         run: bundle exec jekyll build

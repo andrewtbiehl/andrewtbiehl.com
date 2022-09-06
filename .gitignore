@@ -3,4 +3,4 @@ _site/
 .jekyll-cache/
 
 # Rust
-_tree_sitter_ruby_binding/target/
+_tree_sitter_ruby_adapter/target/

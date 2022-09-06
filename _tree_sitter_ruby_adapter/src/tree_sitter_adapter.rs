@@ -76,7 +76,7 @@ lazy_static! {
         let parser_directories = {
             let parser_directory = env::current_dir()
                 .unwrap()
-                .join("_tree_sitter_ruby_binding")
+                .join("_tree_sitter_ruby_adapter")
                 .join("parsers");
             vec![parser_directory]
         };
