@@ -1167,7 +1167,7 @@ following the footsteps of Nick Claus, and you may just end up with a very merry
   Lipovača: A fun, light, and free introduction to Haskell. This was the first resource
   I used when I started learning Haskell.
 
-### Definitions ###
+### Definitions
 
 In the following list, I attempt to pin down the definitions of several concepts that I
 use frequently throughout the essay. Please note that this list contains homonyms, so
