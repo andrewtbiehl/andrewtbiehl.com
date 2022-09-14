@@ -78,4 +78,4 @@ jobs:
     steps:
       - name: Deploy site
         id: deploy-site
-        uses: actions/deploy-pages@v1.0.10
+        uses: actions/deploy-pages@v1.1.0
