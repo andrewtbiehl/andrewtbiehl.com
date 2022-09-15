@@ -6,6 +6,7 @@ permissions: {}
   push:
     branches:
       - main
+concurrency: site_deployment
 jobs:
   # The following job builds, archives, and uploads the source for the site
   build:
