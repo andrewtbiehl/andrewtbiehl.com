@@ -56,13 +56,8 @@ jobs:
         run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
-      - name: Archive build
-        run: tar --create --directory _site --file _site.tar .
-      - name: Upload archived build
-        uses: actions/upload-artifact@v3.1.0
-        with:
-          name: github-pages
-          path: _site.tar
+      - name: Archive and upload build
+        uses: actions/upload-pages-artifact@v1.0.4
   # The following job deploys the previously built site source to GitHub Pages
   deploy:
     name: Deploy
