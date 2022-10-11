@@ -40,6 +40,3 @@ updates:
       - andrewtbiehl
     labels:
       - dependencies
-    ignore:
-      # Newer versions aren't compatible with the current Tree-sitter TypeScript parser
-      - dependency-name: "_tree_sitter_ruby_adapter/parsers/tree-sitter-javascript"
