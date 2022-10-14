@@ -37,7 +37,7 @@ jobs:
           cache-version: ${{hashFiles('Gemfile.lock')}}
       - name: Restore project Rust cache
         id: restore-project-rust-cache
-        uses: actions/cache@v3.0.10
+        uses: actions/cache@v3.0.11
         with:
           key: rust-packages-${{hashFiles('**/Cargo.toml', '**/Cargo.lock')}}
           path: ~/.cargo
