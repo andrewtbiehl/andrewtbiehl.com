@@ -74,4 +74,4 @@ jobs:
     steps:
       - name: Deploy site
         id: deploy-site
-        uses: actions/deploy-pages@v1.2.1
+        uses: actions/deploy-pages@v1.2.2
