@@ -4,6 +4,12 @@ title: "Syntax highlight your Jekyll site with Tree-sitter!"
 permalink: "/blog/jekyll-tree-sitter"
 ---
 
+***2022-11-11 Update:*** This concept is now a plugin! Now there's no need to
+DIY; instead visit
+[github.com/andrewtbiehl/kramdown-syntax_tree_sitter](https://github.com/andrewtbiehl/kramdown-syntax_tree_sitter#kramdown-tree-sitter-highlighter)
+and
+[follow a few steps to integrate the plugin into your Jekyll project](https://github.com/andrewtbiehl/kramdown-syntax_tree_sitter#usage-with-jekyll).
+
 Dear fellow developer: when was the last time you took a good hard look at your syntax
 highlighter? If you're like me, you probably never noticed that your average syntax
 highlighter likely fails to do its one job all that well. All this changed for me,
