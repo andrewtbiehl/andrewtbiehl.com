@@ -85,7 +85,7 @@ My public email address is <span id="email-info-id">'{{ site.email.local_part }}
 concatenated with '@{{ site.email.host_name }}', and finally
 '.{{ site.email.top_level_domain }}'</span>.
 
-You can also reach me on [GitHub](https://github.com/{{ site.linkedin_username }}) or
+You can also find me on [GitHub](https://github.com/{{ site.linkedin_username }}) or
 [LinkedIn](https://www.linkedin.com/in/{{ site.github_username }}).
 
 I look forward to hearing from you!
