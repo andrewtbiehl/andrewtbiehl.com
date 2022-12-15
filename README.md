@@ -7,7 +7,7 @@
 
 **The personal website of [Andrew T. Biehl](https://andrewtbiehl.com/about)**
 
-[![Deployment status](https://img.shields.io/github/workflow/status/andrewtbiehl/andrewtbiehl.com/Site%20Deployment?style=flat-square&label=deployment&logo=github)](https://github.com/andrewtbiehl/andrewtbiehl.com/deployments)
+[![Deployment status](https://img.shields.io/github/actions/workflow/status/andrewtbiehl/andrewtbiehl.com/site-deployment.yaml?branch=main&style=flat-square&label=deployment&logo=github)](https://github.com/andrewtbiehl/andrewtbiehl.com/deployments)
 [![Website status](https://img.shields.io/website?style=flat-square&url=https://andrewtbiehl.com)](https://andrewtbiehl.com)
 
 This is the source code for the static website
