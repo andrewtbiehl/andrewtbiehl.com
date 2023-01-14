@@ -1,21 +1,12 @@
 # frozen_string_literal: true
 
 require 'kramdown/converter/syntax_highlighter/rouge'
-require 'rutie'
-
-Rutie.new(:tree_sitter_ruby_adapter).init 'init', '_tree_sitter_ruby_adapter/target/'
+require 'kramdown/syntax_tree_sitter'
 
 # Some custom Kramdown syntax highlighters.
 module Kramdown
   module Converter
     module SyntaxHighlighter
-      # Highlighter that uses the Tree-sitter syntax highlighting library.
-      module TreeSitter
-        def self.call(_, raw_content, language, _, _)
-          TreeSitterRubyAdapter.highlight raw_content, language
-        end
-      end
-
       # 'Highlighter' that does not actually highlight code.
       #
       # Escapes the code block so that it can be safely inserted into HTML text.
@@ -35,7 +26,13 @@ module Kramdown
 
         def self.call(converter, text, language, type, options)
           highlighter = HIGHLIGHTERS.fetch(options[:highlighter], NoHighlight)
-          highlighter.call converter, text, language, type, options
+          rendered_text = highlighter.call converter, text, language, type, options
+          # Remove the surrounding tags added by the Kramdown Tree-sitter plugin
+          if options[:highlighter] == 'tree-sitter'
+            rendered_text['<pre><code>'.length..-'</code></pre>'.length - 1]
+          else
+            rendered_text
+          end
         end
       end
     end

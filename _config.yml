@@ -13,6 +13,8 @@ kramdown:
   syntax_highlighter: custom_highlighter_delegator
   syntax_highlighter_opts:
     formatter: HTML
+    tree_sitter_parsers_dir: _tree_sitter_ruby_adapter/parsers
+    css_classes: true
   math_engine: katex
   math_engine_opts:
     output: html
