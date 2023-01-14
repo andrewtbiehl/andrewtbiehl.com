@@ -43,11 +43,11 @@ symbolic links in such submodules by running the following commands in the root 
 project after cloning:
 
 - ```console
-  ln -s .. _tree_sitter_ruby_adapter/parsers/tree-sitter-cpp/node_modules
+  ln -s .. tree_sitter_parsers/tree-sitter-cpp/node_modules
   ```
 
 - ```console
-  ln -s .. _tree_sitter_ruby_adapter/parsers/tree-sitter-typescript/node_modules
+  ln -s .. tree_sitter_parsers/tree-sitter-typescript/node_modules
   ```
 
 Next, install the project's Ruby dependencies by running the following command from the

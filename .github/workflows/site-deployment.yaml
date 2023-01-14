@@ -18,7 +18,7 @@ jobs:
         with:
           submodules: recursive
       - name: Resolve submodule dependencies
-        working-directory: _tree_sitter_ruby_adapter/parsers
+        working-directory: tree_sitter_parsers
         run: |
           ln -s .. tree-sitter-cpp/node_modules
           ln -s .. tree-sitter-typescript/node_modules
