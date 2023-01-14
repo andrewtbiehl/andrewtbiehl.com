@@ -180,120 +180,120 @@ code[data-highlighter=rouge] {
 code[data-highlighter=tree-sitter] {
   // Tokens left "unhighlighted" for a variety of reasons
   // Constants are variables
-  .ct, // constant
+  .ts-constant,
   // Embedded code should not be the same color as its surroundings
-  .em, // embedded
+  .ts-embedded,
   // Delimiters should primarily fade to the background
-  .d, // delimiter
+  .ts-delimiter,
   // The variable token is somewhat of a catch-all token
-  .v, // variable
-  .v-p // variable.parameter
+  .ts-variable,
+  .ts-variable-parameter
   {
     color: black;
   }
 
   // Punctuation should assume the color of its container
-  .pu-b, // punctuation.bracket
-  .pu-d, // punctuation.delimiter
-  .pu-s, // punctuation.special
+  .ts-punctuation-bracket,
+  .ts-punctuation-delimiter,
+  .ts-punctuation-special,
   {
     background-color: transparent;
   }
 
   // Distinguish parameter variables from other variables
-  .v-p // variable.parameter
+  .ts-variable-parameter
   {
     text-decoration: underline;
   }
 
   // Distinguish constants from other variables
-  &:not([data-language=html]) .ct // constant
+  &:not([data-language=html]) .ts-constant
   {
      font-weight: bold;
   }
 
   // Procedure tokens
-  .f, .f > .v, // function
-  .f-b, // function.builtin
-  .f-ma, // function.macro
-  .f-m // function.method
+  .ts-function, .ts-function > .ts-variable,
+  .ts-function-builtin,
+  .ts-function-macro,
+  .ts-function-method
   {
     color: map-get($colors, "procedure");
     font-style: italic;
   }
 
   // Distinguish macros from normal procedures
-  .f-ma // function.macro
+  .ts-function-macro
   {
     font-weight: bold;
   }
 
   // Keyword tokens
-  .cd, // conditional
-  .f-m-b, // function.method.builtin
-  .i, // include
-  .k, // keyword
-  .o, // operator
-  .tg, // tag
-  .v-b // variable.builtin
+  .ts-conditional,
+  .ts-function-method-builtin,
+  .ts-include,
+  .ts-keyword,
+  .ts-operator,
+  .ts-tag,
+  .ts-variable-builtin
   {
     color: map-get($colors, "keyword");
   }
 
   // Type tokens
-  .cr, // constructor
-  .na, // namespace
-  .t, // type
-  .t-b // type.builtin
+  .ts-constructor,
+  .ts-namespace,
+  .ts-type,
+  .ts-type-builtin
   {
     color: map-get($colors, "type");
   }
 
   // Value tokens
-  &[data-language=html] .ct, // constant
-  .ct-b, // constant.builtin
-  .es, // escape
-  .n, // number
-  .s, // string
-  .s-s-s // string.special.symbol
+  &[data-language=html] .ts-constant,
+  .ts-constant-builtin,
+  .ts-escape,
+  .ts-number,
+  .ts-string,
+  .ts-string-special-symbol
   {
     color: map-get($colors, "value");
     font-style: normal;
   }
 
   // Comment tokens
-  .cm // comment
+  .ts-comment
   {
     color: map-get($colors, "comment");
     font-style: italic;
   }
 
   // Attribute tokens
-  .a, // attribute
-  .pr // property
+  .ts-attribute,
+  .ts-property
   {
     color: map-get($colors, "attribute");
     font-style: italic;
   }
 
   // Currently unused tokens
-  .b1, // _bool
-  .b2, // _boolean
-  .ch, // character
-  .ct-m, // constant.macro
-  .fl, // float
-  .f-s, // function.special
-  .ij-c, // injection.content
-  .ij-l, // injection.language
-  .la, // label
-  .l-d, // local.definition
-  .l-r, // local.reference
-  .l-s, // local.scope
-  .r, // repeat
-  .s-s, // string.special
-  .s-s-r, // string.special.regex
-  .sy, // symbol
-  .tg-e // tag.error
+  .ts-_bool,
+  .ts-_boolean,
+  .ts-character,
+  .ts-constant-macro
+  .ts-float,
+  .ts-function-special,
+  .ts-injection-content,
+  .ts-injection-language,
+  .ts-label,
+  .ts-local-definition,
+  .ts-local-reference,
+  .ts-local-scope,
+  .ts-repeat,
+  .ts-string-special,
+  .ts-string-special-regex
+  .ts-symbol,
+  .ts-tag-error
   {
     // Background color is set to bright red to draw the developer's attention
     // If a once unused token is now being used, it needs to be handled accordingly
