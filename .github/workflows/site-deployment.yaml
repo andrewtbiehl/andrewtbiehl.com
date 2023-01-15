@@ -46,9 +46,6 @@ jobs:
         with:
           key: rust-packages-${{hashFiles('**/Gemfile.lock')}}
           path: ~/.cargo
-      - name: Build Tree-sitter Ruby binding library
-        working-directory: _tree_sitter_ruby_adapter
-        run: cargo build --release
       - name: Build site
         run: bundle exec jekyll build
         env:
