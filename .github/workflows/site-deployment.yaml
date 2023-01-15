@@ -35,14 +35,7 @@ jobs:
           bundler: Gemfile.lock
           bundler-cache: true
           cache-version: ${{hashFiles('Gemfile.lock')}}
-      - name: Restore project Rust cache
-        id: restore-project-rust-cache
-        uses: actions/cache@v3.2.3
-        with:
-          key: rust-packages-${{hashFiles('**/Cargo.toml', '**/Cargo.lock')}}
-          path: ~/.cargo
       - name: Install project Rust
-        if: ${{!steps.restore-project-rust-cache.outputs.cache-hit}}
         working-directory: _tree_sitter_ruby_adapter
         run: |
           RUST_VERSION=$(
@@ -50,6 +43,11 @@ jobs:
           )
           rustup install $RUST_VERSION
           rustup default $RUST_VERSION
+      - name: Restore project Rust cache
+        uses: actions/cache@v3.2.3
+        with:
+          key: rust-packages-${{hashFiles('**/Cargo.toml', '**/Cargo.lock')}}
+          path: ~/.cargo
       - name: Build Tree-sitter Ruby binding library
         working-directory: _tree_sitter_ruby_adapter
         run: cargo build --release
