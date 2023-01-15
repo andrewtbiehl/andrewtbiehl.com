@@ -57,23 +57,12 @@ root of the project:
 bundle install
 ```
 
-Next, build the Tree-sitter Ruby binding library by running the following command from
-the `_tree_sitter_ruby_adapter` directory:
-
-```console
-cargo build --release
-```
-
 Once the environment is set up, you can build, serve, and subsequently view the site
 locally at `http://localhost:4000`, via the following command:
 
 ```console
 bundle exec jekyll serve
 ```
-
-Note that any time the Tree-sitter Ruby binding library is modified, it will need to be
-rebuilt in the same way as described earlier in order for such changes will be reflected
-in the site.
 
 ## Contact
 
