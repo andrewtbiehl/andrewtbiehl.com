@@ -12,6 +12,8 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-20.04
+    env:
+      RUST_VERSION: 1.62.1
     steps:
       - name: Checkout project
         uses: actions/checkout@v3.3.0
@@ -36,11 +38,7 @@ jobs:
           bundler-cache: true
           cache-version: ${{hashFiles('Gemfile.lock')}}
       - name: Install project Rust
-        working-directory: _tree_sitter_ruby_adapter
         run: |
-          RUST_VERSION=$(
-            sed --silent --regexp-extended "s/^rust-version = '(.*)'$/\1/p" Cargo.toml
-          )
           rustup install $RUST_VERSION
           rustup default $RUST_VERSION
       - name: Restore project Rust cache
