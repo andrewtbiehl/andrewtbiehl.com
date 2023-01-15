@@ -24,6 +24,15 @@ jobs:
         run: |
           ln -s .. tree-sitter-cpp/node_modules
           ln -s .. tree-sitter-typescript/node_modules
+      - name: Install project Rust
+        run: |
+          rustup install $RUST_VERSION
+          rustup default $RUST_VERSION
+      - name: Restore project Rust cache
+        uses: actions/cache@v3.2.3
+        with:
+          key: rust-packages-${{hashFiles('**/Gemfile.lock')}}
+          path: ~/.cargo
       - name: Determine project Ruby version
         run: |
           RUBY_VERSION=$(
@@ -37,15 +46,6 @@ jobs:
           bundler: Gemfile.lock
           bundler-cache: true
           cache-version: ${{hashFiles('Gemfile.lock')}}
-      - name: Install project Rust
-        run: |
-          rustup install $RUST_VERSION
-          rustup default $RUST_VERSION
-      - name: Restore project Rust cache
-        uses: actions/cache@v3.2.3
-        with:
-          key: rust-packages-${{hashFiles('**/Gemfile.lock')}}
-          path: ~/.cargo
       - name: Build site
         run: bundle exec jekyll build
         env:
