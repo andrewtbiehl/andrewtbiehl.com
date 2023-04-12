@@ -255,6 +255,7 @@ code[data-highlighter=tree-sitter] {
   .ts-escape,
   .ts-number,
   .ts-string,
+  .ts-string-escape,
   .ts-string-special-symbol
   {
     color: map-get($colors, "value");
