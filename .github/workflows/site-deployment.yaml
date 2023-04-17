@@ -13,7 +13,7 @@ jobs:
     name: Build
     runs-on: ubuntu-20.04
     env:
-      RUST_VERSION: 1.62.1
+      RUST_VERSION: 1.68.2
     steps:
       - name: Checkout project
         uses: actions/checkout@v3.5.2
