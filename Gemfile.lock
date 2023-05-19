@@ -51,7 +51,7 @@ GEM
       kramdown (~> 2.0)
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
-    kramdown-syntax_tree_sitter (0.4.0)
+    kramdown-syntax_tree_sitter (0.5.0)
       kramdown (~> 2.0)
       rake (~> 13.0)
       rutie (~> 0.0.4)
