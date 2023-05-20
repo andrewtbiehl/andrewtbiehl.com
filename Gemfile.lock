@@ -93,7 +93,6 @@ DEPENDENCIES
   kramdown-math-katex
   kramdown-parser-gfm
   kramdown-syntax_tree_sitter
-  webrick
 
 RUBY VERSION
    ruby 3.1.2p20
