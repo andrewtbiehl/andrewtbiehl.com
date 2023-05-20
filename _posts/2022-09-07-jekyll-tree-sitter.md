@@ -260,9 +260,7 @@ pub fn highlight_adapter(code: &str, scope: &str) -> String {
     // Highlight the code
     let mut highlighter = Highlighter::new();
     let highlights = highlighter
-        .highlight(config, code, None, |s| {
-            loader.highlight_config_for_injection_string(s)
-        })
+        .highlight(config, code, None, |_| None)
         .unwrap();
 
     // Render and return the highlighted code as an HTML snippet
