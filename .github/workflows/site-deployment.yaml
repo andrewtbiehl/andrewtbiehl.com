@@ -40,7 +40,7 @@ jobs:
           )
           echo "RUBY_VERSION=${RUBY_VERSION}" >> ${GITHUB_ENV}
       - name: Install project Ruby
-        uses: ruby/setup-ruby@v1.153.0
+        uses: ruby/setup-ruby@v1.156.0
         with:
           ruby-version: ${{env.RUBY_VERSION}}
           bundler: Gemfile.lock
