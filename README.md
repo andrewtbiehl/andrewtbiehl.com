@@ -1,6 +1,6 @@
 <a href="https://andrewtbiehl.com">
   <img src="assets/img/andrew-profile.png" alt="Cartoon rendering of me (Andrew)."
-    height="114px" align="right"/>
+    height="70px" align="right"/>
 </a>
 
 # [andrewtbiehl.com](https://andrewtbiehl.com)
