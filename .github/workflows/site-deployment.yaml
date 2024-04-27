@@ -51,7 +51,7 @@ jobs:
         env:
           JEKYLL_ENV: production
       - name: Archive and upload build
-        uses: actions/upload-pages-artifact@v2.0.0
+        uses: actions/upload-pages-artifact@v3.0.0
   # The following job deploys the previously built site source to GitHub Pages
   deploy:
     name: Deploy
@@ -67,4 +67,4 @@ jobs:
     steps:
       - name: Deploy site
         id: deploy-site
-        uses: actions/deploy-pages@v3.0.1
+        uses: actions/deploy-pages@v4.0.0
