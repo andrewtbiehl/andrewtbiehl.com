@@ -916,8 +916,8 @@ this tool. Whenever something with this much potential comes along, it stays.
 - [This post](https://adrian.schoenig.me/blog/2022/05/27/tree-sitter-highlighting-in-jekyll)
   by Adrian Schönig, explaining how to use Tree-sitter's WebAssembly bindings to achieve
   similar results.
-- [This post](https://dcreager.net/tree-sitter/getting-started) by Douglas Creager on
-  how to use the Tree-sitter CLI.
+- [This post](https://dcreager.net/2021/06/getting-started-with-tree-sitter/) by Douglas
+  Creager on how to use the Tree-sitter CLI.
 - [The source code for this site](https://github.com/andrewtbiehl/andrewtbiehl.com),
   which, if you're willing to wade through it, contains a robust, working example of the
   approach outlined in this post, including various enhancements not mentioned here.
