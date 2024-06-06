@@ -12,8 +12,6 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-20.04
-    env:
-      RUST_VERSION: 1.71.0
     steps:
       - name: Checkout project
         uses: actions/checkout@v4.1.6
@@ -24,10 +22,17 @@ jobs:
         run: |
           ln -s .. tree-sitter-cpp/node_modules
           ln -s .. tree-sitter-typescript/node_modules
+      - name: Determine project Rust version
+        run: |
+          RUST_VERSION=$(
+            sed --silent --regexp-extended \
+              "s/^channel = \"([0-9\.]+)\"$/\1/p" rust-toolchain.toml
+          )
+          echo "RUST_VERSION=${RUST_VERSION}" >> ${GITHUB_ENV}
       - name: Install project Rust
         run: |
-          rustup install $RUST_VERSION
-          rustup default $RUST_VERSION
+          rustup install ${{env.RUST_VERSION}}
+          rustup default ${{env.RUST_VERSION}}
       - name: Restore project Rust cache
         uses: actions/cache@v4.0.2
         with:
