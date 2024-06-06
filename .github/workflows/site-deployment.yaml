@@ -36,7 +36,7 @@ jobs:
       - name: Restore project Rust cache
         uses: actions/cache@v4.0.2
         with:
-          key: rust-packages-${{hashFiles('**/Gemfile.lock')}}
+          key: rust-packages-${{hashFiles('**/Gemfile.lock', '**/rust-toolchain.toml')}}
           path: ~/.cargo
       - name: Determine project Ruby version
         run: |
@@ -50,7 +50,7 @@ jobs:
           ruby-version: ${{env.RUBY_VERSION}}
           bundler: Gemfile.lock
           bundler-cache: true
-          cache-version: ${{hashFiles('Gemfile.lock')}}
+          cache-version: ${{hashFiles('Gemfile.lock', '**/rust-toolchain.toml')}}
       - name: Build site
         run: bundle exec jekyll build
         env:
