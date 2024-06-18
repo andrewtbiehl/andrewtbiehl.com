@@ -11,7 +11,7 @@ jobs:
   # The following job builds, archives, and uploads the source for the site
   build:
     name: Build
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout project
         uses: actions/checkout@v4.1.6
@@ -60,7 +60,7 @@ jobs:
   # The following job deploys the previously built site source to GitHub Pages
   deploy:
     name: Deploy
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     timeout-minutes: 20
     needs: build
     permissions:
