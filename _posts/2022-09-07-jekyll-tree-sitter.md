@@ -828,7 +828,7 @@ In these examples, Tree-sitter arguably fares less favorably against its competi
 before. With Python, Tree-sitter fails to recognize built-in types and keywords like
 `int` and `self`, whereas Rouge does not. In the Java example, I was disappointed to
 find that neither Rouge nor Tree-sitter distinguishes field variables, even despite the
-explicit use of `self` throughout the class. Finally, both Tree-sitter and Rouge
+explicit use of `this` throughout the class. Finally, both Tree-sitter and Rouge
 struggle to make much sense of most variables in Haskell. Tree-sitter's saving grace
 across all three languages is its unique ability to recognize function calls, although,
 in my opinion, it is inconsistent enough (and sometimes even incorrect) in Haskell for
