@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'kramdown'
-require 'set'
 require 'zlib'
 
 # Some minor customizations of Kramdown's HTML converter.
