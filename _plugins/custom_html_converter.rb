@@ -99,11 +99,11 @@ module CustomHtmlConverter
   # against a given code block.
   def convert_codeblock_with_highlighter_tabs(raw_content, attributes, language, indent)
     id = create_id raw_content
-    codeblocks = %w[rouge tree-sitter].collect do |highlighter|
+    codeblocks = %w[rouge tree-sitter].to_h do |highlighter|
       updated_attributes = attributes.merge({ 'highlighter' => highlighter })
       codeblock = _convert_codeblock raw_content, updated_attributes, language, indent
       [highlighter, codeblock]
-    end.to_h
+    end
     <<~HTML
       <div class="syntax-highlighter-tabs">
         <input type="radio" name="sht-#{id}" id="sht-#{id}-1" checked>
