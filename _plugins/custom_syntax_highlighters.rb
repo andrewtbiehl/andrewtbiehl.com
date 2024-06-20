@@ -29,7 +29,7 @@ module Kramdown
           rendered_text = highlighter.call converter, text, language, type, options
           # Remove the surrounding tags added by the Kramdown Tree-sitter plugin
           if options[:highlighter] == 'tree-sitter'
-            rendered_text['<pre><code>'.length..-'</code></pre>'.length - 1]
+            rendered_text[('<pre><code>'.length)..-'</code></pre>'.length - 1]
           else
             rendered_text
           end
