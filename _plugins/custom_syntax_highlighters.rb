@@ -2,6 +2,7 @@
 
 require 'kramdown/converter/syntax_highlighter/rouge'
 require 'kramdown/syntax_tree_sitter'
+require 'nokogiri'
 
 # Some custom Kramdown syntax highlighters.
 module Kramdown
@@ -28,8 +29,11 @@ module Kramdown
           highlighter = HIGHLIGHTERS.fetch(options[:highlighter], NoHighlight)
           rendered_text = highlighter.call converter, text, language, type, options
           # Remove the surrounding tags added by the Kramdown Tree-sitter plugin
+          # Also normalize the resulting HTML output
           if options[:highlighter] == 'tree-sitter'
             rendered_text[('<pre><code>'.length)..-'</code></pre>'.length - 1]
+              .then { Nokogiri::HTML.fragment _1 }
+              .then(&:to_html)
           else
             rendered_text
           end

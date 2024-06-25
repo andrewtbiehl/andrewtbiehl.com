@@ -101,6 +101,7 @@ DEPENDENCIES
   kramdown-math-katex
   kramdown-parser-gfm
   kramdown-syntax_tree_sitter
+  nokogiri
 
 RUBY VERSION
    ruby 3.3.1p55
