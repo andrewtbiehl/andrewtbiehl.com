@@ -37,19 +37,6 @@ cloning the project, for example with the following command:
 git clone --recurse-submodules https://github.com/andrewtbiehl/andrewtbiehl.com.git
 ```
 
-In addition, a couple of the submodules do not function properly unless their
-dependencies are resolved. The recommended workaround to address this is to add some
-symbolic links in such submodules by running the following commands in the root of the
-project after cloning:
-
-- ```console
-  ln -s .. tree_sitter_parsers/tree-sitter-cpp/node_modules
-  ```
-
-- ```console
-  ln -s .. tree_sitter_parsers/tree-sitter-typescript/node_modules
-  ```
-
 Next, install the project's Ruby dependencies by running the following command from the
 root of the project:
 
