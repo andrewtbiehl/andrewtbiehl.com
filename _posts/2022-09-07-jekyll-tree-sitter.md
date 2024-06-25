@@ -23,7 +23,7 @@ however, when I discovered [Tree-sitter](https://tree-sitter.github.io), the ope
 parser and syntax highlighter *of the future*:
 
 {% figure caption: "*Click the tabs to toggle between highlighters.*" %}
-{% include syntax_highlighter_comparison/typescript_example_1.md -%}
+{% include syntax_highlighter_comparison/typescript_example_1.html -%}
 {% endfigure %}
 
 Now, like any good consumer, as soon as I learn of some fancy new product, I won't be
@@ -549,7 +549,7 @@ highlighter and examine their differences in high relief.
 
 Naturally, our first snippet is none other than the example from the walkthrough:
 
-{% include syntax_highlighter_comparison/python_example_1.md %}
+{% include syntax_highlighter_comparison/python_example_1.html %}
 
 Not much to see here, the only minor difference being how each highlighter views the
 'print' token (Rouge recognizes it as a keyword, which is reasonable, while Tree-sitter
@@ -558,15 +558,15 @@ correctly identifies it as a function).
 Now let's take a look at the actual snippets showcased by Max Brunsfeld in his talk.[^8]
 Note that the highlighting theme used here is distinct from any seen in the talk.
 
-{% include syntax_highlighter_comparison/c_example.md %}
+{% include syntax_highlighter_comparison/c_example.html %}
 
-{% include syntax_highlighter_comparison/cpp_example.md %}
+{% include syntax_highlighter_comparison/cpp_example.html %}
 
-{% include syntax_highlighter_comparison/go_example.md %}
+{% include syntax_highlighter_comparison/go_example.html %}
 
-{% include syntax_highlighter_comparison/rust_example.md %}
+{% include syntax_highlighter_comparison/rust_example.html %}
 
-{% include syntax_highlighter_comparison/typescript_example_2.md %}
+{% include syntax_highlighter_comparison/typescript_example_2.html %}
 
 In my opinion, these snippets portray Tree-sitter fantastically in comparison to Rouge.
 Whereas Rouge struggles to recognize almost anything more than a built-in keyword or
@@ -579,11 +579,11 @@ other hand, Rouge gets this wrong too.
 Next are some longer snippets for the languages that I am currently most familiar
 with:[^9]
 
-{% include syntax_highlighter_comparison/python_example_2.md %}
+{% include syntax_highlighter_comparison/python_example_2.html %}
 
-{% include syntax_highlighter_comparison/java_example.md %}
+{% include syntax_highlighter_comparison/java_example.html %}
 
-{% include syntax_highlighter_comparison/haskell_example.md %}
+{% include syntax_highlighter_comparison/haskell_example.html %}
 
 In these examples, Tree-sitter arguably fares less favorably against its competitor than
 before. With Python, Tree-sitter fails to recognize built-in types and keywords like
@@ -601,7 +601,7 @@ highlight a token based on its scope. The following Ruby snippet [is provided in
 Tree-sitter's documentation](https://tree-sitter.github.io/tree-sitter/syntax-highlighting#local-variables)
 to illustrate this:
 
-{% include syntax_highlighter_comparison/ruby_example.md %}
+{% include syntax_highlighter_comparison/ruby_example.html %}
 
 As we can see, Tree-sitter is impressively able to distinguish between multiple
 different senses of the variables `list` and `item`: within the scope of `process_list`,
@@ -614,7 +614,7 @@ this level of understanding of the code goes far beyond anything Rouge is capabl
 Another Tree-sitter highlighting feature is language injection; that is, it can
 highlight one language embedded in another. The following HTML snippet illustrates this.
 
-{% include syntax_highlighter_comparison/html_example.md %}
+{% include syntax_highlighter_comparison/html_example.html %}
 
 As you can see, Rouge also supports language injection, at least for common use cases
 such as this. I suspect, however, that Tree-sitter is again significantly more capable
