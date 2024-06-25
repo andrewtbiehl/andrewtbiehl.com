@@ -17,35 +17,7 @@ however, when I discovered [Tree-sitter](https://tree-sitter.github.io), the ope
 parser and syntax highlighter *of the future*:
 
 {% figure caption: "*Click the tabs to toggle between highlighters.*" %}
-```typescript
-class ListNode {
-  private value: string;
-  private next: ListNode | null;
-
-  constructor(value: string, next?: ListNode) {
-    this.value = value;
-    this.next = next ?? null;
-  }
-
-  getValue() : string {
-    return this.value;
-  }
-
-  getNext() : ListNode | null {
-    return this.next;
-  }
-}
-
-function commaSeparate(head: ListNode | null) : string {
-  let values = [];
-  while (head != null) {
-    values.push(head.getValue());
-    head = head.getNext();
-  }
-  return values.join(", ");
-}
-```
-{: highlighter="compare"}
+{% include syntax_highlighter_comparison/typescript_example_1.md -%}
 {% endfigure %}
 
 Now, like any good consumer, as soon as I learn of some fancy new product, I won't be
@@ -571,10 +543,7 @@ highlighter and examine their differences in high relief.
 
 Naturally, our first snippet is none other than the example from the walkthrough:
 
-```python
-print('Hello, World!')
-```
-{: highlighter="compare"}
+{% include syntax_highlighter_comparison/python_example_1.md %}
 
 Not much to see here, the only minor difference being how each highlighter views the
 'print' token (Rouge recognizes it as a keyword, which is reasonable, while Tree-sitter
@@ -583,119 +552,15 @@ correctly identifies it as a function).
 Now let's take a look at the actual snippets showcased by Max Brunsfeld in his talk.[^8]
 Note that the highlighting theme used here is distinct from any seen in the talk.
 
-```c
-typedef struct {
-  const char *value;
-  uint32_t depth;
-  Node *left_child;
-  Node *right_child;
-} Node;
+{% include syntax_highlighter_comparison/c_example.md %}
 
-Node node_new(const char *value, uint32_t depth) {
-  return (Node) {.value = value, .depth = depth};
-}
+{% include syntax_highlighter_comparison/cpp_example.md %}
 
-const char *node_value(Node *self) {
-  return self->value;
-}
+{% include syntax_highlighter_comparison/go_example.md %}
 
-Node *node_left_child(Node *self) {
-  return self->left_child;
-}
-```
-{: highlighter="compare"}
+{% include syntax_highlighter_comparison/rust_example.md %}
 
-```cpp
-class Node {
-  string value;
-  uint32_t height;
-  Node *left_child;
-  Node *right_child;
-
- public:
-  Node(const string &value, uint32_t height)
-    : value(value),
-      height(height) {}
-
-  string &get_value() const {
-    return value;
-  }
-
-  Node *get_left_child() {
-    return left_child;
-  }
-}
-```
-{: highlighter="compare"}
-
-```go
-type Node struct {
-   value string
-   height uint32
-   leftChild *Node
-   rightChild *Node
-}
-
-func NewNode(value string, height uint32) Node {
-  return Node{value: value, height: height}
-}
-
-func (self *Node) GetValue() string {
-  return self.value
-}
-
-func (self *Node) GetLeftChild() *Node {
-  return self.leftChild
-}
-```
-{: highlighter="compare"}
-
-```rust
-struct Node {
-    value: String,
-    height: u32,
-    left_child: Option<Rc<Node>>,
-    right_child: Option<Rc<Node>>,
-}
-
-impl Node {
-    pub fn new(value: String, height: u32) -> Node {
-        Node {value, height, left_child: None, right_child: None}
-    }
-
-    pub fn get_value(&self) -> &str {
-        self.value.as_str()
-    }
-
-    pub fn get_left_child(&self) -> Option<&Node> {
-        self.left_child.as_ref().map(|child| child.as_ref())
-    }
-}
-```
-{: highlighter="compare"}
-
-```typescript
-class Node {
-  value: string;
-  height: number;
-  leftChild: Node;
-  rightChild: Node;
-
-  constructor(value: string, height: number) {
-    this.value = value;
-    this.height = height;
-  }
-
-  getValue() : string {
-    return this.value
-  }
-
-  getLeftChild() : Node {
-    return this.leftChild;
-  }
-}
-```
-{: highlighter="compare"}
+{% include syntax_highlighter_comparison/typescript_example_2.md %}
 
 In my opinion, these snippets portray Tree-sitter fantastically in comparison to Rouge.
 Whereas Rouge struggles to recognize almost anything more than a built-in keyword or
@@ -708,121 +573,11 @@ other hand, Rouge gets this wrong too.
 Next are some longer snippets for the languages that I am currently most familiar
 with:[^9]
 
-```python
-import click
-from turtle import Turtle
-import math
+{% include syntax_highlighter_comparison/python_example_2.md %}
 
-class KochTurtle(Turtle):
-    def __init__(self, max_depth: int):
-        Turtle.__init__(self)
-        self.max_depth = max_depth
+{% include syntax_highlighter_comparison/java_example.md %}
 
-    def draw_snowflake(self):
-        self._offset_from_home()
-        for _ in range(3):
-            self._draw_curve(0)
-            self.right(120)
-
-    def _offset_from_home(self):
-        self.penup()
-        self.goto(-300, 100 * math.sqrt(3))
-        self.pendown()
-
-    def _draw_curve(self, depth: int):
-        if depth == self.max_depth:
-            self.forward(600 / 3**depth)
-        else:
-            for angle in (0, 60, -120, 60):
-                self.left(angle)
-                self._draw_curve(depth + 1)
-
-@click.command()
-@click.option("--max-depth", default=3, help="Fractal recursion depth.")
-def main(max_depth: int):
-    koch_turtle = KochTurtle(max_depth)
-    koch_turtle.draw_snowflake()
-    koch_turtle.screen.exitonclick()
-
-if __name__ == "__main__":
-    main()
-```
-{: highlighter="compare"}
-
-```java
-public class DisjointSet {
-    private final int[] representatives, componentSizes;
-
-    public DisjointSet(int n) {
-        this.representatives = new int[n];
-        for (int i = 0; i < n; i++) this.representatives[i] = i;
-        this.componentSizes = new int[n];
-        for (int i = 0; i < n; i++) this.componentSizes[i] = 1;
-    }
-
-    public void union(int i, int j) {
-        int r1 = this.find(i), r2 = this.find(j);
-        if (r1 == r2) return;
-        if (this.componentSizes[r1] < this.componentSizes[r2]) {
-            int temp = r1; r1 = r2; r2 = temp;
-        }
-        this.componentSizes[r1] += this.componentSizes[r2];
-        this.representatives[r2] = r1;
-    }
-
-    public boolean areConnected(int i, int j) {
-        return this.find(i) == this.find(j);
-    }
-
-    private int find(int i) {
-        int r = i;
-        while (this.representatives[r] != r) r = this.representatives[r];
-        this.compressPath(i, r);
-        return r;
-    }
-
-    private void compressPath(int i, int representative) {
-        while (i != representative) {
-            int temp = this.representatives[i];
-            this.representatives[i] = representative;
-            i = temp;
-        }
-    }
-}
-```
-{: highlighter="compare"}
-
-```haskell
-import Control.Monad (mfilter)
-import Data.Maybe (isJust)
-import Text.Read (readMaybe)
-
-digitSum :: Integer -> Integer
-digitSum 0 = 0
-digitSum n = (n `mod` 10) + digitSum (n `div` 10)
-
-checkDigit :: [Integer] -> Integer
-checkDigit = (10 -) . (`mod` 10) . checksum
-  where
-    checksum = sum . map digitSum . doubleEveryOther
-    doubleEveryOther = zipWith ($) (cycle [id, (* 2)])
-
-isValidLuhnSequence :: [Integer] -> Bool
-isValidLuhnSequence = (==) <$> calculatedCheckDigit <*> givenCheckDigit
-  where
-    givenCheckDigit = last
-    calculatedCheckDigit = checkDigit . init
-
-main = do
-  putStrLn "Input a number to validate:"
-  input <- getLine
-  let response = if isValidLuhnNumber input then "Valid!" else "Not valid."
-  putStrLn response
-  where
-    isValidLuhnNumber = isJust . (mfilter isValidLuhnSequence) . digits
-    digits = mapM readMaybe . map (\c -> [c])
-```
-{: highlighter="compare"}
+{% include syntax_highlighter_comparison/haskell_example.md %}
 
 In these examples, Tree-sitter arguably fares less favorably against its competitor than
 before. With Python, Tree-sitter fails to recognize built-in types and keywords like
@@ -840,18 +595,7 @@ highlight a token based on its scope. The following Ruby snippet [is provided in
 Tree-sitter's documentation](https://tree-sitter.github.io/tree-sitter/syntax-highlighting#local-variables)
 to illustrate this:
 
-```ruby
-def process_list(list)
-  context = current_context
-  list.map do |item|
-    process_item(item, context)
-  end
-end
-
-item = 5
-list = [item]
-```
-{: highlighter="compare"}
+{% include syntax_highlighter_comparison/ruby_example.md %}
 
 As we can see, Tree-sitter is impressively able to distinguish between multiple
 different senses of the variables `list` and `item`: within the scope of `process_list`,
@@ -864,21 +608,7 @@ this level of understanding of the code goes far beyond anything Rouge is capabl
 Another Tree-sitter highlighting feature is language injection; that is, it can
 highlight one language embedded in another. The following HTML snippet illustrates this.
 
-```html
-<!DOCTYPE html>
-<html>
-   <body>
-      <button onclick="updateButtonInfo()">Click me</button>
-      <p id="button-info">Not yet clicked.</p>
-      <script>
-         function updateButtonInfo() {
-           document.getElementById("button-info").innerHTML = "Clicked!";
-         }
-      </script>
-   </body>
-</html>
-```
-{: highlighter="compare"}
+{% include syntax_highlighter_comparison/html_example.md %}
 
 As you can see, Rouge also supports language injection, at least for common use cases
 such as this. I suspect, however, that Tree-sitter is again significantly more capable
