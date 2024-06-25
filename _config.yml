@@ -13,7 +13,7 @@ kramdown:
   syntax_highlighter: custom_highlighter_delegator
   syntax_highlighter_opts:
     formatter: HTML
-    tree_sitter_parsers_dir: tree_sitter_parsers
+    tree_sitter_parsers_dir: _tree_sitter_parsers
     css_classes: true
   math_engine: katex
   math_engine_opts:
@@ -31,6 +31,3 @@ exclude:
   - NOTICE.txt
   - README.md
   - rust-toolchain.toml
-  # Included so that it's ignored when watching for file changes
-  # Should not be watched due to the presence of symbolic links
-  - tree_sitter_parsers
