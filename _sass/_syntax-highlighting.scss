@@ -81,6 +81,7 @@ code[data-highlighter=rouge] {
   .sb, // Literal.String.Backtick
   .dl, // Literal.String.Delimiter
   .s2, // Literal.String.Double
+  .sh, // Literal.String.Heredoc
   .mi // Literal.Number.Integer
   {
     color: map-get($colors, "value");
@@ -139,7 +140,6 @@ code[data-highlighter=rouge] {
   .sc, // Literal.String.Char
   .sd, // Literal.String.Doc
   .se, // Literal.String.Escape
-  .sh, // Literal.String.Heredoc
   .sx, // Literal.String.Other
   .sr, // Literal.String.Regex
   .s1, // Literal.String.Single
