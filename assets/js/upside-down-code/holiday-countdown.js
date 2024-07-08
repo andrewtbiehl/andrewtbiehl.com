@@ -54,7 +54,7 @@ function buildNearbyHolidayUrls(date_) {
   const currentYear = date_.getFullYear();
   const nextYear = currentYear + 1;
   const years = [currentYear, nextYear];
-  return years.map((year) => `https://date.nager.at/api/v1/Get/US/${year}`);
+  return years.map((year) => `https://date.nager.at/api/v3/PublicHolidays/${year}/US`);
 }
 
 /** Maps multiple raw holiday pages into a collection of holidays. */

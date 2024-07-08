@@ -79,7 +79,7 @@ def fetch_next_holiday() -> Holiday:
 
 def fetch_holidays(year: int) -> List[Holiday]:
     """Fetches a collection of all US holidays in the given year."""
-    holiday_url = f"https://date.nager.at/api/v1/Get/US/{year}"
+    holiday_url = f"https://date.nager.at/api/v3/PublicHolidays/{year}/US"
     holiday_data = requests.get(holiday_url).json()
     return list(map(to_holiday, holiday_data))
 
@@ -181,7 +181,7 @@ previous program[^1]:
 {% figure caption: "Implementation 1B: A refactored implementation of the holiday
 countdown program with a flat dependency graph." %}
 ```python
-HOLIDAY_URL_TEMPLATE = "https://date.nager.at/api/v1/Get/US/{}"
+HOLIDAY_URL_TEMPLATE = "https://date.nager.at/api/v3/PublicHolidays/{}/US"
 
 def main() -> None:
     today = date.today()
@@ -1241,21 +1241,33 @@ the intended sense of any particular word instance depends on its context.
 [^2]: This essay refers to the concept of I/O a lot. For a more precise definition of
     this term, please consult [the list of associated definitions](#definitions).
 
-[^3]: A careful reader might notice that
-    [newer versions of the holiday API](https://date.nager.at/swagger/index.html) than
-    that being used (version 1) indeed already exist. Moreover, these newer versions
-    even add functionality that would further simplify any implementation of this
-    program. In light of this, my choice of API version for these examples might be
-    surprising. I assure, however, that the decision to use an outdated API version was
-    intentional; in particular, it was pedagogical. For the sake of illustrating the
-    larger argument, some of the complexity of the problem must reside in the
-    implementations themselves, as the management of this complexity is the focus of the
-    ensuing discussion. Choosing a later API version would only serve to circumvent this
-    prerequisite complexity so I opted to pretend as though the program was implemented
-    in absence of these improved API capabilities. Moreover, this hypothetical premise
-    illustrates the very point I am trying to make: many details of I/O interaction are
-    arbitrary and subject to change; you never know when an upstream team might release
-    a new API version, for better or for worse.
+[^3]: ***2024-07-08 Note:*** When this essay was originally published, the provided code
+    examples made use of version 1 of the holiday API. Even at that time, newer versions
+    of that API existed. However, I intentionally ignored them and provided the
+    following rationale for that decision:
+
+    > A careful reader might notice that newer versions of the holiday API than that
+    being used (version 1) indeed already exist. Moreover, these newer versions even add
+    functionality that would further simplify any implementation of this program. In
+    light of this, my choice of API version for these examples might be surprising. I
+    assure, however, that the decision to use an outdated API version was intentional;
+    in particular, it was pedagogical. For the sake of illustrating the larger argument,
+    some of the complexity of the problem must reside in the implementations themselves,
+    as the management of this complexity is the focus of the ensuing discussion.
+    Choosing a later API version would only serve to circumvent this prerequisite
+    complexity so I opted to pretend as though the program was implemented in absence of
+    these improved API capabilities. Moreover, this hypothetical premise illustrates the
+    very point I am trying to make: many details of I/O interaction are arbitrary and
+    subject to change; you never know when an upstream team might release a new API
+    version, for better or for worse.
+
+    As of writing this update, version 1 of the holiday API has reached end-of-life
+    (that is, it is no longer available) and version 2 will follow soon. Because of
+    this, I have since updated the code to use version 3 of the API. This has no effect
+    on the essay except for the originally noted fact that this new API version provides
+    additional functionality that could be used to simplify some implementation details,
+    albeit at the expense of pedagogical value. Hence, I will continue to ignore these
+    new API features.
 
 [^4]: Even though complexity is a subjective concept, one objective attempt at measuring
     this quality is that of
