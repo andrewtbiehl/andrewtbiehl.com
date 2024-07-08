@@ -181,6 +181,8 @@ previous program[^1]:
 {% figure caption: "Implementation 1B: A refactored implementation of the holiday
 countdown program with a flat dependency graph." %}
 ```python
+HOLIDAY_URL_TEMPLATE = "https://date.nager.at/api/v1/Get/US/{}"
+
 def main() -> None:
     today = date.today()
     urls = build_nearby_holiday_urls(today)
@@ -196,7 +198,7 @@ def build_nearby_holiday_urls(date_: date) -> Collection[str]:
     current_year = date_.year
     next_year = current_year + 1
     years = (current_year, next_year)
-    return list(map("https://date.nager.at/api/v1/Get/US/{}".format, years))
+    return list(map(HOLIDAY_URL_TEMPLATE.format, years))
 
 def to_holidays(
     raw_holiday_pages: Collection[Collection[HolidayDict]],
